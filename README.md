@@ -9,7 +9,7 @@ To run this you will require the following...
 
  - Python 2.6.X or higher (not including Python 3.X.X).
 
- - Flask 0.10 on your machine which you can install by running `pip install Flask` on your command line. More details on installation can be found at http://flask.pocoo.org/.
+ - Flask 0.10 on your machine which you can install by running `pip install Flask` on your command line. More details on installation can be found at http://flask.pocoo.org/docs/installation/#installation.
 
  - You will need a directory at the following location where you can download and install the following to. Navigate to and create the following directory if it doesnt already exist.
  	 - `cd /var/www`
@@ -47,10 +47,15 @@ To run this you will require the following...
  	Repalce "/etc/httpd/conf/httpd.conf" with the httpd.conf found on this repo.
  	Use `/etc/init.d/httpd stop` to make sure this service is off
 
+ 	Also required are a new user called "user1" and a group called "group1".
+ 	You can create these by
+ 	 - `useradd user1`
+ 	 - `groupadd group1`
+
 
 Running locally though Python/Flask
 ===================================
-To view this application on your local machine, run `python helloworld.py` on the file with Flask installed, then direct your browser to "http://127.0.0.1:5000/" or your aws instance. Press `CTRL + C` to quit the local copy.
+To view this application on your local machine, run `python helloworld.py` on the file with Flask installed, then direct your browser to http://127.0.0.1:5000/ or your aws instance. Press `CTRL + C` to quit the local copy.
 
 
 Running a Proper WebServer
@@ -58,7 +63,7 @@ Running a Proper WebServer
 To have this project running constantly as a daemon, you will need to turn on httpd by the following command.
 - `/etc/init.d/httpd start`
 
-Now, if you connect to "http://127.0.0.1:5000/" you can connect to our project, regardless if someone has an instance running on the server itself.
+Now, if you connect to http://127.0.0.1:5000/ you can connect to our project, regardless if someone has an instance running on the server itself.
 
 Trello, our project traccking application can be found at https://trello.com/b/zVzNjZvz/project-go with proper credentials and login. Invite only.
 
