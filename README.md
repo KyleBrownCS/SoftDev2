@@ -39,10 +39,13 @@ To run this you will require the following...
  	 - `cd mod_wsgi-3.4`
  	 - `./configure`
  	 - `make install clean distclean`
- 	You will now need to overwrite the following files with the file found on this repo
- 	repalce "/etc/httpd/conf/httpd.conf" with the httpd.conf found on this repo.
- 	Use `/etc/init.d/httpd stop` to make sure this service is off
 
+ 	You will now need apache2 which you can get from the following.
+ 	 - `yum -y install httpd httpd-devel`
+
+ 	You will now need to overwrite the following file with "httpd.conf" on this repo.
+ 	Repalce "/etc/httpd/conf/httpd.conf" with the httpd.conf found on this repo.
+ 	Use `/etc/init.d/httpd stop` to make sure this service is off
 
 
 Running locally though Python/Flask
