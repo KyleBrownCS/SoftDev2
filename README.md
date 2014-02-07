@@ -32,7 +32,30 @@ To run this you will require the following...
 	 - `.exit`
 	 Your sqldb is now created.
 
+ - mod_wsgi and Apache2
+ 	To download these, do the following:
+ 	 - `wget https://modwsgi.googlecode.com/files/mod_wsgi-3.4.tar.gz`
+ 	 - `tar -xvf mod_wsgi-3.4.tar.gz`
+ 	 - `cd mod_wsgi-3.4`
+ 	 - `./configure`
+ 	 - `make install clean distclean`
+ 	You will now need to overwrite the following files with the file found on this repo
+ 	repalce "/etc/httpd/conf/httpd.conf" with the httpd.conf found on this repo.
+ 	Use `/etc/init.d/httpd stop` to make sure this service is off
+
+
+
+Running locally though Python/Flask
+===================================
 To view this application on your local machine, run `python helloworld.py` on the file with Flask installed, then direct your browser to "http://127.0.0.1:5000/" or your aws instance. Press `CTRL + C` to quit the local copy.
+
+
+Running a Proper WebServer
+==========================
+To have this project running constantly as a daemon, you will need to turn on httpd by the following command.
+- `/etc/init.d/httpd start`
+
+Now, if you connect to "http://127.0.0.1:5000/" you can connect to our project, regardless if someone has an instance running on the server itself.
 
 Trello, our project traccking application can be found at https://trello.com/b/zVzNjZvz/project-go with proper credentials and login. Invite only.
 
