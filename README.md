@@ -18,8 +18,8 @@ To run this you will require the following...
 
  - Sqlite3 which is the database that we are using. You can install this by doing the following.
  	`wget http://www.sqlite.org/2014/sqlite-autoconf-3080300.tar.gz`
- 	`tar -xvf sqlite-autoconf-3070603.tar.gz`
-	`cd sqlite-autoconf-3070603`
+ 	`tar -xvf sqlite-autoconf-3080300.tar.gz`
+	`cd sqlite-autoconf-3080300`
 	`./configure`
 	`make`
 	`make install`
@@ -27,20 +27,14 @@ To run this you will require the following...
 	You will also require to create a table (for the current version) named 'temptable'. To do this, follow these settings.
 	 - `cd /var/www/softeng2`
 	 - `sqlite3 tempdb.db`
-	 - `create table testtable(fname varchar(30), lname varchar(30), id interger)`
-	 - `insert into testtable("MyFirstName", "MyLastName", 1);`
+	 - `CREATE TABLE testtable(fname varchar(30), lname varchar(30), id integer);`
+	 - `INSERT INTO testtable(fname, lname, id) VALUES ("MyFirstName", "MyLastName", 1);`
 	 - `.exit`
 	 Your sqldb is now created.
 
  - mod_wsgi and Apache2
- 	To download these, do the following:
- 	 - `wget https://modwsgi.googlecode.com/files/mod_wsgi-3.4.tar.gz`
- 	 - `tar -xvf mod_wsgi-3.4.tar.gz`
- 	 - `cd mod_wsgi-3.4`
- 	 - `./configure`
- 	 - `make install clean distclean`
 
- 	You will now need apache2 which you can get from the following.
+        You will now need apache2 which you can get from the following.
  	 - `yum -y install httpd httpd-devel`
 
  	You will now need to overwrite the following file with "httpd.conf" on this repo.
@@ -51,6 +45,13 @@ To run this you will require the following...
  	You can create these by
  	 - `useradd user1`
  	 - `groupadd group1`
+
+ 	Now to get mod_wsgi:
+         - `wget https://modwsgi.googlecode.com/files/mod_wsgi-3.4.tar.gz`
+ 	 - `tar -xvf mod_wsgi-3.4.tar.gz`
+ 	 - `cd mod_wsgi-3.4`
+ 	 - `./configure`
+ 	 - `make install clean distclean`
 
 
 Running locally though Python/Flask
