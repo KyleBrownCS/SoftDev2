@@ -5,15 +5,24 @@ from applicationInfo import ApplicationInfo
 
 app = Flask(__name__)
 applicationInfo = ApplicationInfo()
-    
+#db_connection = sqlite3.connect(applicationInfo.database_filepath)
+#db_cursor = db_connection.cursor()   
 
 @app.route('/')
 def index():
-    return ("<H1>Welcome</H1>\r\n<p>This is our index page, currently empty but make yourself at home</p>")
+    return applicationInfo.database_filepath#("<H1>Welcome</H1>\r\n<p>This is our index page, currently empty but make yourself at home</p>")
 
 @app.route('/obligations', methods = ['GET'])
 def get_all_obligations():
-    return ("<H1>Place Holder</H1>\r\n<H3>GET /obligations</H3>\r\n\r\n<p>This method will return all obligations for a user</p>")
+    db_connection = sqlite3.connect(applicationInfo.database_filepath)
+    db_cursor = db_connection.cursor()
+
+    response = ""
+    for row in db_cursor.execute("select * from " + ApplicationInfo.OBLIGATION_TABLE_NAME):
+        response = response + str(row) + "\r\n"
+
+    #return ("<H1>Place Holder</H1>\r\n<H3>GET /obligations</H3>\r\n\r\n<p>This method will return all obligations for a user</p>")
+    return response
 
 @app.route('/obligations/<int:obligation_id>', methods = ['GET'])
 def get_obligation(obligation_id):
