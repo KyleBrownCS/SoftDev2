@@ -26,7 +26,7 @@ To run this you will require the following...
 	`make clean`
 	You will also require to create a table (for the current version) named 'temptable'. To do this, follow these settings.
 	 - `cd /var/www/softeng2`
-	 - `sqlite3 tempdb.db`
+	 - `sqlite3 testdb.db`
 	 - `CREATE TABLE testtable(fname varchar(30), lname varchar(30), id integer);`
 	 - `INSERT INTO testtable(fname, lname, id) VALUES ("MyFirstName", "MyLastName", 1);`
 	 - `.exit`
