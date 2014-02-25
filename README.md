@@ -25,6 +25,11 @@ To run this you will require the following...
 	`make install`
 	`make clean`
 
+ - Git install and pull from repo
+	- `yum install git`
+	- `git clone https://github.com/KyleBrownCS/SoftDev2.git`
+	This will pull the repo into a ./SoftDev2 directory (subfolder of the current folder)
+	
 	You will also need to create a databse and fill (currently) some dummy values into it. Do the following steps and make sure that `dbcreator.sh` and `dummyusers.sh` are inside the `/var/www/softeng2` directory.
 	- `cd /var/www/softeng2`
 	- `bash dbcreator.sh`
