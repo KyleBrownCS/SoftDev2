@@ -24,13 +24,12 @@ To run this you will require the following...
 	`make`
 	`make install`
 	`make clean`
-	You will also require to create a table (for the current version) named 'temptable'. To do this, follow these settings.
-	 - `cd /var/www/softeng2`
-	 - `sqlite3 testdb.db`
-	 - `CREATE TABLE testtable(fname varchar(30), lname varchar(30), id integer);`
-	 - `INSERT INTO testtable(fname, lname, id) VALUES ("MyFirstName", "MyLastName", 1);`
-	 - `.exit`
-	 Your sqldb is now created.
+
+	You will also need to create a databse and fill (currently) some dummy values into it. Do the following steps and make sure that `dbcreator.sh` and `dummyusers.sh` are inside the `/var/www/softeng2` directory.
+	- `cd /var/www/softeng2`
+	- `bash dbcreator.sh`
+	- `bash dummyusers.sh`
+
 
  - mod_wsgi and Apache2
 
@@ -47,7 +46,7 @@ To run this you will require the following...
  	 - `groupadd group1`
 
  	Now to get mod_wsgi:
-         - `wget https://modwsgi.googlecode.com/files/mod_wsgi-3.4.tar.gz`
+     - `wget https://modwsgi.googlecode.com/files/mod_wsgi-3.4.tar.gz`
  	 - `tar -xvf mod_wsgi-3.4.tar.gz`
  	 - `cd mod_wsgi-3.4`
  	 - `./configure`
@@ -68,3 +67,6 @@ Now, if you connect to http://127.0.0.1:5000/ you can connect to our project, re
 
 Trello, our project traccking application can be found at https://trello.com/b/zVzNjZvz/project-go with proper credentials and login. Invite only.
 
+Using the current vim standard
+==============================
+To use the vim standard for this application, please copy the `.vimrc` file into your home directory. It will ensure that all tabs are 4 spaces, and present a stronly visable red backgrounded line to signify that you have passed the 80 character cap for the line width. It also defaults your line numbers to on as well as other things which you may view in the file.
