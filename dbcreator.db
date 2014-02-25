@@ -8,4 +8,4 @@ sqlite3 GoDB.db "create table reminder(reminderid int, obligationid int, reminde
 sqlite3 GoDB.db "create table alarm(alarmid int, obligationid int, alarmtime text, soundType int);"
 sqlite3 GoDB.db "create table contactlist(userid int, userlist text);"
 
-echo "Success"
+echo "Success creating GODB.db file"
