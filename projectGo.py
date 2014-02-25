@@ -40,15 +40,5 @@ def modify_obligation(obligation_id):
 def delete_obligation(obligation_id):
     return ("<H1>Place Holder</H1>\r\n<H3>DELETE /obligations/:id</H3>\r\n\r\n<p>This method will delete an obligation for the user</p>")
 
-#@app.route('/')
-#def hello_world():
-#        conn = sqlite3.connect('/var/www/softeng2/testdb.db')
-#        stuff = ""
-#        c = conn.cursor()
-#        for row in c.execute("select * from testtable"):
-#                stuff = stuff + str(row) + "<br>"
-#        stuff = stuff + "<br>"
-#       return ("Hello worldddddddddd! :)!<br>This is group 7s Soft Eng landing space" + "<br>This is raw data pulled from our db:<br>" + stuff)
-
 if __name__ == "__main__":
         app.run(debug=True, host='0.0.0.0', port=int('80'))                                 

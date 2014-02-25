@@ -3,8 +3,8 @@ import os
 
 class ApplicationInfo:
 
-    DATABASE_FILE_NAME = "database.db"
-    OBLIGATION_TABLE_NAME = "obligation"
+    DATABASE_FILE_NAME = "GoDB.db"
+    OBLIGATION_TABLE_NAME = "obligations"
 
     def __init__(self):
         self.application_filepath = os.path.dirname(os.path.abspath(__file__))
