@@ -3,7 +3,7 @@ SoftDev2
 
 Software Development 2 Group 7 Project
 
-To connect to our group project, connect to http://54.201.135.92.
+To connect to our group project, connect to http://54.213.113.207/
 
 To run this you will require the following...
 
