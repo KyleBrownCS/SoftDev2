@@ -11,10 +11,12 @@ To run this you will require the following...
 
  - Flask 0.10 on your machine which you can install by running `pip install Flask` on your command line. More details on installation can be found at http://flask.pocoo.org/docs/installation/#installation.
 
- - You will need a directory at the following location where you can download and install the following to. Navigate to and create the following directory if it doesnt already exist.
- 	 - `cd /var/www`
- 	 - `mkdir softeng2`
- 	 - `cd softeng2`
+ - You will need a directory at the following location where you can download and install the following to. Navigate to and create the following directory if it doesnt already exist. Also install Git.
+	- `yum install git`
+ 	- `cd /var/www`
+	- `git clone https://github.com/KyleBrownCS/SoftDev2.git`
+	This will pull the repo into the SoftDev2 directory (subfolder of the current directory). Navigate into it by
+	- `cd SoftEng2`
 
  - Sqlite3 which is the database that we are using. You can install this by doing the following.
  	`wget http://www.sqlite.org/2014/sqlite-autoconf-3080300.tar.gz`
@@ -24,26 +26,21 @@ To run this you will require the following...
 	`make`
 	`make install`
 	`make clean`
-
- - Git install and pull from repo
-	- `yum install git`
-	- `git clone https://github.com/KyleBrownCS/SoftDev2.git`
-	This will pull the repo into a ./SoftDev2 directory (subfolder of the current folder)
 	
-	You will also need to create a databse and fill (currently) some dummy values into it. Do the following steps and make sure that `dbcreator.sh` and `dummyusers.sh` are inside the `/var/www/softeng2` directory.
-	- `cd /var/www/softeng2`
+	You will also need to create a databse and fill (currently) some dummy values into it. Do the following steps and make sure that `dbcreator.sh` and `dummyusers.sh` are inside the `/var/www/SoftDev2` directory.
+	- `cd /var/www/SoftDev2`
 	- `bash dbcreator.sh`
 	- `bash dummyusers.sh`
 
-
  - mod_wsgi and Apache2
-
-        You will now need apache2 which you can get from the following.
+ 	You will now need apache2 which you can get from the following.
  	 - `yum -y install httpd httpd-devel`
 
- 	You will now need to overwrite the following file with "httpd.conf" on this repo.
- 	Repalce "/etc/httpd/conf/httpd.conf" with the httpd.conf found on this repo.
- 	Use `/etc/init.d/httpd stop` to make sure this service is off
+ 	Now, overwrite the following file with "httpd.conf" on this repo.
+ 	Repalce "/etc/httpd/conf/httpd.conf" with the httpd.conf found on this repo using the following command.
+ 	- `mv httpd.conf /etc/httpd/conf/`
+
+ 	Use `/etc/init.d/httpd restart` to make sure this service is successfully turned on with the latest settings.
 
  	Also required are a new user called "user1" and a group called "group1".
  	You can create these by
