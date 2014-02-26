@@ -1,6 +1,5 @@
 import os
 
-
 class ApplicationInfo:
 
     DATABASE_FILE_NAME = "GoDB.db"
