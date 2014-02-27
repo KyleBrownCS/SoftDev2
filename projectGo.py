@@ -27,6 +27,10 @@ def get_all_obligations():
     #return ("<H1>Place Holder</H1>\r\n<H3>GET /obligations</H3>\r\n\r\n<p>This method will return all obligations for a user</p>")
     return response
 
+@app.route('/schedule')
+def sched():
+    return render_template("Schedule.html")
+
 @app.route('/obligations/<int:obligation_id>', methods = ['GET'])
 def get_obligation(obligation_id):
     db_cursor = get_db()
