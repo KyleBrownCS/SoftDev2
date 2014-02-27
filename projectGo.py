@@ -9,8 +9,13 @@ applicationInfo = ApplicationInfo()
 def get_db():
     db_connection = sqlite3.connect(applicationInfo.database_filepath)
     db_cursor = db_connection.cursor()
-
     return db_cursor
+
+def createTestValue1():
+    return 1
+def createTestValuea():
+    return 'a'
+
 
 @app.route('/')
 def index():
