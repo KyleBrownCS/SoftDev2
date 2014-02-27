@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify, request
 import sqlite3
 
 from applicationInfo import ApplicationInfo
@@ -40,7 +40,10 @@ def get_obligation(obligation_id):
 
 @app.route('/obligations', methods = ['POST'])
 def create_obligation():
-    return ("<H1>Place Holder</H1>\r\n<H3>POST /obligations</H3>\r\n\r\n<p>This method will create a new obligation for the user</p>")
+
+    #Data to parse incoming post data
+
+    return jsonify({'result':"Flask returned this message"})
 
 @app.route('/obligations/<int:obligation_id>', methods = ['PATCH'])
 def modify_obligation(obligation_id):
