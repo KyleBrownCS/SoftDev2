@@ -21,8 +21,16 @@ class Test(unittest.TestCase):
 	def test_go_create_obligation(self):
 		result = self.app.post('/obligations')
 		jsonData = json.loads(result.data)
-		result = jsonData['result']
-		self.assertEqual("Flask returned this message", result)
+		resultMessage = jsonData['result']
+		self.assertEqual("Flask returned this message", resultMessage)
+		self.assertEqual(result.status, '200 OK')
         
+	def test_go_get_obligation(self):
+		print "hi"
+	
+	def test_go_get_all_obligations(self):
+		result = self.app.get('/obligations')
+		self.assertEquals(result.status, '200 OK')
+	
 if __name__ == '__main__':
     unittest.main()
