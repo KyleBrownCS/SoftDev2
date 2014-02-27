@@ -14,7 +14,7 @@ def get_db():
 
 @app.route('/')
 def index():
-    return applicationInfo.database_filepath#("<H1>Welcome</H1>\r\n<p>This is our index page, currently empty but make yourself at home</p>")
+    return render_template("index.html")
 
 @app.route('/obligations', methods = ['GET'])
 def get_all_obligations():
@@ -51,4 +51,4 @@ def delete_obligation(obligation_id):
     return ("<H1>Place Holder</H1>\r\n<H3>DELETE /obligations/:id</H3>\r\n\r\n<p>This method will delete an obligation for the user</p>")
 
 if __name__ == "__main__":
-        app.run(debug=True, host='0.0.0.0', port=int('5000'))
+    app.run(debug=True, host='0.0.0.0', port=int('5000'))
