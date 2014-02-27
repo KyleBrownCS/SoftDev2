@@ -22,7 +22,7 @@ def get_all_obligations():
 
     response = ""
     for row in db_cursor.execute("select * from " + ApplicationInfo.OBLIGATION_TABLE_NAME):
-        response = response + str(row) + ",\r\n"
+        response = response + str(row) + "|\r\n"
 
     #return ("<H1>Place Holder</H1>\r\n<H3>GET /obligations</H3>\r\n\r\n<p>This method will return all obligations for a user</p>")
     return response
