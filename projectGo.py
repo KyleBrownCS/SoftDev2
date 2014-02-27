@@ -9,8 +9,8 @@ applicationInfo = ApplicationInfo()
 def get_db():
     db_connection = sqlite3.connect(applicationInfo.database_filepath)
     db_cursor = db_connection.cursor()
-
     return db_cursor
+
 
 @app.route('/')
 def index():
@@ -26,6 +26,10 @@ def get_all_obligations():
 
     #return ("<H1>Place Holder</H1>\r\n<H3>GET /obligations</H3>\r\n\r\n<p>This method will return all obligations for a user</p>")
     return response
+
+@app.route('/schedule')
+def sched():
+    return render_template("Schedule.html")
 
 @app.route('/obligations/<int:obligation_id>', methods = ['GET'])
 def get_obligation(obligation_id):
