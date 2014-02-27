@@ -16,7 +16,7 @@ To run this you will require the following...
  	- `cd /var/www`
 	- `git clone https://github.com/KyleBrownCS/SoftDev2.git`
 	This will pull the repo into the SoftDev2 directory (subfolder of the current directory). Navigate into it by
-	- `cd SoftEng2`
+	- `cd SoftDev2`
 
  - Sqlite3 which is the database that we are using. You can install this by doing the following.
  	`wget http://www.sqlite.org/2014/sqlite-autoconf-3080300.tar.gz`
