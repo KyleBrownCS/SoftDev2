@@ -1,4 +1,8 @@
 #!/bin/bash
+mkdir Databases
+chmod 777 Databases
+chown user1 Databases
+cd Databases
 
 sqlite3 GoDB.db "create table users(userid int primary key not null, userName varchar(15));"
 sqlite3 GoDB.db "create table userinfo(userid int primary key not null, name varchar(50), address varchar(50), birthday text);"
@@ -7,5 +11,8 @@ sqlite3 GoDB.db "create table subObligation(sobligationid int not null, obligati
 sqlite3 GoDB.db "create table reminder(reminderid int not null, obligationid int not null, remindertime text, description varchar(200), primary key(reminderid, obligationid));"
 sqlite3 GoDB.db "create table alarm(alarmid int not null, obligationid int not null, alarmtime text, soundType int, primary key(alarmid, obligationid));"
 sqlite3 GoDB.db "create table contactlist(userid int primary key not null, userlist text);"
+
+chmod 777 GoDB.db
+cd ..
 
 echo "Attempted creating GoDB.db file (doesn't actually check yet, just asserts this script has finished)"
