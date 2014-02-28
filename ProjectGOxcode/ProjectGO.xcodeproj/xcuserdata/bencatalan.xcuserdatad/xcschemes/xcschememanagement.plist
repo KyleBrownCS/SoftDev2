@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>ProjectGO.xcscheme</key>
+		<key>ProjectGo.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,12 +12,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>6B049E0818BE7B6400492B8B</key>
+		<key>6B813A2A18C0B0DB00D03A65</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6B049E2C18BE7B6500492B8B</key>
+		<key>6B813A4E18C0B0DB00D03A65</key>
 		<dict>
 			<key>primary</key>
 			<true/>
