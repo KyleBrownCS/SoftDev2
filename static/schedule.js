@@ -5,6 +5,7 @@ $(document).ready(function(e) {
     	mydata = mydata.replace(/\)/g, "");
     	var datas = mydata.split("|");
 		//The column for status
+		var statusNum = 0;
 		var statusCol = 7;
 		var statuses = new Array(5);
 		statuses[0] = "none";
@@ -22,15 +23,16 @@ $(document).ready(function(e) {
     		{
     			miniparts[j] = miniparts[j].replace(/\u'/g, "");
     			miniparts[j] = miniparts[j].replace(/\'/g, "");
-			//If it's processing a status, show the string instead of the integer value
-			if(j == statusCol)
-			{
-				currline = currline + "<td>" + statuses[miniparts[j]] + "</td>";
-			}
-			else
-			{
-				currline = currline + "<td>" + miniparts[j] + "</td>";
-			}
+				//If it's processing a status, show the string instead of the integer value
+				if(j == statusCol)
+				{
+					statusNum = parseInt(miniparts[j]);
+					currline = currline + "<td>" + statuses[statusNum] + "</td>";
+				}
+				else
+				{
+					currline = currline + "<td>" + miniparts[j] + "</td>";
+				}
     		}
     		heading = heading + currline + "</tr>";
     		currline = "<tr>";
