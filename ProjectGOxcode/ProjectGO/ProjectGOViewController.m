@@ -94,7 +94,7 @@
                 
                 NSString *endtimeField = [[NSString alloc]
                                             initWithUTF8String:(const char *)
-                                            sqlite3_column_text(statement, 1)];
+                                            sqlite3_column_text(statement, 2)];
                 
                 
                 
@@ -102,7 +102,7 @@
                 
                 NSString *priorityField = [[NSString alloc]
                                             initWithUTF8String:(const char *)
-                                            sqlite3_column_text(statement, 1)];
+                                            sqlite3_column_text(statement, 3)];
                 
                 
                 
@@ -110,7 +110,7 @@
                 
                 NSString *statusField = [[NSString alloc]
                                             initWithUTF8String:(const char *)
-                                            sqlite3_column_text(statement, 1)];
+                                            sqlite3_column_text(statement, 4)];
                 
                 
                 
@@ -118,7 +118,7 @@
                 
                 NSString *categoryField = [[NSString alloc]
                                          initWithUTF8String:(const char *)
-                                         sqlite3_column_text(statement, 1)];
+                                         sqlite3_column_text(statement, 5)];
                 
                 _category.text = categoryField;
                 

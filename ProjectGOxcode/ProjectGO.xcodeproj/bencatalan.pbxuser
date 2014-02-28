@@ -51,16 +51,6 @@
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
 	};
-	6B360A2C18C0C1A8006BC399 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 6B813A4718C0B0DB00D03A65 /* ProjectGOViewController.m */;
-		name = "ProjectGOViewController.m: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 956;
-		vrLoc = 2264;
-	};
 	6B360A4118C0C586006BC399 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 6B813A4718C0B0DB00D03A65 /* ProjectGOViewController.m */;
@@ -69,6 +59,16 @@
 		rLoc = 0;
 		rType = 0;
 		vrLen = 880;
+		vrLoc = 2264;
+	};
+	6B360A5718C0CA4C006BC399 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6B813A4718C0B0DB00D03A65 /* ProjectGOViewController.m */;
+		name = "ProjectGOViewController.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 830;
 		vrLoc = 2264;
 	};
 	6B813A2318C0B0DB00D03A65 /* Project object */ = {
@@ -102,13 +102,13 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 415286659;
-			PBXWorkspaceStateSaveDate = 415286659;
+			PBXPerProjectTemplateStateSaveDate = 415287882;
+			PBXWorkspaceStateSaveDate = 415287882;
 		};
 		perUserProjectItems = {
 			6B360A1418C0C14F006BC399 /* PBXTextBookmark */ = 6B360A1418C0C14F006BC399 /* PBXTextBookmark */;
-			6B360A2C18C0C1A8006BC399 /* PBXTextBookmark */ = 6B360A2C18C0C1A8006BC399 /* PBXTextBookmark */;
 			6B360A4118C0C586006BC399 /* PBXTextBookmark */ = 6B360A4118C0C586006BC399 /* PBXTextBookmark */;
+			6B360A5718C0CA4C006BC399 /* PBXTextBookmark */ = 6B360A5718C0CA4C006BC399 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 6B360A1C18C0C14F006BC399 /* Source Control */;
 		userBuildSettings = {
@@ -129,9 +129,9 @@
 	};
 	6B813A4718C0B0DB00D03A65 /* ProjectGOViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {908, 2431}}";
+			sepNavIntBoundsRect = "{{0, 0}, {908, 2418}}";
 			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{2264, 880}";
+			sepNavVisRange = "{2264, 830}";
 		};
 	};
 	6B813A4E18C0B0DB00D03A65 /* ProjectGoTests */ = {
