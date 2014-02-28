@@ -19,10 +19,22 @@ class Test(unittest.TestCase):
 		self.assertEqual(result.status, '200 OK')
         
 	#test of direct method for get_obligation
-	def test_go_get_obligation(self):
+	def test_go_get_obligation_exists(self):
 		result = projectGo.get_obligation(1)
-		self.assertEqual("(1, 2, u'Dude name', u'This is a long description', u'2014-01-01 00:00:00.000', u'2014-01-01 01:00:00.000', 1, 1,1)\r\n", result)
+		jsonData = json.loads(result)
+		self.assertEqual(jsonData['obligationid'],1)
+
+	#test of direct method for get_obligation with entry that doesn't exist
+	def test_go_get_obligation_not_exists(self):
+		result = projectGo.get_obligation(9999999)
+		jsonData = json.loads(result)
+		self.assertEqual(jsonData['error'],1)
 		
+	def test_go_get_obligation_bad_key(self):
+		result = projectGo.get_obligation("this is supposed to be an int")
+		jsonData = json.loads(result)
+		self.assertEqual(jsonData['error'],1)
+
 	#test of GET method for get_obligation
 	def test_get_obligation(self):
 		result = self.app.get('/obligations/1')
