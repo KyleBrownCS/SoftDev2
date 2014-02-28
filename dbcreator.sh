@@ -10,5 +10,6 @@ sqlite3 $DB "create table subObligation(sobligationid integer primary key not nu
 sqlite3 $DB "create table reminder(reminderid integer primary key not null, obligationid int not null, remindertime text, description varchar(200), foreign key(obligationid) references obligation(obligationid));"
 sqlite3 $DB "create table alarm(alarmid integer primary key not null, obligationid int not null, alarmtime text, soundType int, foreign key(obligationid) references obligation(obligationid));"
 sqlite3 $DB "create table contactlist(userid int primary key not null, userlist text, foreign key(userid) references users(userid));"
+chmod 777 $DB
 
 echo "Attempted creating $DB file (doesn't actually check yet, just asserts this script has finished)"
