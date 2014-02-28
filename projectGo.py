@@ -55,7 +55,7 @@ def get_obligation(obligation_id):
             'category'     : row[8]} #category
         data = json.dumps(data)
     else:
-        data = json.dumps({'error' : 1})
+        data = json.dumps({'error': 1})
     
     return data
 
@@ -64,7 +64,6 @@ def create_obligation():
     db_connection, db_cursor = get_db()
 
     response = ""
-    obligation_id = 1
     user_id = request.form['userid']
     name = request.form['name']
     description = request.form['description']
@@ -75,12 +74,17 @@ def create_obligation():
     category = request.form['category']
 
     try:
-        db_cursor.execute("insert into " + ApplicationInfo.OBLIGATION_TABLE_NAME + " (obligationid, userid, name, description, starttime, endtime, priority, status, category) values (?, ?, ?, ?, ?, ?, ?, ?, ?)", (obligation_id, user_id, name, description, start_time, end_time, priority, status, category))
+        db_cursor.execute("insert into " + ApplicationInfo.OBLIGATION_TABLE_NAME + " (obligationid, userid, name, description, starttime, endtime, priority, status, category) values (?, ?, ?, ?, ?, ?, ?, ?, ?)", (None, user_id, name, description, start_time, end_time, priority, status, category))
+        result = db_cursor.execute("select last_insert_rowid() FROM " + ApplicationInfo.OBLIGATION_TABLE_NAME).fetchall()
+        if(len(result) > 0):
+            result = result[0]
+        obligation_id = result[0]
         db_connection.commit() 
+        response = json.dumps({'obligation_id': obligation_id, 'result': "successfully added:" + name})
     except Exception, e:
-        return str(e)
+        response = json.dumps({'error': str(e)})
 
-    response = json.dumps({'obligation_id': obligation_id, 'result': "successfully added:" + name})
+    #response = json.dumps({'obligation_id': obligation_id, 'result': "successfully added:" + name})
     #return ("<H1>Place Holder</H1>\r\n<H3>POST /obligations</H3>\r\n\r\n<p>This method will create a new obligation for the user</p>")
     return response
 
