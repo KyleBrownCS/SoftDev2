@@ -1,5 +1,7 @@
 from flask import Flask, render_template, jsonify, request
 import sqlite3
+import json
+import re
 
 from applicationInfo import ApplicationInfo
 
@@ -33,14 +35,30 @@ def sched():
 
 @app.route('/obligations/<int:obligation_id>', methods = ['GET'])
 def get_obligation(obligation_id):
-    db_cursor = get_db()
-
-    response = ""
-    for row in db_cursor.execute("select * from " + ApplicationInfo.OBLIGATION_TABLE_NAME + " where " + ApplicationInfo.OBLIGATION_ID_NAME + " = " + str(obligation_id)):
-        response = response + str(row) + "\r\n"
-
-    #return ("<H1>Place Holder</H1>\r\n<H3>GET /obligations/:id</H3>\r\n\r\n<p>This method will return a specific obligation for a user</p>")
-    return response
+    row = "";
+    #making sure this is a valid key before we hit the database
+    check_int = re.compile('^\d+$')
+    if check_int.match(str(obligation_id)):
+        #execute query and get all rows that match (since obligation_id is unique there will be 0 or 1
+        db_cursor = get_db()
+        my_query = "select * from " + ApplicationInfo.OBLIGATION_TABLE_NAME + " where " + ApplicationInfo.OBLIGATION_ID_NAME + " = " + str(obligation_id)
+        row = db_cursor.execute(my_query).fetchall()
+    if (len(row) > 0):
+        row = row[0]
+        data = {'obligationid' : row[0], #obligationid
+            'userid'       : row[1], #userid
+            'name'         : row[2], #name
+            'description'  : row[3], #description
+            'starttime'    : row[4], #starttime
+            'endtime'      : row[5], #endtime
+            'priority'     : row[6], #priority
+            'status'       : row[7], #status
+            'category'     : row[8]} #category
+        data = json.dumps(data)
+    else:
+        data = json.dumps({'error' : 1})
+    
+    return data
 
 @app.route('/obligations', methods = ['POST'])
 def create_obligation():
