@@ -2,7 +2,7 @@ import os
 
 class ApplicationInfo:
 
-    DATABASE_FILE_NAME = "Databases/GoDB.db"
+    DATABASE_FILE_NAME = "databases/GoDB.db"
     OBLIGATION_TABLE_NAME = "obligation"
     OBLIGATION_ID_NAME = "obligationid"
 
