@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import sqlite3
 import json
 import re
@@ -55,7 +55,7 @@ def get_obligation(obligation_id):
             'category'     : row[8]} #category
         data = json.dumps(data)
     else:
-        data = json.dumps({'error': 1})
+        data = jsonify({'error': 1})
     
     return data
 
@@ -80,9 +80,9 @@ def create_obligation():
             result = result[0]
         obligation_id = result[0]
         db_connection.commit() 
-        response = json.dumps({'obligation_id': obligation_id, 'result': "successfully added:" + name})
+        response = jsonify({'obligation_id': obligation_id, 'result': "successfully added:" + name})
     except Exception, e:
-        response = json.dumps({'error': str(e)})
+        response = jsonify({'error': str(e)})
 
     #response = json.dumps({'obligation_id': obligation_id, 'result': "successfully added:" + name})
     #return ("<H1>Place Holder</H1>\r\n<H3>POST /obligations</H3>\r\n\r\n<p>This method will create a new obligation for the user</p>")
