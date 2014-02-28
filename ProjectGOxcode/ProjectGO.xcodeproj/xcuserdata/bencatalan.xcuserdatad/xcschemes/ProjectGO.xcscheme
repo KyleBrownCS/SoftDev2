@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6B049E0818BE7B6400492B8B"
-               BuildableName = "ProjectGO.app"
-               BlueprintName = "ProjectGO"
-               ReferencedContainer = "container:ProjectGO.xcodeproj">
+               BlueprintIdentifier = "6B813A2A18C0B0DB00D03A65"
+               BuildableName = "ProjectGo.app"
+               BlueprintName = "ProjectGo"
+               ReferencedContainer = "container:ProjectGo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,20 +32,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6B049E2C18BE7B6500492B8B"
-               BuildableName = "ProjectGOTests.xctest"
-               BlueprintName = "ProjectGOTests"
-               ReferencedContainer = "container:ProjectGO.xcodeproj">
+               BlueprintIdentifier = "6B813A4E18C0B0DB00D03A65"
+               BuildableName = "ProjectGoTests.xctest"
+               BlueprintName = "ProjectGoTests"
+               ReferencedContainer = "container:ProjectGo.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6B049E0818BE7B6400492B8B"
-            BuildableName = "ProjectGO.app"
-            BlueprintName = "ProjectGO"
-            ReferencedContainer = "container:ProjectGO.xcodeproj">
+            BlueprintIdentifier = "6B813A2A18C0B0DB00D03A65"
+            BuildableName = "ProjectGo.app"
+            BlueprintName = "ProjectGo"
+            ReferencedContainer = "container:ProjectGo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -61,10 +61,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6B049E0818BE7B6400492B8B"
-            BuildableName = "ProjectGO.app"
-            BlueprintName = "ProjectGO"
-            ReferencedContainer = "container:ProjectGO.xcodeproj">
+            BlueprintIdentifier = "6B813A2A18C0B0DB00D03A65"
+            BuildableName = "ProjectGo.app"
+            BlueprintName = "ProjectGo"
+            ReferencedContainer = "container:ProjectGo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -79,10 +79,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6B049E0818BE7B6400492B8B"
-            BuildableName = "ProjectGO.app"
-            BlueprintName = "ProjectGO"
-            ReferencedContainer = "container:ProjectGO.xcodeproj">
+            BlueprintIdentifier = "6B813A2A18C0B0DB00D03A65"
+            BuildableName = "ProjectGo.app"
+            BlueprintName = "ProjectGo"
+            ReferencedContainer = "container:ProjectGo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

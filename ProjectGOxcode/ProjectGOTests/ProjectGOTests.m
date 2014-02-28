@@ -1,18 +1,18 @@
 //
-//  ProjectGOTests.m
-//  ProjectGOTests
+//  ProjectGoTests.m
+//  ProjectGoTests
 //
-//  Created by Ben Catalan on 2/26/2014.
+//  Created by Ben Catalan on 2/28/2014.
 //  Copyright (c) 2014 com.ProjectGO. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface ProjectGOTests : XCTestCase
+@interface ProjectGoTests : XCTestCase
 
 @end
 
-@implementation ProjectGOTests
+@implementation ProjectGoTests
 
 - (void)setUp
 {
