@@ -7,12 +7,8 @@ $(document).ready(function(e) {
 		//The column for status
 		var statusNum = 0;
 		var statusCol = 7;
-		var statuses = new Array(5);
-		statuses[0] = "none";
-		statuses[1] = "In Progress";
-		statuses[2] = "Completed";
-		statuses[3] = "Important";
-		statuses[4] = "Requires Assistance";
+		var statuses = ['none','In Progress','Completed','Important','Requires Assistance'];
+
     	var heading = "<table border='1'><th>ObligationID</th><th>UserID</th><th>Name</th><th>Description</th><th>StartTime</th><th>EndTime</th><th>Priority</th><th>Status</th><th>Category</th>";
     	var mainData = "";
     	var currline = "<tr>"
