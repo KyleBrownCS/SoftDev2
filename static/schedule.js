@@ -49,6 +49,9 @@ $(document).ready(function(e) {
 
     	//Push data to screen in a presentable matter
     	$("#sendTo").append(heading);
+		var currentDate = new Date();
+		var currentMonth = currentDate.getMonth();
+		var currentYear = currentDate.getFullYear();
 		var calen = new Calendar(currentMonth,currentYear);
 		calen.calculateCalendar(obligations);
 		$('#sendTo').append(calen.gethtmlCode());
