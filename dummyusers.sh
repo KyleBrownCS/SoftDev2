@@ -10,5 +10,7 @@ sqlite3 ./databases/GoDB.db "insert into obligation values(2, 2, 'Dude name2', '
 sqlite3 ./databases/GoDB.db "insert into obligation values(3, 1, 'Dude name', 'shorter description', '2014-01-01 00:00:00.000', '2014-01-01 01:00:00.000', 1, 1, 1)";
 sqlite3 ./databases/GoDB.db "insert into obligation values(4, 3, 'Test', 'Longggggggggggggggggggggggggg description', '2014-01-01 00:00:00.000', '2014-01-01 01:00:00.000', 1, 2, 3)";
 sqlite3 ./databases/GoDB.db "insert into obligation values(5, 4, 'Test2', '', '2014-01-05 00:00:00.000', '2014-01-10 01:00:00.000', 1, 4, 9)";
+sqlite3 ./databases/GoDB.db "insert into obligation values(6, 4, 'Obg1', '', '2014-03-04 00:00:00.000', '2014-01-10 01:00:00.000', 1, 2, 9)";
+sqlite3 ./databases/GoDB.db "insert into obligation values(7, 4, 'Obg2', '', '2014-03-05 00:00:00.000', '2014-01-10 01:00:00.000', 1, 4, 9)";
 
 echo "Attempted to create dummyusers and a few obligations (This just prints but currently doesnt actually error check)"
