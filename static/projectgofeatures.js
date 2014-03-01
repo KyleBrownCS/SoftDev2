@@ -26,10 +26,11 @@ $('#submit1').click(function() {
         cont = false;
         errMsg = errMsg + "Priority must be a number.\r\n";
     }
-    if(!$.isNumeric(stat))
+	//New errorcheck for dropdown status bar
+    if(stat > 4 && stat < 0)
     {
-        cont = false;
-        errMsg = errMsg + "Status must be a number.\r\n";
+		cont = false;
+		errMsg = errMsg + "Must select a status.\r\n";
     }
     if(!$.isNumeric(cat))
     {
