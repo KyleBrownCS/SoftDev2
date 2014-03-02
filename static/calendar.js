@@ -133,11 +133,11 @@ Calendar.prototype.getColor = function(status)
 	var color = 'gray';
 	if(status == 1)
 		color = 'yellow';
-	else if(status == 1)
+	else if(status == 2)
 		color = 'green';
-	else if(status == 1)
+	else if(status == 3)
 		color = 'blue';
-	else if(status == 1)
+	else if(status == 4)
 		color = 'red';
 	return color;
 }
