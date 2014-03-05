@@ -12,5 +12,5 @@ function Obligation (obligationid,userid,name,description,startTime,endTime,prio
 }
 
 Obligation.prototype.toString = function() {
-    return "Name: "+ this.name + "\nDescription: "+this.description+ "\nStart time: "+this.startTime+"\n";
+    return "Name: "+ this.name + "\nDescription: "+this.description+ "\nStart time:"+this.startTime+"\nEnd Time:"+this.endTime+"\n";
 }

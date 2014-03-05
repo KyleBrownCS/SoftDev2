@@ -12,12 +12,13 @@ var currentDate = new Date();
 var currentDay = currentDate.getDate();
 var currentMonth = currentDate.getMonth();
 var currentYear = currentDate.getFullYear();
+var obligations;
 
 //Constructor for the calendar. Useful
 //when we need to construct next/previous month
-function Calendar(month, year, obligations)
+function Calendar(month, year, obligs)
 {
-	this.obligations = obligations;
+	obligations = obligs;
 	this.calenMonth = month;
 	this.calenYear = year;
 	this.htmlCode = '';
@@ -90,14 +91,14 @@ Calendar.prototype.calculateCalendar = function()
 					else
 						htmlCode += day;
 						
-					//Iterate through the this.obligations, print the ones today
-					for(var k = 0 ; k < this.obligations.length; k++)
+					//Iterate through the obligations, print the ones today
+					for(var k = 0 ; k < obligations.length; k++)
 					{
-						status = this.obligations[k].status;
+						status = obligations[k].status;
 						color = this.getColor(status);
 						//alert(color);
 						//alert(status);
-						dateString = JSON.stringify(this.obligations[k].startTime);
+						dateString = JSON.stringify(obligations[k].startTime);
 						dateString = dateString.split(" ");
 						dateString = dateString[1].split("-");
 						date = dateString[2];
@@ -109,8 +110,8 @@ Calendar.prototype.calculateCalendar = function()
 						//alert(date+":"+day+" "+month+":"+this.calenMonth+" "+year+":"+this.calenYear);
 						if(date == day && month == this.calenMonth && year == this.calenYear)
 						{
-							htmlCode += '<input type="button" onclick="myFunction('+ this.obligations[k].obligationid+')" style="width: 80px; height: 30px; background-color:'+color +'" value=";'+this.obligations[k].name+'"></button>';
-							//alert(JSON.stringify(this.obligations[k]));
+							htmlCode += '<input type="button" onclick="getObligation('+ obligations[k].obligationid+')" style="width: 80px; height: 30px; background-color:'+color +'" value="'+obligations[k].name+'"></button>';
+							//alert(JSON.stringify(obligations[k]));
 						}
 					}
 					
@@ -146,7 +147,7 @@ Calendar.prototype.getColor = function(status)
 	return color;
 }
 
-function myFunction(obligationid)
+function getObligation(obligationid)
 {
-	alert("Just a placeholder. ID: "+obligationid);
+	alert(obligations[obligationid - 1].toString());
 }
