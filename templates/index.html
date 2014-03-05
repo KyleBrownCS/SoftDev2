@@ -46,33 +46,26 @@
       <div class="starter-template">
         <h3>Add an Obligation...</h3>
         <form> 
-        	Name: <input type="text" id="name"><br>
-        	Description: <input type="text" id="description"><br>
-        	Start Time: <input type="text" id="stime"><br>
-        	End Time: <input type="text" id="etime"><br>
-        	Priority: <input type="text" id="pri"><br>
-        	Category: <input type="text" id="cat"><br>
-			Mark as:<br>
-			<select id="stat">
-				<option value=0>None</option>
-				<option value=1>In Progress</option>
-				<option value=2>Completed</option>
-				<option value=3>Important</option>
-				<option value=4>Requires Assistance</option>
-			</select><br>
-			Task Completion Status: <input type="text" value="60%" name="category" style="width:60px;"><br>   
-			<div class="progress" style="width: 200px;">
-			<div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
-			</div>
-			</div>
-            <button id="submit1" type="button" name="submit">Submit</button>
+          <div id="name2">Name: <input type="text" id="name"></div>
+          <div id="description2">Description: <input type="text" id="description"></div>
+          <div id="stime2">Start Time: <input type="text" id="stime"></div>
+          <div id="etime2">End Time: <input type="text" id="etime"></div>
+          <div id="pri2">Priority: <input type="text" id="pri"></div>
+          <div id="cat2">Category: <input type="text" id="cat"></div>
+			    Status: 
+			    <select id="stat">
+    			<option value=0>None</option>
+    			<option value=1>In Progress</option>
+    			<option value=2>Completed</option>
+    			<option value=3>Important</option>
+    			<option value=4>Requires Assistance</option>
+			    </select><br>
+          <button id="submit1" type="button" name="submit">Submit</button>
         </form>
       </div>
     </div><!-- /.container -->
 	<div>
 	<br>
-	
-	<input type="button" name="createSubObligation" value = "Create sub-obligation">
 	</div>
 	
     <!-- Bootstrap core JavaScript
@@ -81,5 +74,6 @@
     <script src="/static/jquery.js"></script>
     <script src="/static/bootstrap.js"></script>
     <script src="/static/projectgofeatures.js"></script>
+    <script src="/static/jquery.bootstrap-growl.min.js"></script>
 
 </body></html>

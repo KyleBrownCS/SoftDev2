@@ -1,3 +1,88 @@
+$("#name").focusout(function() {
+    var nm = $("#name").val();
+
+    if(nm.length > 20 || nm.length == 0 )
+    {
+        $.bootstrapGrowl("Name must be between 1 and 20 characters in length!", {
+            type: 'info',
+            align: 'center',
+            width: 'auto',
+            allow_dismiss: false,
+            offset: {from: 'top', amount: 200}
+        });
+        $('#name2').css('background-color', '');
+        $('#name2').css('background-color', 'red');
+    }
+    else
+    {
+        $('#name2').css('background-color', '');
+    }
+});
+
+$("#description").focusout(function() {
+
+    var desc = $("#description").val().length;
+    if(desc > 200)
+    {
+        $.bootstrapGrowl("Description must be less than 20 characters in length! (You're currently at" + desc.toString(), {
+            type: 'info',
+            align: 'center',
+            width: 'auto',
+            allow_dismiss: false,
+            offset: {from: 'top', amount: 200}
+        });
+
+        $('#description2').css('background-color', '');
+        $('#description2').css('background-color', 'red');
+    }
+    else
+    {
+        $('#description2').css('background-color', '');
+    }
+});
+
+$("#pri").focusout(function() {
+
+    if(!$.isNumeric($("#pri").val()))
+    {
+        $.bootstrapGrowl("Priority must be a number!", {
+            type: 'info',
+            align: 'center',
+            width: 'auto',
+            allow_dismiss: false,
+            offset: {from: 'top', amount: 200}
+        });
+
+        $('#pri2').css('background-color', '');
+        $('#pri2').css('background-color', 'red');
+    }
+    else
+    {
+        $('#pri2').css('background-color', '');
+    }
+});
+
+$("#cat").focusout(function() {
+
+    if(!$.isNumeric($("#cat").val()))
+    {
+        $.bootstrapGrowl("Category must be a number!", {
+            type: 'info',
+            align: 'center',
+            width: 'auto',
+            allow_dismiss: false,
+            offset: {from: 'top', amount: 200}
+        });
+
+        $('#cat2').css('background-color', '');
+        $('#cat2').css('background-color', 'red');
+    }
+    else
+    {
+        $('#cat2').css('background-color', '');
+    }
+});
+
 $('#submit1').click(function() { 
     
     //basic client side validation
@@ -14,28 +99,28 @@ $('#submit1').click(function() {
     if(nm.length > 20 || nm.length == 0 )
     {
         cont = false;
-        errMsg = errMsg + "Name incorrect (1-20 character range)\r\n";
+        $('#name2').css('background-color', 'red');
     }
     if(desc.length > 200)
     {
         cont = false;
-        errMsg = errMsg + "Description too long (200 character max)\r\n";
+        $('#description2').css('background-color', 'red');
     }
     if(!$.isNumeric(pri))
     {
         cont = false;
-        errMsg = errMsg + "Priority must be a number.\r\n";
+        $('#pri2').css('background-color', 'red');
     }
 	//New errorcheck for dropdown status bar
     if(stat > 4 && stat < 0)
     {
 		cont = false;
-		errMsg = errMsg + "Must select a status.\r\n";
+        $('#stat2').css('background-color', 'red');
     }
     if(!$.isNumeric(cat))
     {
         cont = false;
-        errMsg = errMsg + "Category must be a number.\r\n";
+        $('#cat2').css('background-color', 'red');
     }
 
     if(cont)
@@ -51,14 +136,36 @@ $('#submit1').click(function() {
                 category: cat
             })
             .done(function (data) {
-                alert(data.result);
+                  setTimeout(function() {
+                    $.bootstrapGrowl("Data successfully received!", { 
+                            type: 'success',
+                            allow_dismiss: true,
+                            align: 'center',
+                            width: 'auto',
+                            offset: {from: 'top', amount: 200}
+                             });
+                });
             })
             .fail(function (data) {
-                alert(data.result);
+                $.bootstrapGrowl("Failed to send in Obligation information! Please retry.", {
+                type: 'error',
+                align: 'center',
+                width: 'auto',
+                offset: {from: 'top', amount: 200},
+                allow_dismiss: true,
+                delay: 5000,
+              });
         });
     }
     else
     {
-        alert(errMsg.slice(0, -2));
+     $.bootstrapGrowl("Please fix the selections labeled in red before trying to submit your obligation", {
+        type: 'error',
+        align: 'center',
+        width: 'auto',
+        offset: {from: 'top', amount: 200},
+        allow_dismiss: true,
+        delay: 5000,
+      });
     }
 })
