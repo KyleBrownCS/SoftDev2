@@ -15,11 +15,12 @@ var currentYear = currentDate.getFullYear();
 
 //Constructor for the calendar. Useful
 //when we need to construct next/previous month
-function Calendar(month, year)
+function Calendar(month, year, obligations)
 {
+	this.obligations = obligations;
 	this.calenMonth = month;
 	this.calenYear = year;
-  this.htmlCode = '';
+	this.htmlCode = '';
 }
 
 //A prototype to get the htmlCode generated table for the month.
@@ -28,11 +29,24 @@ Calendar.prototype.gethtmlCode = function()
   return this.htmlCode;
 }
 
-Calendar.prototype.calculateCalendar = function(obligations)
+Calendar.prototype.calculateCalendar = function()
 {
+	var day = 1;
+	//Maximum amount of weeks to print on one month
+	var maxWeekLines = 6;
+	var outOfDays = 0;
+	var dateString = 0;
+	var status = 0;
+	var color = 'black';
+	var date = 0;
+	var month = 0;
+	var year = 0;
+
 	//First, grab the first day of the month
 	var startingDay = new Date(this.calenYear, this.calenMonth, 1).getDay();
 	var monthLength = numDaysInMonth[this.calenMonth];
+	
+	
 	//If it's feburary, do calculation for leap year
 	if (this.calenMonth == 1) 
 	{
@@ -59,16 +73,6 @@ Calendar.prototype.calculateCalendar = function(obligations)
 		htmlCode += '</td>';
 	}
 	htmlCode += '</tr><tr>';
-	var day = 1;
-	//Maximum amount of weeks to print on one month
-	var maxWeekLines = 6;
-	var outOfDays = 0;
-	var dateString = 0;
-	var status = 0;
-	var color = 'black';
-	var date = 0;
-	var month = 0;
-	var year = 0;
 	for (var i = 0; i < maxWeekLines; i++) 
 	{
 		//if we haven't printed all the days in the month yet, print more.
@@ -86,14 +90,14 @@ Calendar.prototype.calculateCalendar = function(obligations)
 					else
 						htmlCode += day;
 						
-					//Iterate through the obligations, print the ones today
-					for(var k = 0 ; k < obligations.length; k++)
+					//Iterate through the this.obligations, print the ones today
+					for(var k = 0 ; k < this.obligations.length; k++)
 					{
-						status = obligations[k].status;
+						status = this.obligations[k].status;
 						color = this.getColor(status);
 						//alert(color);
 						//alert(status);
-						dateString = JSON.stringify(obligations[k].startTime);
+						dateString = JSON.stringify(this.obligations[k].startTime);
 						dateString = dateString.split(" ");
 						dateString = dateString[1].split("-");
 						date = dateString[2];
@@ -105,8 +109,8 @@ Calendar.prototype.calculateCalendar = function(obligations)
 						//alert(date+":"+day+" "+month+":"+this.calenMonth+" "+year+":"+this.calenYear);
 						if(date == day && month == this.calenMonth && year == this.calenYear)
 						{
-							htmlCode += '<input type="button" style="width: 80px; height: 30px; background-color:'+color +'" value=";'+obligations[k].name+'"></button>';
-							//alert(JSON.stringify(obligations[k]));
+							htmlCode += '<input type="button" onclick="myFunction('+ this.obligations[k].obligationid+')" style="width: 80px; height: 30px; background-color:'+color +'" value=";'+this.obligations[k].name+'"></button>';
+							//alert(JSON.stringify(this.obligations[k]));
 						}
 					}
 					
@@ -140,4 +144,9 @@ Calendar.prototype.getColor = function(status)
 	else if(status == 4)
 		color = 'red';
 	return color;
+}
+
+function myFunction(obligationid)
+{
+	alert("Just a placeholder. ID: "+obligationid);
 }

@@ -52,8 +52,8 @@ $(document).ready(function(e) {
 		var currentDate = new Date();
 		var currentMonth = currentDate.getMonth();
 		var currentYear = currentDate.getFullYear();
-		var calen = new Calendar(currentMonth,currentYear);
-		calen.calculateCalendar(obligations);
+		var calen = new Calendar(currentMonth,currentYear, obligations);
+		calen.calculateCalendar();
 		$('#sendTo').append(calen.gethtmlCode());
     });
 });
