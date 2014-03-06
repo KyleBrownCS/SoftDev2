@@ -225,14 +225,14 @@
 	width:20px;
 	height:20px;
 	border:none;
-	background:url('close.png') no-repeat top left;
+	background:url('/img/close.png') no-repeat top left;
 }
 .kalendae.ie8 .k-btn-close:after {display:none;}
 
 .kalendae.ie8 .k-btn-previous-month,
 .kalendae.ie8 .k-btn-next-month,
 .kalendae.ie8 .k-btn-previous-year,
-.kalendae.ie8 .k-btn-next-year {width:16px;height:16px;cursor:pointer;background:#777 url('arrows.png') no-repeat center left;position:absolute;top:0;}
+.kalendae.ie8 .k-btn-next-year {width:16px;height:16px;cursor:pointer;background:#777 url('/img/arrows.png') no-repeat center left;position:absolute;top:0;}
 
 .kalendae.ie8 .k-btn-next-month,
 .kalendae.ie8 .k-btn-next-year {background-position:center right;}
