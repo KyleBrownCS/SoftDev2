@@ -182,7 +182,9 @@ function getObligationsFromDB(startTime)
 			var heading = "<table border='1'><th>ObligationID</th><th>UserID</th><th>Name</th><th>Description</th><th>StartTime</th><th>EndTime</th><th>Priority</th><th>Status</th><th>Modify</th>";
 			var mainData = "";
 			var currline = "<tr>";
+			var obgid = 0;
 			var statusCol = 7;
+			var obgidCol = 0;
 			var editCol = 8;
 			for (var i = 0; i < datas.length; i++)
 			{
@@ -195,6 +197,10 @@ function getObligationsFromDB(startTime)
 					{
 						miniparts[j] = miniparts[j].replace(/\u'/g, "");
 						miniparts[j] = miniparts[j].replace(/\'/g, "");
+						if(j == obgidCol)
+						{
+							obgid = miniparts[j];
+						}
 						//If it's processing a status, show the string instead of the integer value
 						if(j == statusCol)
 						{
@@ -204,7 +210,7 @@ function getObligationsFromDB(startTime)
 						}
 						else if(j == editCol)
 						{
-							currline = currline + '<td><input type="button" value="Edit" onclick="myFunction()"></td>'
+							currline = currline + '<td><input type="button" value="Edit" onclick="myFunction('+obgid+')"></td>'
 						}
 						else
 						{
@@ -223,7 +229,11 @@ function getObligationsFromDB(startTime)
 	return gotData;
 }
 
-function myFunction()
+function myFunction(obgid)
 {
-	alert("Placeholder!");
+    $.get('/obligations/'+obgid+"", function(data) 
+	{
+
+		alert(data);
+	});
 }
