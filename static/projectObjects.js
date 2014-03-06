@@ -10,8 +10,7 @@ function Obligation (obligationid,userid,name,description,startTime,endTime,prio
 	this.status = status;
 	this.category = category;
 }
- 
-Obligation.prototype.get = function() {
-    return this.obligationid;
-};
 
+Obligation.prototype.toString = function() {
+    return "Name: "+ this.name + "\nDescription: "+this.description+ "\nStart time:"+this.startTime+"\nEnd Time:"+this.endTime+"\n";
+}

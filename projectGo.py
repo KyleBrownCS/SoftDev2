@@ -43,6 +43,22 @@ def get_all_obligations():
 def sched():
     return render_template("Schedule.html")
 
+@app.route('/obligations/<startTime>', methods = ['GET'])
+def get_obligations_by_date(startTime):
+    db_connection, db_cursor = get_db() 
+    response = ""
+    for row in db_cursor.execute("select * from " + ApplicationInfo.OBLIGATION_TABLE_NAME):
+        start_time = row[row_pos_starttime]
+        time_split = start_time.split(" ", 1)
+        start_time = time_split[0]
+        start_time.replace("'", "")
+        if start_time == startTime:
+            response = response + str(row) + "|\r\n"
+        #else:
+        #    response = response + "Tested: %s against %s \r\n" % (startTime, start_time)
+    #return ("<H1>Place Holder</H1>\r\n<H3>GET /obligations</H3>\r\n\r\n<p>This method will return all obligations for a user</p>")
+    return response
+
 @app.route('/obligations/<int:obligation_id>', methods = ['GET'])
 def get_obligation(obligation_id):
     row = "";
