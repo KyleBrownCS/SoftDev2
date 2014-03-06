@@ -86,9 +86,12 @@ Calendar.prototype.calculateCalendar = function()
 				htmlCode += '<td>';
 				if (day <= monthLength && (i > 0 || j >= startingDay)) 
 				{
-				
+					//alert("test: "+day+" "+currentDay + " Month: "+currentMonth+ " "+this.calenMonth + " Year "+currentYear+ " "+this.calenYear);
 					if(day == currentDay && currentMonth == this.calenMonth && currentYear == this.calenYear)
-						htmlCode += '<style="color:red;">'+day+'</style>';
+					{
+						htmlCode += '<span style="color:red;">'+day+'</span>';
+						alert("testing!");
+					}
 					else
 						htmlCode += day;
 					
@@ -106,33 +109,9 @@ Calendar.prototype.calculateCalendar = function()
 					dateString = ""+year+"-"+month+"-"+date;	
 					 if(this.checkDayForObligations(dateString) == 1)
 					 {
-						 htmlCode += '<input type="button" onclick="getObligationsFromDB(\''+dateString.toString()+'\')" style="width: 110px; height: 40px; background-color:'+color +'" value="View Obligations"></button>';
+						 htmlCode += '<input type="button" onclick="getObligationsFromDB(\''+dateString.toString()+'\')" style="width: 110px; height: 40px;" value="View Obligations"></button>';
 					 }
 
-					
-					//Iterate through the obligations, print the ones today
-					/*
-					for(var k = 0 ; k < obligations.length; k++)
-					{
-						status = obligations[k].status;
-						color = this.getColor(status);
-						//alert(color);
-						//alert(status);
-						tempDate = JSON.stringify(obligations[k].startTime);
-						tempDate = tempDate.split(" ");
-						tempDate = tempDate[1].split("-");
-						date = tempDate[2];
-						//Set the month -1 to match the algorithm (jan = 0, etc)
-						month = tempDate[1].slice(-2);
-						year = tempDate[0];
-						dateString = ""+year+"-"+(month)+"-"+date;
-						if(date == day && (month - 1) == this.calenMonth && year == this.calenYear)
-						{
-							//alert(dateString);
-							//alert(JSON.stringify(obligations[k]));
-						}
-					}
-					*/
 					
 					day++;
 				}
@@ -196,10 +175,15 @@ function getObligationsFromDB(startTime)
 			var mydata = data.trim().replace(/\(/g, "");
 			mydata = mydata.replace(/\)/g, "");
 			var datas = mydata.split("|");
+			var statusNum = 0;
+			var colors = ['black', 'yellow', 'green', 'blue', 'red'];
+			var statuses = ['none','In Progress','Completed','Important','Requires Assistance'];
 			var obligationFields = ['obligationid','userid','name','description','startTime','endTime','priority','status','category'];
-			var heading = "<table border='1'><th>ObligationID</th><th>UserID</th><th>Name</th><th>Description</th><th>StartTime</th><th>EndTime</th><th>Priority</th><th>Status</th><th>Category</th>";
+			var heading = "<table border='1'><th>ObligationID</th><th>UserID</th><th>Name</th><th>Description</th><th>StartTime</th><th>EndTime</th><th>Priority</th><th>Status</th><th>Modify</th>";
 			var mainData = "";
 			var currline = "<tr>";
+			var statusCol = 7;
+			var editCol = 8;
 			for (var i = 0; i < datas.length; i++)
 			{
 				var miniparts = datas[i].trim().split(",");
@@ -212,17 +196,34 @@ function getObligationsFromDB(startTime)
 						miniparts[j] = miniparts[j].replace(/\u'/g, "");
 						miniparts[j] = miniparts[j].replace(/\'/g, "");
 						//If it's processing a status, show the string instead of the integer value
-						obligation[obligationFields[j]] = miniparts[j];
-						currline = currline + "<td>" + obligation[obligationFields[j]] + "</td>";
+						if(j == statusCol)
+						{
+							statusNum = parseInt(miniparts[j]);
+							color = colors[statusNum];
+							currline = currline + "<td style=\"color:"+color+";\">" + statuses[statusNum] + "</td>";
+						}
+						else if(j == editCol)
+						{
+							currline = currline + '<td><input type="button" value="Edit" onclick="myFunction()"></td>'
+						}
+						else
+						{
+							currline = currline + "<td>" + miniparts[j] + "</td>";
+						}
 					}
-					heading = heading + currline + "</tr>";
+					heading = heading + currline + '</tr>';
 					currline = "<tr>";
-					obligations.push(obligation);
 				}
+				
 			}
 			heading = heading + "</table>";
 			$("#obligations").html(heading);
 		}
 	});
 	return gotData;
+}
+
+function myFunction()
+{
+	alert("Placeholder!");
 }
