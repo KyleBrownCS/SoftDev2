@@ -171,14 +171,17 @@ Calendar.prototype.checkDayForObligations = function(startTime)
 	var tempDate = 0;
 	var obgFound = 0;
 	var i = 0;
-	while(i < obligations.length && obgFound == 0)
+	while(i < obligations.length)
 	{
-		tempDate = JSON.stringify(obligations[i].startTime);
-		tempDate = tempDate.split(" ");
-		tempDate = tempDate[1];
-		if(tempDate == startTime)
+		if(obgFound != 1)
 		{
-			obgFound = 1;
+			tempDate = obligations[i].startTime;
+			tempDate = tempDate.split(/\s+/);
+			tempDate = tempDate[0];
+			if(tempDate == startTime)
+			{
+				obgFound = 1;
+			}
 		}
 		i++;
 	}
@@ -236,6 +239,7 @@ function getObligationsFromDB(startTime)
 						{
 							currline = currline + "<td>" + miniparts[j] + "</td>";
 						}
+						
 					}
 					heading = heading + currline + '</tr>';
 					currline = "<tr>";
@@ -265,13 +269,13 @@ function editOglibation(obgid)
 
 		var heading = "";
 		var statusNum = 0;
-		//alert(obgid);
-		heading += "name: <input type='text' name='name' value='"+obligations[obgid-1].name+"'></input><br>";
-		heading += "Description: <input type='text' name='desc' value='"+obligations[obgid-1].description+"'></input><br>";
-		heading += "Start Time: <input type='text' name='startTime' value='"+obligations[obgid-1].startTime+"'></input><br>";
-		heading += "End Time: <input type='text' name='endTime' value='"+obligations[obgid-1].endTime+"'></input><br>";
-		heading += "Priority: <input type='text' name='prio' value='"+obligations[obgid-1].priority+"'></input><br>";
-		heading += "Category: <input type='text' name ='category' value='"+obligations[obgid-1].category+"'></input><br>";
+		var obligid;
+		heading += "<div id='name2'>name: <input type='text' id='name' value='"+obligations[obgid-1].name+"'></input></div>";
+		heading += "<div id='description2'>Description: <input id='text' name='description' value='"+obligations[obgid-1].description+"'></input></div>";
+		heading += "<div id='stime2'>Start Time: <input type='text' id='stime' value='"+obligations[obgid-1].startTime+"'></input></div>";
+		heading += "<div id='etime2'>End Time: <input type='text' name='etime' value='"+obligations[obgid-1].endTime+"'></input></div>";
+		heading += "<div id='pri2'>Priority: <input type='text' name='pri' value='"+obligations[obgid-1].priority+"'></input></div>";
+		heading += "<div id='cat2'>Category: <input type='text' name ='cat' value='"+obligations[obgid-1].category+"'></input></div>";
 		statusNum = parseInt(obligations[obgid-1].status);
 		heading += "Status: <br> <select id='stat' selected="+statusNum+">";
 		heading += "<option value=0>None</option>";
@@ -279,27 +283,51 @@ function editOglibation(obgid)
 		heading += "<option value=2>Completed</option>";
 		heading += "<option value=3>Important</option>";
 		heading += "<option value=4>Requires Assistance</option></select></br>";
-		heading += '<input type="button" value="close" onclick="closeView(this.value)"/>';
+		obligid = parseInt(obligations[obgid-1].obligationid);
+		heading += '<input type="button" value="close" onclick="closeView(this.value,'+obligid+')"/>';
+		heading += '<input type="button" value="submit" onclick="closeView(this.value,'+obligid+' )"/>';
 		$("#editContent").html(heading);
 		$("#dial").show();
-		//$("editContent").html("lol");
 		var editor = document.getElementById( 'editForm' );
 		editor.style.display = 'block';
 		$("#obligations").hide();
 		$("#sendTo").hide();
-		
-		//alert(data);
 	});
 }
 
-function closeView(data)
+function closeView(data, obgid)
 {
+    var nm = $("#name").val();
+    var desc = $("#description").val();
+    var startim = $("#stime").val();
+    var endtim = $("#etime").val();
+    var pri = $("#pri").val();
+    var stat = $("#stat").val();
+    var cat = $("#cat").val();
+    var errMsg = "";
+    var cont = true;
+
 	if('close' == data)
 	{
 		$("#obligations").show();
 		$("#sendTo").show();
 		$("#dial").hide();
 	}
-	else
-		alert("wrong");
+	else if('submit' == data)
+	{
+        $.post('/obligations/'+obgid+"",{
+                userid:"1",
+                name: nm,
+                description: desc,
+                starttime: startim,
+                endtime: endtim,
+                priority: pri,
+                status: stat,
+                category: cat
+            })
+			
+		$("#obligations").show();
+		$("#sendTo").show();
+		$("#dial").hide();
+	}
 }

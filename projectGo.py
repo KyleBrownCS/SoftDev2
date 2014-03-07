@@ -89,7 +89,6 @@ def get_obligation(obligation_id):
 @app.route('/obligations', methods = ['POST'])
 def create_obligation():
     db_connection, db_cursor = get_db()
-
     response = ""
     user_id = request.form['userid']
     name = request.form['name']
@@ -114,7 +113,9 @@ def create_obligation():
     #return ("<H1>Place Holder</H1>\r\n<H3>POST /obligations</H3>\r\n\r\n<p>This method will create a new obligation for the user</p>")
     return response
 
-@app.route('/obligations/<int:obligation_id>', methods = ['PATCH'])
+
+
+@app.route('/obligations/<int:obligation_id>', methods = ['POST'])
 def modify_obligation(obligation_id):
     db_connection, db_cursor = get_db()
     response = ""
