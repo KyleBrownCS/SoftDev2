@@ -39,6 +39,6 @@ $(document).ready(function(e) {
 		var currentYear = currentDate.getFullYear();
 		var calen = new Calendar(currentMonth,currentYear, obligations);
 		calen.calculateCalendar();
-		$('#sendTo').append(calen.gethtmlCode());
+		$('#sendTo').html(calen.gethtmlCode());
     });
 });

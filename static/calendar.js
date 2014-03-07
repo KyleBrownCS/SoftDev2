@@ -7,6 +7,8 @@ var monthsOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'Jul
 //How many days are in each month, Leap year is calculated seperately later.
 var numDaysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
+//Status names
+var statuses = ['none','In Progress','Completed','Important','Requires Assistance'];
 //Let's get today...
 var currentDate = new Date();
 var currentDay = currentDate.getDate();
@@ -43,6 +45,10 @@ Calendar.prototype.calculateCalendar = function()
 	var date = 0;
 	var month = 0;
 	var year = 0;
+	var prevYear;
+	var prevMonth;
+	var nextYear;
+	var nextMonth;
 
 	//First, grab the first day of the month
 	var startingDay = new Date(this.calenYear, this.calenMonth, 1).getDay();
@@ -55,16 +61,32 @@ Calendar.prototype.calculateCalendar = function()
 	//A calculation for leap year.
 		if((this.calenYear % 4 == 0 && this.calenYear % 100 != 0) || this.calenYear % 400 == 0)
 		{
-		//If its a leap year, make the day longer.
-		monthLength = 29;
+			//If its a leap year, make the day longer.
+			monthLength = 29;
 		}
 	}
 
 	//Create the table, start with the month and the year
-	var monthName = monthsOfYear[this.calenMonth]
+	var monthName = monthsOfYear[this.calenMonth];
 	var htmlCode = '<table border=3 style="line-height: 4;" class="calendar-table">';
-	htmlCode += '<tr><th colspan="7">';
+	prevYear = this.calenYear;
+	prevMonth = this.calenMonth -1;
+	nextYear = this.calenYear;
+	nextMonth = this.calenMonth + 1;
+	if(prevMonth == -2)
+	{
+		prevYear = this.calenYear - 1;
+		prevMonth = 11;
+	}
+	if (nextMonth == 12)
+	{
+		nextYear = this.calenYear + 1;
+		nextMonth = 0;
+	}
+	htmlCode += '<tr><th colspan="7" style="text-align:center;">';
+	htmlCode += "<input type='button' value='Previous month' onclick='generateNextMonth("+prevMonth+", "+prevYear+")'></input>";
 	htmlCode +=  monthName + "&nbsp;" + this.calenYear;
+	htmlCode += "<input type='button' value='Next month' onclick='generateNextMonth("+nextMonth+", "+nextYear+")'></input>"
 	htmlCode += '</th></tr>';
 	htmlCode += '<tr class="calendar-header">';
 	//Initialize Monday-Sunday headers
@@ -86,12 +108,8 @@ Calendar.prototype.calculateCalendar = function()
 				htmlCode += '<td>';
 				if (day <= monthLength && (i > 0 || j >= startingDay)) 
 				{
-					//alert("test: "+day+" "+currentDay + " Month: "+currentMonth+ " "+this.calenMonth + " Year "+currentYear+ " "+this.calenYear);
 					if(day == currentDay && currentMonth == this.calenMonth && currentYear == this.calenYear)
-					{
 						htmlCode += '<span style="color:red;">'+day+'</span>';
-						alert("testing!");
-					}
 					else
 						htmlCode += day;
 					
@@ -127,6 +145,9 @@ Calendar.prototype.calculateCalendar = function()
 
   
   htmlCode += '</tr></table>';
+  
+  
+  
   this.htmlCode = htmlCode;
 }
 
@@ -177,7 +198,6 @@ function getObligationsFromDB(startTime)
 			var datas = mydata.split("|");
 			var statusNum = 0;
 			var colors = ['black', 'yellow', 'green', 'blue', 'red'];
-			var statuses = ['none','In Progress','Completed','Important','Requires Assistance'];
 			var obligationFields = ['obligationid','userid','name','description','startTime','endTime','priority','status','category'];
 			var heading = "<table border='1'><th>ObligationID</th><th>UserID</th><th>Name</th><th>Description</th><th>StartTime</th><th>EndTime</th><th>Priority</th><th>Status</th><th>Modify</th>";
 			var mainData = "";
@@ -210,7 +230,7 @@ function getObligationsFromDB(startTime)
 						}
 						else if(j == editCol)
 						{
-							currline = currline + '<td><input type="button" value="Edit" onclick="myFunction('+obgid+')"></td>'
+							currline = currline + '<td><input type="button" value="Edit" onclick="editOglibation('+obgid+')"></td>'
 						}
 						else
 						{
@@ -223,17 +243,63 @@ function getObligationsFromDB(startTime)
 				
 			}
 			heading = heading + "</table>";
+			
+			
 			$("#obligations").html(heading);
 		}
 	});
 	return gotData;
 }
 
-function myFunction(obgid)
+function generateNextMonth(currMonth, currYear)
+{
+	var calen = new Calendar(currMonth,currYear, obligations);
+	calen.calculateCalendar();
+	$('#sendTo').html(calen.gethtmlCode());
+}
+
+function editOglibation(obgid)
 {
     $.get('/obligations/'+obgid+"", function(data) 
 	{
 
-		alert(data);
+		var heading = "";
+		var statusNum = 0;
+		//alert(obgid);
+		heading += "name: <input type='text' name='name' value='"+obligations[obgid-1].name+"'></input><br>";
+		heading += "Description: <input type='text' name='desc' value='"+obligations[obgid-1].description+"'></input><br>";
+		heading += "Start Time: <input type='text' name='startTime' value='"+obligations[obgid-1].startTime+"'></input><br>";
+		heading += "End Time: <input type='text' name='endTime' value='"+obligations[obgid-1].endTime+"'></input><br>";
+		heading += "Priority: <input type='text' name='prio' value='"+obligations[obgid-1].priority+"'></input><br>";
+		heading += "Category: <input type='text' name ='category' value='"+obligations[obgid-1].category+"'></input><br>";
+		statusNum = parseInt(obligations[obgid-1].status);
+		heading += "Status: <br> <select id='stat' selected="+statusNum+">";
+		heading += "<option value=0>None</option>";
+		heading += "<option value=1>In Progress</option>";
+		heading += "<option value=2>Completed</option>";
+		heading += "<option value=3>Important</option>";
+		heading += "<option value=4>Requires Assistance</option></select></br>";
+		heading += '<input type="button" value="close" onclick="closeView(this.value)"/>';
+		$("#editContent").html(heading);
+		$("#dial").show();
+		//$("editContent").html("lol");
+		var editor = document.getElementById( 'editForm' );
+		editor.style.display = 'block';
+		$("#obligations").hide();
+		$("#sendTo").hide();
+		
+		//alert(data);
 	});
+}
+
+function closeView(data)
+{
+	if('close' == data)
+	{
+		$("#obligations").show();
+		$("#sendTo").show();
+		$("#dial").hide();
+	}
+	else
+		alert("wrong");
 }
