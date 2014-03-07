@@ -22,6 +22,11 @@ $(document).ready(function(e) {
 				{
 					miniparts[j] = miniparts[j].replace(/\u'/g, "");
 					miniparts[j] = miniparts[j].replace(/\'/g, "");
+					//Fix for database values that add a space in front.
+					if(miniparts[j].charAt(0) == ' ')
+					{
+						miniparts[j] = miniparts[j].substring(1);
+					}
 					//If it's processing a status, show the string instead of the integer value
 					obligation[obligationFields[j]] = miniparts[j];
 				}
