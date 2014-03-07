@@ -54,6 +54,9 @@ To run this you will require the following...
  	 - `./configure`
  	 - `make install clean distclean`
 
+ 	 This project also includes components and help from the following git repos. their licenses are included in in this application.
+ 	 jquery-timepicker : https://github.com/jonthornton/jquery-timepicker, used under MIT license  2014,  Jon Thornton and contributors https://github.com/jonthornton/jquery-timepicker/graphs/contributors.
+
 
 Running locally though Python/Flask
 ===================================

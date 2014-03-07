@@ -1,19 +1,15 @@
-$( document ).ready(function() {
+$(document).ready(function() {
 
     $("#datepickerstart").datepicker({
         onSelect: function (selectedDate) {
             $("#datepickerend").datepicker( "setDate", selectedDate );
         }
     });
+
     $("#datepickerend").datepicker();
+    $("#stime").timepicker();
+    $("#etime").timepicker();
 });
-
-
-/*$("#datepickerstart").focusout(function() {
-    var currentDate = $("#datepickerstart").val();
-     $("#datepickerend").val(currentDate);
-
-});*/
 
 $("#name").focusout(function() {
     var nm = $("#name").val();
@@ -139,6 +135,12 @@ $('#submit1').click(function() {
         cont = false;
         $('#cat2').css('background-color', 'red');
     }
+
+    //Check if dates are same day and the time is legal (no due date before date start).
+
+
+    //Check if end date is before start date.
+
 
     if(cont)
     {

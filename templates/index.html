@@ -14,6 +14,7 @@
 
     <!-- Custom styles for this template -->
     <link href="/static/starter-template.css" rel="stylesheet">
+    <link href="/static/jquery.timepicker.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -49,9 +50,9 @@
           <div id="name2">Name: <input type="text" id="name"></div>
           <div id="description2">Description: <input type="text" id="description"></div>
           <p>Start Date: <input type="text" id="datepickerstart"></p>
-          Start Time (If Applicable): <input type="text" class="time start" /><br>
+          <p>Start time (If Applicable): <input id="stime" type="text" class="time ui-timepicker-input" autocomplete="off"></p>
           <p>End Date: <input type="text" id="datepickerend"></p>
-          End Time (If Applicable): <input type="text" class="time end" />
+          <p>End time (If Applicable): <input id="etime" type="text" class="time ui-timepicker-input" autocomplete="off"></p>
           <div id="pri2">Priority: <input type="text" id="pri"></div>
           <div id="cat2">Category: <input type="text" id="cat"></div>
 			    Status: 
@@ -75,11 +76,13 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="/static/jquery.js"></script>
     <script src="/static/bootstrap.js"></script>
-    <script src="/static/projectgofeatures.js"></script>
     <script src="/static/jquery.bootstrap-growl.min.js"></script>
-    <!-- includes required for bootstrap datetime picker -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="/static/jquery.timepicker.min.js"></script>
+
+    <!-- make sure this script is the last one loaded -->
+    <script src="/static/projectgofeatures.js"></script>
  
     
 
