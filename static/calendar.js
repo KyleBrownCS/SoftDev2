@@ -63,8 +63,10 @@ Calendar.prototype.calculateCalendar = function()
 	//Create the table, start with the month and the year
 	var monthName = monthsOfYear[this.calenMonth]
 	var htmlCode = '<table border=3 style="line-height: 4;" class="calendar-table">';
-	htmlCode += '<tr><th colspan="7">';
+	htmlCode += '<tr><th colspan="7" style="text-align:center;">';
+	htmlCode += "<input type='button' value='Previous month' onclick='generateNextMonth("+(this.calenMonth - 2)+", "+this.calenYear+")'></input>";
 	htmlCode +=  monthName + "&nbsp;" + this.calenYear;
+	htmlCode += "<input type='button' value='Next month' onclick='generateNextMonth("+this.calenMonth+", "+this.calenYear+")'></input>"
 	htmlCode += '</th></tr>';
 	htmlCode += '<tr class="calendar-header">';
 	//Initialize Monday-Sunday headers
@@ -86,12 +88,8 @@ Calendar.prototype.calculateCalendar = function()
 				htmlCode += '<td>';
 				if (day <= monthLength && (i > 0 || j >= startingDay)) 
 				{
-					//alert("test: "+day+" "+currentDay + " Month: "+currentMonth+ " "+this.calenMonth + " Year "+currentYear+ " "+this.calenYear);
 					if(day == currentDay && currentMonth == this.calenMonth && currentYear == this.calenYear)
-					{
 						htmlCode += '<span style="color:red;">'+day+'</span>';
-						alert("testing!");
-					}
 					else
 						htmlCode += day;
 					
@@ -127,6 +125,9 @@ Calendar.prototype.calculateCalendar = function()
 
   
   htmlCode += '</tr></table>';
+  
+  
+  
   this.htmlCode = htmlCode;
 }
 
@@ -223,10 +224,19 @@ function getObligationsFromDB(startTime)
 				
 			}
 			heading = heading + "</table>";
+			
+			
 			$("#obligations").html(heading);
 		}
 	});
 	return gotData;
+}
+
+function generateNextMonth(currMonth, currYear)
+{
+	var calen = new Calendar(currMonth + 1,currYear, obligations);
+	calen.calculateCalendar();
+	$('#sendTo').html(calen.gethtmlCode());
 }
 
 function myFunction(obgid)
