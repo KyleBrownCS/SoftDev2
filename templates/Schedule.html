@@ -7,7 +7,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="http://getbootstrap.com/assets/ico/favicon.ico">
-
+	<style>
+	#editForm {
+	left:100px;
+	width:300px;
+	height:300px;
+	display:none;
+	border:2px solid blue;
+	padding:8px;
+	}
+	</style>
     <title>Project Go Schedule</title>
 
     <!-- Bootstrap core CSS -->
@@ -54,8 +63,12 @@
         <div id="sendTo"> </div>
 		<div id="obligations"></div>
 		
-		<div id="dial" hidden>
-			<p>Message</p>
+		
+		<div id="dial">
+			<form id='editForm'>
+				<div id='editContent'>
+				</div>
+			</form>
 		</div>
 		
     </div><!-- /.container -->
