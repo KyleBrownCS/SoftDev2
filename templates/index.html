@@ -42,14 +42,16 @@
       </div>
     </div>
 
-    <div class="container" style="width:300px; float:left">
+    <div class="container">
       <div class="starter-template">
         <h3>Add an Obligation...</h3>
         <form> 
           <div id="name2">Name: <input type="text" id="name"></div>
           <div id="description2">Description: <input type="text" id="description"></div>
-          <div id="stime2">Start Time: <input type="text" id="stime"></div>
-          <div id="etime2">End Time: <input type="text" id="etime"></div>
+          <p>Start Date: <input type="text" id="datepickerstart"></p>
+          Start Time (If Applicable): <input type="text" class="time start" /><br>
+          <p>End Date: <input type="text" id="datepickerend"></p>
+          End Time (If Applicable): <input type="text" class="time end" />
           <div id="pri2">Priority: <input type="text" id="pri"></div>
           <div id="cat2">Category: <input type="text" id="cat"></div>
 			    Status: 
@@ -75,5 +77,11 @@
     <script src="/static/bootstrap.js"></script>
     <script src="/static/projectgofeatures.js"></script>
     <script src="/static/jquery.bootstrap-growl.min.js"></script>
+    <!-- includes required for bootstrap datetime picker -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+ 
+    
+
 
 </body></html>

@@ -1,3 +1,20 @@
+$( document ).ready(function() {
+
+    $("#datepickerstart").datepicker({
+        onSelect: function (selectedDate) {
+            $("#datepickerend").datepicker( "setDate", selectedDate );
+        }
+    });
+    $("#datepickerend").datepicker();
+});
+
+
+/*$("#datepickerstart").focusout(function() {
+    var currentDate = $("#datepickerstart").val();
+     $("#datepickerend").val(currentDate);
+
+});*/
+
 $("#name").focusout(function() {
     var nm = $("#name").val();
 
@@ -148,7 +165,7 @@ $('#submit1').click(function() {
             })
             .fail(function (data) {
                 $.bootstrapGrowl("Failed to send in Obligation information! Please retry.", {
-                type: 'error',
+                type: 'info',
                 align: 'center',
                 width: 'auto',
                 offset: {from: 'top', amount: 200},
@@ -160,7 +177,7 @@ $('#submit1').click(function() {
     else
     {
      $.bootstrapGrowl("Please fix the selections labeled in red before trying to submit your obligation", {
-        type: 'error',
+        type: 'info',
         align: 'center',
         width: 'auto',
         offset: {from: 'top', amount: 200},
