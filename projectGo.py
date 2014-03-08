@@ -39,7 +39,6 @@ def get_all_obligations():
     for row in db_cursor.execute("select * from " + ApplicationInfo.OBLIGATION_TABLE_NAME):
         response = response + str(row) + "|\r\n"
 
-    #return ("<H1>Place Holder</H1>\r\n<H3>GET /obligations</H3>\r\n\r\n<p>This method will return all obligations for a user</p>")
     return response
 
 @app.route('/schedule')
@@ -59,19 +58,19 @@ def get_obligations_by_date(startTime):
             response = response + str(row) + "|\r\n"
         #else:
         #    response = response + "Tested: %s against %s \r\n" % (startTime, start_time)
-    #return ("<H1>Place Holder</H1>\r\n<H3>GET /obligations</H3>\r\n\r\n<p>This method will return all obligations for a user</p>")
     return response
 
 @app.route('/obligations/<int:obligation_id>', methods = ['GET'])
 def get_obligation(obligation_id):
+    logging.debug('Attempting to GET obligation ' + str(obligation_id))
+
     row = "";
-    #making sure this is a valid key before we hit the database
-    check_int = re.compile('^\d+$')
-    if check_int.match(str(obligation_id)):
-        #execute query and get all rows that match (since obligation_id is unique there will be 0 or 1
-        db_connection, db_cursor = get_db()
-        my_query = "select * from " + ApplicationInfo.OBLIGATION_TABLE_NAME + " where " + ApplicationInfo.OBLIGATION_ID_NAME + " = " + str(obligation_id)
-        row = db_cursor.execute(my_query).fetchall()
+
+    #execute query and get all rows that match (since obligation_id is unique there will be 0 or 1
+    db_connection, db_cursor = get_db()
+    my_query = "select * from " + ApplicationInfo.OBLIGATION_TABLE_NAME + " where " + ApplicationInfo.OBLIGATION_ID_NAME + " = " + str(obligation_id)
+    row = db_cursor.execute(my_query).fetchall()
+
     if (len(row) > 0):
         row = row[0]
         data = {'obligationid' : row[row_pos_obligationid], #obligationid
@@ -84,13 +83,17 @@ def get_obligation(obligation_id):
             'status'       : row[row_pos_status], #status
             'category'     : row[row_pos_category]} #category
         data = json.dumps(data)
+        logging.debug('Obligation ' + str(obligation_id) + ' was found')
     else:
+        logging.debug('Obligation ' + str(obligation_id) + ' could not be found')
         data = jsonify({'error': 1})
     
     return data
 
 @app.route('/obligations', methods = ['POST'])
 def create_obligation():
+    logging.debug('Attempting to create a new Obligation')
+
     db_connection, db_cursor = get_db()
     response = ""
     user_id = request.form['userid']
@@ -110,10 +113,13 @@ def create_obligation():
         obligation_id = result[0]
         db_connection.commit() 
         response = jsonify({'obligation_id': obligation_id, 'result': "successfully added:" + name})
+        
+        logging.debug('Creation of obligation ' + str(obligation_id) + ' was a success')
     except Exception, e:
+        logging.error('Obligation could not be created. Error message: ' + str(e))
+
         response = jsonify({'error': str(e)})
 
-    #return ("<H1>Place Holder</H1>\r\n<H3>POST /obligations</H3>\r\n\r\n<p>This method will create a new obligation for the user</p>")
     return response
 
 
@@ -172,19 +178,20 @@ def modify_obligation(obligation_id):
             response_code = 200
             logging.debug('Obligation was updated and commited to the db')
         else:
-            logging.debug('Obligation ' + obligation_id + '  could not be found or does not exist')
+            logging.debug('Obligation ' + str(obligation_id) + '  could not be found or does not exist')
             response = jsonify({'error': '404 - No such obligation id'})
             response_code = 404
     except Exception, e:
         response = jsonify({'error': str(e)})
         response_code = 500
-        logging.error('An error occured while trying to update obligation ' + obligation_id + '. error message: ' + str(e))
+        logging.error('An error occured while trying to update obligation ' + str(obligation_id) + '. error message: ' + str(e))
     
-    #return ("<H1>Place Holder</H1>\r\n<H3>PATCH /obligations/:id</H3>\r\n\r\n<p>This method will modify/update an obligation for the user</p>")
     return response, response_code
 
 @app.route('/obligations/<int:obligation_id>', methods = ['DELETE'])
 def delete_obligation(obligation_id):
+    logging.debug('Attempting to DELETE obligation ' + str(obligation_id))
+
     db_connection, db_cursor = get_db()
     response = ""
     response_code = None
@@ -203,8 +210,10 @@ def delete_obligation(obligation_id):
         else:
             response = jsonify({'error': 'Bad Request - Info not properly provided'})
             response_code = 400
-    except Exception, b:
-        response = jsonify({'error': str(b)})
+    except Exception, e:
+        logging.error('Could not delete obligation ' + str(obligation_id) + '. Error message: ' + str(e))
+
+        response = jsonify({'error': str(e)})
         response_code = 500
 
     return response, response_code
