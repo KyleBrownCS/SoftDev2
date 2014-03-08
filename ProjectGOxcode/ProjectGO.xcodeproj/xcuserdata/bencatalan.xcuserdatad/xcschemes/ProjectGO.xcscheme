@@ -17,7 +17,7 @@
                BlueprintIdentifier = "6B813A2A18C0B0DB00D03A65"
                BuildableName = "ProjectGo.app"
                BlueprintName = "ProjectGo"
-               ReferencedContainer = "container:ProjectGo.xcodeproj">
+               ReferencedContainer = "container:ProjectGO.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "6B813A4E18C0B0DB00D03A65"
                BuildableName = "ProjectGoTests.xctest"
                BlueprintName = "ProjectGoTests"
-               ReferencedContainer = "container:ProjectGo.xcodeproj">
+               ReferencedContainer = "container:ProjectGO.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -45,7 +45,7 @@
             BlueprintIdentifier = "6B813A2A18C0B0DB00D03A65"
             BuildableName = "ProjectGo.app"
             BlueprintName = "ProjectGo"
-            ReferencedContainer = "container:ProjectGo.xcodeproj">
+            ReferencedContainer = "container:ProjectGO.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -64,7 +64,7 @@
             BlueprintIdentifier = "6B813A2A18C0B0DB00D03A65"
             BuildableName = "ProjectGo.app"
             BlueprintName = "ProjectGo"
-            ReferencedContainer = "container:ProjectGo.xcodeproj">
+            ReferencedContainer = "container:ProjectGO.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -82,7 +82,7 @@
             BlueprintIdentifier = "6B813A2A18C0B0DB00D03A65"
             BuildableName = "ProjectGo.app"
             BlueprintName = "ProjectGo"
-            ReferencedContainer = "container:ProjectGo.xcodeproj">
+            ReferencedContainer = "container:ProjectGO.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

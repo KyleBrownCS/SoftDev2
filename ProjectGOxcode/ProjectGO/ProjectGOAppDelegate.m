@@ -7,11 +7,20 @@
 //
 
 #import "ProjectGOAppDelegate.h"
+#import "ProjectGOViewController.h"
 
 @implementation ProjectGOAppDelegate
 
+@synthesize window;
+@synthesize projectGoViewController;
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    projectGoViewController = [[ProjectGOViewController alloc] initWithNibName:nil bundle:nil];
+	[self.window addSubview:projectGoViewController.view];
+    [self.window makeKeyAndVisible];
     // Override point for customization after application launch.
     return YES;
 }
