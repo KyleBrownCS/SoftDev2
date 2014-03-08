@@ -177,7 +177,29 @@ def modify_obligation(obligation_id):
 
 @app.route('/obligations/<int:obligation_id>', methods = ['DELETE'])
 def delete_obligation(obligation_id):
-    return ("<H1>Place Holder</H1>\r\n<H3>DELETE /obligations/:id</H3>\r\n\r\n<p>This method will delete an obligation for the user</p>")
+    db_connection, db_cursor = get_db()
+    response = ""
+    response_code = None
+    try:
+        if (isinstance(obligation_id,(int,long))):
+            my_query = "select * from " + ApplicationInfo.OBLIGATION_TABLE_NAME + " where " + ApplicationInfo.OBLIGATION_ID_NAME + "=" + str(obligation_id)
+            row = db_cursor.execute(my_query).fetchall()
+            if (len(row) > 0):
+                db_cursor.execute("delete from " + ApplicationInfo.OBLIGATION_TABLE_NAME + " where " + ApplicationInfo.OBLIGATION_ID_NAME + "=" + str(obligation_id))
+                db_connection.commit()
+                response = jsonify({'error': 'OK successfully deleted'})
+                response_code = 204
+            else:
+                response = jsonify({'error': 'No such obligation id'})
+                response_code = 404
+        else:
+            response = jsonify({'error': 'Bad Request - Info not properly provided'})
+            response_code = 400
+    except Exception, b:
+        response = jsonify({'error': str(b)})
+        response_code = 500
+
+    return response, response_code
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=int('5000'))
