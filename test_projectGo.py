@@ -44,14 +44,14 @@ class Test(unittest.TestCase):
 		
 	#def test_go_get_obligation_bad_key(self):
 		#Invalid case string
-		result = self.app.get("/obligations/this is supposed to be an int")
-		self.assertEqual(result.status, '404 NOT FOUND')
+		#result = self.app.get("/obligations/this is supposed to be an int")
+		#self.assertEqual(result.status, '404 NOT FOUND')
 		#Invalid case float
-		result = self.app.get("/obligations/1.0")
-                self.assertEqual(result.status, '404 NOT FOUND')	
+		#result = self.app.get("/obligations/1.0")
+                #self.assertEqual(result.status, '404 NOT FOUND')	
 		#Invalid case char
-		result = self.app.get("/obligations/a")
-                self.assertEqual(result.status, '404 NOT FOUND')
+		#result = self.app.get("/obligations/a")
+                #self.assertEqual(result.status, '404 NOT FOUND')
 
 	#test of GET method for get_obligation
 	def test_get_obligation(self):

@@ -36,14 +36,31 @@ def index():
 def get_all_obligations():
     db_connection, db_cursor = get_db() 
     response = ""
-    for row in db_cursor.execute("select * from " + ApplicationInfo.OBLIGATION_TABLE_NAME):
-        response = response + str(row) + "|\r\n"
 
+    data = []
+    for row in db_cursor.execute("select * from " + ApplicationInfo.OBLIGATION_TABLE_NAME):
+        #response = response + str(row) + "|\r\n"
+        obligation_entry = {'obligationid' : row[row_pos_obligationid], #obligationid
+            'userid'       : row[row_pos_userid], #userid
+            'name'         : row[row_pos_name], #name
+            'description'  : row[row_pos_description], #description
+            'starttime'    : row[row_pos_starttime], #starttime
+            'endtime'      : row[row_pos_endtime], #endtime
+            'priority'     : row[row_pos_priority], #priority
+            'status'       : row[row_pos_status], #status
+            'category'     : row[row_pos_category]} #category
+        
+        data.append(obligation_entry)
+    response = json.dumps(data)
     return response
 
 @app.route('/schedule')
 def sched():
     return render_template("Schedule.html")
+
+@app.route('/obligationlist')
+def obligationlist():
+    return render_template("ObligationList.html")
 
 @app.route('/obligations/<startTime>', methods = ['GET'])
 def get_obligations_by_date(startTime):

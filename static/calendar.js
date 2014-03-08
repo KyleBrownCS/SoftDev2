@@ -175,7 +175,7 @@ Calendar.prototype.checkDayForObligations = function(startTime)
 	{
 		if(obgFound != 1)
 		{
-			tempDate = obligations[i].startTime;
+			tempDate = obligations[i].starttime;
 			tempDate = tempDate.split(/\s+/);
 			tempDate = tempDate[0];
 			if(tempDate == startTime)
@@ -272,8 +272,8 @@ function editOglibation(obgid)
 		var obligid;
 		heading += "<div id='name2'>name: <input type='text' id='name' value='"+obligations[obgid-1].name+"'></input></div>";
 		heading += "<div id='description2'>Description: <input type='text' id='description' value='"+obligations[obgid-1].description+"'></input></div>";
-		heading += "<div id='stime2'>Start Time: <input type='text' id='stime' value='"+obligations[obgid-1].startTime+"'></input></div>";
-		heading += "<div id='etime2'>End Time: <input type='text' id='etime' value='"+obligations[obgid-1].endTime+"'></input></div>";
+		heading += "<div id='stime2'>Start Time: <input type='text' id='stime' value='"+obligations[obgid-1].starttime+"'></input></div>";
+		heading += "<div id='etime2'>End Time: <input type='text' id='etime' value='"+obligations[obgid-1].endtime+"'></input></div>";
 		heading += "<div id='pri2'>Priority: <input type='text' id='pri' value='"+obligations[obgid-1].priority+"'></input></div>";
 		heading += "<div id='cat2'>Category: <input type='text' id ='cat' value='"+obligations[obgid-1].category+"'></input></div>";
 		statusNum = parseInt(obligations[obgid-1].status);
