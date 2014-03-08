@@ -2,8 +2,11 @@ from flask import Flask, render_template, request, jsonify
 import sqlite3
 import json
 import re
+import logging
 
 from applicationInfo import ApplicationInfo
+
+logging.basicConfig(filename='/var/www/SoftDev2/projectGo.log', level=logging.DEBUG)
 
 app = Flask(__name__)
 applicationInfo = ApplicationInfo()
@@ -117,6 +120,8 @@ def create_obligation():
 
 @app.route('/obligations/<int:obligation_id>', methods = ['POST'])
 def modify_obligation(obligation_id):
+    logging.debug('attempting to edit obligation: ' + str(obligation_id))
+    logging.debug('incoming update data: ' + str(request.form))
     db_connection, db_cursor = get_db()
     response = ""
     response_code = None
@@ -165,12 +170,15 @@ def modify_obligation(obligation_id):
 
             db_connection.commit()
             response_code = 200
+            logging.debug('Obligation was updated and commited to the db')
         else:
+            logging.debug('Obligation ' + obligation_id + '  could not be found or does not exist')
             response = jsonify({'error': '404 - No such obligation id'})
             response_code = 404
     except Exception, e:
         response = jsonify({'error': str(e)})
         response_code = 500
+        logging.error('An error occured while trying to update obligation ' + obligation_id + '. error message: ' + str(e))
     
     #return ("<H1>Place Holder</H1>\r\n<H3>PATCH /obligations/:id</H3>\r\n\r\n<p>This method will modify/update an obligation for the user</p>")
     return response, response_code
