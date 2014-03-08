@@ -1,19 +1,60 @@
-$(document).ready(function(e) {
-    $.get('/obligations', function(data) {
-        obligationList = eval (data)
+var sortTypeObligationId = 0;
+var sortTypeUserId = 1;
+var sortTypePriority = 2;
+var sortTypeStatus = 3;
 
-        obligationList.sort(function(a,b){
-        if (a.priority < b.priority)
-            return 1;
-        if (a.priority > b.priority)
-            return -1;
-        return 0;
-        });
+$(document).ready(function(e) {
+    createSortedList(sortTypePriority)
+});
+
+function createSortedList(orderby){
+    $.get('/obligations', function(data) {
+        obligationList = eval (data);
+
+        switch(orderby)
+        {
+            case sortTypeUserId: 
+                obligationList.sort(function(a,b) {
+                if (a.userid < b.userid)
+                    return 1;
+                if (a.userid > b.userid)
+                    return -1;
+                return 0;
+                });
+                break;
+            case sortTypeObligationId:
+                obligationList.sort(function(a,b) {
+                if (a.obligationId < b.obligationId)
+                    return 1;
+                if (a.obligationId > b.obligationId)
+                    return -1;
+                return 0;
+                });
+                break;
+            case sortTypePriority:
+                obligationList.sort(function(a,b) {
+                if (a.priority < b.priority)
+                    return 1;
+                if (a.priority > b.priority)
+                    return -1;
+                return 0;
+                });
+                break;
+            case sortTypeStatus:
+                obligationList.sort(function(a,b) {
+                if (a.status < b.status)
+                    return 1;
+                if (a.status > b.status)
+                    return -1;
+                return 0;
+                });
+                break;
+        }
 
         var statuses = ['none','In Progress','Completed','Important','Requires Assistance'];
 
         //generate the table
-        var heading = "<table border='1'><th>ObligationID</th><th>UserID</th><th>Name</th><th>Description</th><th>StartTime</th><th>EndTime</th><th>Priority</th><th>Status</th><th>Modify</th>";
+        var heading = "<table border='1'><th>ObligationID <button onclick='reorderListObligationId()'>Reorder</button></th><th>UserID <button onclick='reorderListUserId()'>Reorder</button></th><th>Name</th><th>Description</th><th>StartTime</th><th>EndTime</th><th>Priority <button onclick='reorderListPriority()'>Reorder</button></th><th>Status <button onclick='reorderListStatus()'>Reorder</button></th><th>Modify</th>";
         for (var i = 0; i < obligationList.length; i++)
         {
             var currObligation = obligationList[i];
@@ -33,4 +74,21 @@ $(document).ready(function(e) {
 
         $('#sendTo').html(heading);
     });
-});
+}
+
+function reorderListUserId() {
+    createSortedList(sortTypeUserId)
+}
+
+function reorderListPriority() {
+    createSortedList(sortTypePriority)
+}
+
+function reorderListObligationId() {
+    createSortedList(sortTypeObligationId)
+}
+
+function reorderListStatus() {
+    createSortedList(sortTypeStatus)
+}
+
