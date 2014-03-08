@@ -50,13 +50,13 @@
         <form> 
           <div id="name2">Name: <input type="text" id="name"></div>
           <div id="description2">Description: <input type="text" id="description"></div>
-          <div id="datepickerstart2"><p>Start Date: <input type="text" id="datepickerstart"></p></div>
-          <div id="stime2"><p>Start time (If Applicable): <input id="stime" type="text" class="time ui-timepicker-input" autocomplete="off"></p></div>
-          <div id="datepickerend2"><p>End Date: <input type="text" id="datepickerend"></p></div>
-          <div id="etime2"><p>End time (If Applicable): <input id="etime" type="text" class="time ui-timepicker-input" autocomplete="off"></p></div>
+          <div id="datepickerstart2">Start Date: <input type="text" id="datepickerstart"></div>
+          <div id="stime2">Start time (If Applicable): <input id="stime" type="text" class="time ui-timepicker-input" autocomplete="off"></div>
+          <div id="datepickerend2">End Date: <input type="text" id="datepickerend"></div>
+          <div id="etime2">End time (If Applicable): <input id="etime" type="text" class="time ui-timepicker-input" autocomplete="off"></div>
           <div id="pri2">Priority: <input type="text" id="pri"></div>
           <div id="cat2">Category: <input type="text" id="cat"></div>
-			    Status: 
+			    Status:
 			    <select id="stat">
     			<option value=0>None</option>
     			<option value=1>In Progress</option>
@@ -64,6 +64,7 @@
     			<option value=3>Important</option>
     			<option value=4>Requires Assistance</option>
 			    </select><br>
+          <button id="clear" type="button">Clear Fields</button>
           <button id="submit1" type="button" name="submit">Submit</button>
         </form>
       </div>
@@ -84,8 +85,4 @@
 
     <!-- make sure this script is the last one loaded -->
     <script src="/static/projectgofeatures.js"></script>
- 
-    
-
-
 </body></html>
