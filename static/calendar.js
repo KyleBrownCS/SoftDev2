@@ -271,11 +271,11 @@ function editOglibation(obgid)
 		var statusNum = 0;
 		var obligid;
 		heading += "<div id='name2'>name: <input type='text' id='name' value='"+obligations[obgid-1].name+"'></input></div>";
-		heading += "<div id='description2'>Description: <input id='text' name='description' value='"+obligations[obgid-1].description+"'></input></div>";
+		heading += "<div id='description2'>Description: <input type='text' id='description' value='"+obligations[obgid-1].description+"'></input></div>";
 		heading += "<div id='stime2'>Start Time: <input type='text' id='stime' value='"+obligations[obgid-1].startTime+"'></input></div>";
-		heading += "<div id='etime2'>End Time: <input type='text' name='etime' value='"+obligations[obgid-1].endTime+"'></input></div>";
-		heading += "<div id='pri2'>Priority: <input type='text' name='pri' value='"+obligations[obgid-1].priority+"'></input></div>";
-		heading += "<div id='cat2'>Category: <input type='text' name ='cat' value='"+obligations[obgid-1].category+"'></input></div>";
+		heading += "<div id='etime2'>End Time: <input type='text' id='etime' value='"+obligations[obgid-1].endTime+"'></input></div>";
+		heading += "<div id='pri2'>Priority: <input type='text' id='pri' value='"+obligations[obgid-1].priority+"'></input></div>";
+		heading += "<div id='cat2'>Category: <input type='text' id ='cat' value='"+obligations[obgid-1].category+"'></input></div>";
 		statusNum = parseInt(obligations[obgid-1].status);
 		heading += "Status: <br> <select id='stat' selected="+statusNum+">";
 		heading += "<option value=0>None</option>";
