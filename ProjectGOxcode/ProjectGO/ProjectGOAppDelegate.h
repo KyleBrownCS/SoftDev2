@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProjectGOViewController.h"
 
-@interface ProjectGOAppDelegate : UIResponder <UIApplicationDelegate>
+@interface ProjectGOAppDelegate : NSObject <UIApplicationDelegate> {
+    UIWindow *window;
+    ProjectGOViewController *projectGOViewController;
+}
 
-@property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (nonatomic, retain) ProjectGOViewController *projectGoViewController;
 
 @end
