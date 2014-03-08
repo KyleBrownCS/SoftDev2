@@ -21,9 +21,8 @@
 		6B813A5218C0B0DB00D03A65 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B813A2E18C0B0DB00D03A65 /* Foundation.framework */; };
 		6B813A5318C0B0DB00D03A65 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B813A3218C0B0DB00D03A65 /* UIKit.framework */; };
 		6B813A5B18C0B0DB00D03A65 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B813A5918C0B0DB00D03A65 /* InfoPlist.strings */; };
-		6B813A5D18C0B0DB00D03A65 /* ProjectGoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B813A5C18C0B0DB00D03A65 /* ProjectGoTests.m */; };
+		6B813A5D18C0B0DB00D03A65 /* ProjectGOTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B813A5C18C0B0DB00D03A65 /* ProjectGOTests.m */; };
 		6B813A6718C0B12900D03A65 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B813A6618C0B12900D03A65 /* libsqlite3.dylib */; };
-		6B813A7018C0BDC300D03A65 /* Kal.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6B813A6F18C0BDC300D03A65 /* Kal.bundle */; };
 		6BBDB29718CB9BD300AAD64E /* NSArray+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBDB21518CB9BD200AAD64E /* NSArray+TKCategory.m */; };
 		6BBDB29818CB9BD300AAD64E /* NSDate+CalendarGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBDB21718CB9BD200AAD64E /* NSDate+CalendarGrid.m */; };
 		6BBDB29918CB9BD300AAD64E /* NSDate+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBDB21918CB9BD200AAD64E /* NSDate+TKCategory.m */; };
@@ -100,13 +99,6 @@
 			remoteGlobalIDString = 6B813A2A18C0B0DB00D03A65;
 			remoteInfo = ProjectGo;
 		};
-		6B813A6C18C0BDA300D03A65 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6B813A6818C0BDA300D03A65 /* Kal.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D;
-			remoteInfo = Kal;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -114,10 +106,10 @@
 		6B813A2E18C0B0DB00D03A65 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6B813A3018C0B0DB00D03A65 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6B813A3218C0B0DB00D03A65 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		6B813A3618C0B0DB00D03A65 /* ProjectGo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ProjectGo-Info.plist"; sourceTree = "<group>"; };
+		6B813A3618C0B0DB00D03A65 /* ProjectGO-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ProjectGO-Info.plist"; sourceTree = "<group>"; };
 		6B813A3818C0B0DB00D03A65 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6B813A3A18C0B0DB00D03A65 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6B813A3C18C0B0DB00D03A65 /* ProjectGo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ProjectGo-Prefix.pch"; sourceTree = "<group>"; };
+		6B813A3C18C0B0DB00D03A65 /* ProjectGO-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ProjectGO-Prefix.pch"; sourceTree = "<group>"; };
 		6B813A3D18C0B0DB00D03A65 /* ProjectGOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectGOAppDelegate.h; sourceTree = "<group>"; };
 		6B813A3E18C0B0DB00D03A65 /* ProjectGOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectGOAppDelegate.m; sourceTree = "<group>"; };
 		6B813A4118C0B0DB00D03A65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
@@ -127,12 +119,10 @@
 		6B813A4918C0B0DB00D03A65 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images.xcassets; sourceTree = "<group>"; };
 		6B813A4F18C0B0DB00D03A65 /* ProjectGoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectGoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B813A5018C0B0DB00D03A65 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		6B813A5818C0B0DB00D03A65 /* ProjectGoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ProjectGoTests-Info.plist"; sourceTree = "<group>"; };
+		6B813A5818C0B0DB00D03A65 /* ProjectGOTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ProjectGOTests-Info.plist"; sourceTree = "<group>"; };
 		6B813A5A18C0B0DB00D03A65 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6B813A5C18C0B0DB00D03A65 /* ProjectGoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectGoTests.m; sourceTree = "<group>"; };
+		6B813A5C18C0B0DB00D03A65 /* ProjectGOTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectGOTests.m; sourceTree = "<group>"; };
 		6B813A6618C0B12900D03A65 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		6B813A6818C0BDA300D03A65 /* Kal.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Kal.xcodeproj; path = "../../../Downloads/Kal-master-5/src/Kal.xcodeproj"; sourceTree = "<group>"; };
-		6B813A6F18C0BDC300D03A65 /* Kal.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Kal.bundle; sourceTree = "<group>"; };
 		6BBDB21418CB9BD200AAD64E /* NSArray+TKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+TKCategory.h"; sourceTree = "<group>"; };
 		6BBDB21518CB9BD200AAD64E /* NSArray+TKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+TKCategory.m"; sourceTree = "<group>"; };
 		6BBDB21618CB9BD200AAD64E /* NSDate+CalendarGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+CalendarGrid.h"; sourceTree = "<group>"; };
@@ -336,18 +326,17 @@
 				6B813A4918C0B0DB00D03A65 /* Images.xcassets */,
 				6B813A3518C0B0DB00D03A65 /* Supporting Files */,
 			);
-			path = ProjectGo;
+			name = ProjectGo;
+			path = ProjectGO;
 			sourceTree = "<group>";
 		};
 		6B813A3518C0B0DB00D03A65 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6B813A6F18C0BDC300D03A65 /* Kal.bundle */,
-				6B813A6818C0BDA300D03A65 /* Kal.xcodeproj */,
-				6B813A3618C0B0DB00D03A65 /* ProjectGo-Info.plist */,
+				6B813A3618C0B0DB00D03A65 /* ProjectGO-Info.plist */,
 				6B813A3718C0B0DB00D03A65 /* InfoPlist.strings */,
 				6B813A3A18C0B0DB00D03A65 /* main.m */,
-				6B813A3C18C0B0DB00D03A65 /* ProjectGo-Prefix.pch */,
+				6B813A3C18C0B0DB00D03A65 /* ProjectGO-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -355,27 +344,20 @@
 		6B813A5618C0B0DB00D03A65 /* ProjectGoTests */ = {
 			isa = PBXGroup;
 			children = (
-				6B813A5C18C0B0DB00D03A65 /* ProjectGoTests.m */,
+				6B813A5C18C0B0DB00D03A65 /* ProjectGOTests.m */,
 				6B813A5718C0B0DB00D03A65 /* Supporting Files */,
 			);
-			path = ProjectGoTests;
+			name = ProjectGoTests;
+			path = ProjectGOTests;
 			sourceTree = "<group>";
 		};
 		6B813A5718C0B0DB00D03A65 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6B813A5818C0B0DB00D03A65 /* ProjectGoTests-Info.plist */,
+				6B813A5818C0B0DB00D03A65 /* ProjectGOTests-Info.plist */,
 				6B813A5918C0B0DB00D03A65 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		6B813A6918C0BDA300D03A65 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				6B813A6D18C0BDA300D03A65 /* libKal.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		6BBDB20F18CB9A7200AAD64E /* Libraries */ = {
@@ -589,12 +571,6 @@
 			mainGroup = 6B813A2218C0B0DB00D03A65;
 			productRefGroup = 6B813A2C18C0B0DB00D03A65 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 6B813A6918C0BDA300D03A65 /* Products */;
-					ProjectRef = 6B813A6818C0BDA300D03A65 /* Kal.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				6B813A2A18C0B0DB00D03A65 /* ProjectGo */,
@@ -603,22 +579,11 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		6B813A6D18C0BDA300D03A65 /* libKal.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libKal.a;
-			remoteRef = 6B813A6C18C0BDA300D03A65 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
 		6B813A2918C0B0DB00D03A65 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B813A7018C0BDC300D03A65 /* Kal.bundle in Resources */,
 				6B813A4518C0B0DB00D03A65 /* Main_iPad.storyboard in Resources */,
 				6B813A4A18C0B0DB00D03A65 /* Images.xcassets in Resources */,
 				6BBDB2D918CB9C0C00AAD64E /* TapkuLibrary.bundle in Resources */,
@@ -717,7 +682,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B813A5D18C0B0DB00D03A65 /* ProjectGoTests.m in Sources */,
+				6B813A5D18C0B0DB00D03A65 /* ProjectGOTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -847,8 +812,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ProjectGo/ProjectGo-Prefix.pch";
-				INFOPLIST_FILE = "ProjectGo/ProjectGo-Info.plist";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/ProjectGO/ProjectGO-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/ProjectGO/ProjectGO-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -860,8 +825,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ProjectGo/ProjectGo-Prefix.pch";
-				INFOPLIST_FILE = "ProjectGo/ProjectGo-Info.plist";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/ProjectGO/ProjectGO-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/ProjectGO/ProjectGO-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
