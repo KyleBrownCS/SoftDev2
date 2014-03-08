@@ -325,6 +325,29 @@ function closeView(data, obgid)
                 status: stat,
                 category: cat
             })
+            .done(function (data) {
+                  setTimeout(function() {
+                    $.bootstrapGrowl("Data successfully received!", { 
+                            type: 'success',
+                            allow_dismiss: true,
+                            align: 'center',
+                            width: 'auto',
+                            offset: {from: 'left', amount: 800}
+                             });
+                });
+            })
+            .fail(function (data) 
+			{
+                $.bootstrapGrowl("Failed to send in Obligation information! Please retry.", 
+				{
+                type: 'error',
+                align: 'center',
+                width: 'auto',
+                offset: {from: 'top', amount: 200},
+                allow_dismiss: true,
+                delay: 5000,
+				});
+			});
 			
 		$("#obligations").show();
 		$("#sendTo").show();
