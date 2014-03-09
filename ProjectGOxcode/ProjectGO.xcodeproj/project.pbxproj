@@ -13,8 +13,6 @@
 		6B813A3918C0B0DB00D03A65 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B813A3718C0B0DB00D03A65 /* InfoPlist.strings */; };
 		6B813A3B18C0B0DB00D03A65 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B813A3A18C0B0DB00D03A65 /* main.m */; };
 		6B813A3F18C0B0DB00D03A65 /* ProjectGOAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B813A3E18C0B0DB00D03A65 /* ProjectGOAppDelegate.m */; };
-		6B813A4218C0B0DB00D03A65 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B813A4018C0B0DB00D03A65 /* Main_iPhone.storyboard */; };
-		6B813A4518C0B0DB00D03A65 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B813A4318C0B0DB00D03A65 /* Main_iPad.storyboard */; };
 		6B813A4818C0B0DB00D03A65 /* ProjectGOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B813A4718C0B0DB00D03A65 /* ProjectGOViewController.m */; };
 		6B813A4A18C0B0DB00D03A65 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B813A4918C0B0DB00D03A65 /* Images.xcassets */; };
 		6B813A5118C0B0DB00D03A65 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B813A5018C0B0DB00D03A65 /* XCTest.framework */; };
@@ -89,6 +87,8 @@
 		6BBDB2D618CB9BD300AAD64E /* UIView+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBDB29418CB9BD300AAD64E /* UIView+TKCategory.m */; };
 		6BBDB2D718CB9BD300AAD64E /* UIViewController+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBDB29618CB9BD300AAD64E /* UIViewController+TKCategory.m */; };
 		6BBDB2D918CB9C0C00AAD64E /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6BBDB2D818CB9C0C00AAD64E /* TapkuLibrary.bundle */; };
+		EEBCA0D418CBDD6B005830A7 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEBCA0D018CBDD6B005830A7 /* Main_iPad.storyboard */; };
+		EEBCA0D518CBDD6B005830A7 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEBCA0D218CBDD6B005830A7 /* Main_iPhone.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,8 +112,6 @@
 		6B813A3C18C0B0DB00D03A65 /* ProjectGO-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ProjectGO-Prefix.pch"; sourceTree = "<group>"; };
 		6B813A3D18C0B0DB00D03A65 /* ProjectGOAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectGOAppDelegate.h; sourceTree = "<group>"; };
 		6B813A3E18C0B0DB00D03A65 /* ProjectGOAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectGOAppDelegate.m; sourceTree = "<group>"; };
-		6B813A4118C0B0DB00D03A65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		6B813A4418C0B0DB00D03A65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		6B813A4618C0B0DB00D03A65 /* ProjectGOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectGOViewController.h; sourceTree = "<group>"; };
 		6B813A4718C0B0DB00D03A65 /* ProjectGOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectGOViewController.m; sourceTree = "<group>"; };
 		6B813A4918C0B0DB00D03A65 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images.xcassets; sourceTree = "<group>"; };
@@ -255,6 +253,8 @@
 		6BBDB29518CB9BD300AAD64E /* UIViewController+TKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TKCategory.h"; sourceTree = "<group>"; };
 		6BBDB29618CB9BD300AAD64E /* UIViewController+TKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TKCategory.m"; sourceTree = "<group>"; };
 		6BBDB2D818CB9C0C00AAD64E /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TapkuLibrary.bundle; sourceTree = "<group>"; };
+		EEBCA0D118CBDD6B005830A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ProjectGO/Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		EEBCA0D318CBDD6B005830A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ProjectGO/Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,10 +317,10 @@
 		6B813A3418C0B0DB00D03A65 /* ProjectGo */ = {
 			isa = PBXGroup;
 			children = (
+				EEBCA0D018CBDD6B005830A7 /* Main_iPad.storyboard */,
+				EEBCA0D218CBDD6B005830A7 /* Main_iPhone.storyboard */,
 				6B813A3D18C0B0DB00D03A65 /* ProjectGOAppDelegate.h */,
 				6B813A3E18C0B0DB00D03A65 /* ProjectGOAppDelegate.m */,
-				6B813A4018C0B0DB00D03A65 /* Main_iPhone.storyboard */,
-				6B813A4318C0B0DB00D03A65 /* Main_iPad.storyboard */,
 				6B813A4618C0B0DB00D03A65 /* ProjectGOViewController.h */,
 				6B813A4718C0B0DB00D03A65 /* ProjectGOViewController.m */,
 				6B813A4918C0B0DB00D03A65 /* Images.xcassets */,
@@ -584,10 +584,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B813A4518C0B0DB00D03A65 /* Main_iPad.storyboard in Resources */,
 				6B813A4A18C0B0DB00D03A65 /* Images.xcassets in Resources */,
+				EEBCA0D418CBDD6B005830A7 /* Main_iPad.storyboard in Resources */,
+				EEBCA0D518CBDD6B005830A7 /* Main_iPhone.storyboard in Resources */,
 				6BBDB2D918CB9C0C00AAD64E /* TapkuLibrary.bundle in Resources */,
-				6B813A4218C0B0DB00D03A65 /* Main_iPhone.storyboard in Resources */,
 				6B813A3918C0B0DB00D03A65 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -705,28 +705,30 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		6B813A4018C0B0DB00D03A65 /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6B813A4118C0B0DB00D03A65 /* Base */,
-			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		6B813A4318C0B0DB00D03A65 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6B813A4418C0B0DB00D03A65 /* Base */,
-			);
-			name = Main_iPad.storyboard;
-			sourceTree = "<group>";
-		};
 		6B813A5918C0B0DB00D03A65 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				6B813A5A18C0B0DB00D03A65 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		EEBCA0D018CBDD6B005830A7 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEBCA0D118CBDD6B005830A7 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		EEBCA0D218CBDD6B005830A7 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEBCA0D318CBDD6B005830A7 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

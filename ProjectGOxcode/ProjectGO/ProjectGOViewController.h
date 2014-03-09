@@ -21,6 +21,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *status;
 @property (strong, nonatomic) IBOutlet UITextField *category;
 @property (strong, nonatomic) IBOutlet UILabel *statuslbl;
+@property (strong, nonatomic) IBOutlet UITextField *obID;
 
 
 //- (IBAction)saveData:(id)sender;
