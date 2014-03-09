@@ -56,7 +56,6 @@ function createSortedList(orderby){
         currline += currObligation.endtime + "<td>";
         currline += String(currObligation.priority) + "<td>";
         currline += statuses[currObligation.status]  + "<td>";
-        currline += currObligation.obligationid  + "<td>";
 
         heading += currline + "<button onclick='deleteObligation("+ currObligation.obligationid +")'>Delete</button>" + "</tr>";
     }
