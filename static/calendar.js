@@ -73,7 +73,7 @@ Calendar.prototype.calculateCalendar = function()
 	prevMonth = this.calenMonth -1;
 	nextYear = this.calenYear;
 	nextMonth = this.calenMonth + 1;
-	if(prevMonth == -2)
+	if(prevMonth == -1)
 	{
 		prevYear = this.calenYear - 1;
 		prevMonth = 11;
@@ -208,7 +208,7 @@ function getObligationsFromDB(startTime)
 			var statusNum = 0;
 			var colors = ['black', 'yellow', 'green', 'blue', 'red'];
 			var obligationFields = ['obligationid','userid','name','description','startTime','endTime','priority','status','category'];
-			var heading = "<table border='1'><th>Name</th><th>Description</th><th>StartTime</th><th>EndTime</th><th>Priority</th><th>Status</th><th>Modify</th>";
+			var heading = "<table border='1'><th width='135'>Name</th><th  width='170'>Description</th><th width='170'>StartTime</th><th width='170'>EndTime</th><th>Priority</th><th width='170'>Status</th><th>Modify</th>";
 			var mainData = "";
 			var currline = "<tr>";
 			var obgid = 0;
