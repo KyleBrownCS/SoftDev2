@@ -208,10 +208,11 @@ function getObligationsFromDB(startTime)
 			var statusNum = 0;
 			var colors = ['black', 'yellow', 'green', 'blue', 'red'];
 			var obligationFields = ['obligationid','userid','name','description','startTime','endTime','priority','status','category'];
-			var heading = "<table border='1'><th>ObligationID</th><th>UserID</th><th>Name</th><th>Description</th><th>StartTime</th><th>EndTime</th><th>Priority</th><th>Status</th><th>Modify</th>";
+			var heading = "<table border='1'><th>Name</th><th>Description</th><th>StartTime</th><th>EndTime</th><th>Priority</th><th>Status</th><th>Modify</th>";
 			var mainData = "";
 			var currline = "<tr>";
 			var obgid = 0;
+			var useridCol = 1;
 			var statusCol = 7;
 			var obgidCol = 0;
 			var editCol = 8;
@@ -230,8 +231,12 @@ function getObligationsFromDB(startTime)
 						{
 							obgid = miniparts[j];
 						}
+						else if(j == useridCol)
+						{
+							//Do nothing... we dont want to print the user's id
+						}
 						//If it's processing a status, show the string instead of the integer value
-						if(j == statusCol)
+						else if(j == statusCol)
 						{
 							statusNum = parseInt(miniparts[j]);
 							color = colors[statusNum];
