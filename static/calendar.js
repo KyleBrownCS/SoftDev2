@@ -193,6 +193,7 @@ function getObligationsFromDB(startTime)
 	var gotData = 0;
     $.get('/obligations/'+startTime, function(data) 
 	{
+	
 		if(data != null && data != "")
 		{
 			gotData = 1;
@@ -278,11 +279,27 @@ function editOglibation(obgid)
 		heading += "<div id='cat2'>Category: <input type='text' id ='cat' value='"+obligations[obgid-1].category+"'></input></div>";
 		statusNum = parseInt(obligations[obgid-1].status);
 		heading += "Status: <br> <select id='stat' selected="+statusNum+">";
-		heading += "<option value=0>None</option>";
-		heading += "<option value=1>In Progress</option>";
-		heading += "<option value=2>Completed</option>";
-		heading += "<option value=3>Important</option>";
-		heading += "<option value=4>Requires Assistance</option></select></br>";
+		if(0 == statusNum)
+			heading += "<option value=0 selected>None</option>";
+		else
+			heading += "<option value=0>None</option>";
+		if(1 == statusNum)
+			heading += "<option value=1 selected>In Progress</option>";
+		else
+			heading += "<option value=1>In Progress</option>";
+		if(2 == statusNum)
+			heading += "<option value=2 selected>Completed</option>";
+		else
+			heading += "<option value=2>Completed</option>";
+		if(3 == statusNum)
+			heading += "<option value=3 selected>Important</option>";
+		else
+			heading += "<option value=3>Important</option>";
+		if(4 == statusNum)
+			heading += "<option value=4 selected>Requires Assistance</option></select></br>";
+		else
+			heading += "<option value=4>Requires Assistance</option></select></br>";
+		
 		obligid = parseInt(obligations[obgid-1].obligationid);
 		heading += '<input type="button" value="close" onclick="closeView(this.value,'+obligid+')"/>';
 		heading += '<input type="button" value="submit" onclick="closeView(this.value,'+obligid+' )"/>';
