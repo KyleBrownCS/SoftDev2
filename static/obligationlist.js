@@ -1,32 +1,23 @@
-var sortTypeObligationId = 0;
-var sortTypeUserId = 1;
-var sortTypePriority = 2;
-var sortTypeStatus = 3;
+var sortTypeName = 0;
+var sortTypePriority = 1;
+var sortTypeStatus = 2;
+
 var obligationList = null;
 
 $(document).ready(function(e) {
     $.get('/obligations', function(data) {
-        obligationList = eval (data);
+        obligationList = eval(data);
         createSortedList(sortTypePriority);
     });
 });
 
 function createSortedList(orderby){
     switch(orderby) {
-        case sortTypeUserId: 
+        case sortTypeName:
             obligationList.sort(function(a,b) {
-                if (a.userid < b.userid)
+                if (a.name > b.name)
                     return 1;
-                if (a.userid > b.userid)
-                    return -1;
-                return 0;
-            });
-            break;
-        case sortTypeObligationId:
-            obligationList.sort(function(a,b) {
-                if (a.obligationid < b.obligationid)
-                    return 1;
-                if (a.obligationid > b.obligationid)
+                if (a.name < b.name)
                     return -1;
                 return 0;
             });
@@ -54,20 +45,17 @@ function createSortedList(orderby){
     var statuses = ['none','In Progress','Completed','Important','Requires Assistance'];
 
     //generate the table
-    var heading = "<table border='1'><th>ObligationID <button onclick='reorderListObligationId()'>Reorder</button></th><th>UserID <button onclick='reorderListUserId()'>Reorder</button></th><th>Name</th><th>Description</th><th>StartTime</th><th>EndTime</th><th>Priority <button onclick='reorderListPriority()'>Reorder</button></th><th>Status <button onclick='reorderListStatus()'>Reorder</button></th><th>Modify</th>";
+    var heading = "<table border='1'><th>Name<button onclick='reorderListName()'>Reorder</button></th><th>Description</th><th>StartTime</th><th>EndTime</th><th>Priority <button onclick='reorderListPriority()'>Reorder</button></th><th>Status <button onclick='reorderListStatus()'>Reorder</button></th><th>Modify</th>";
     for (var i = 0; i < obligationList.length; i++)
     {
         var currObligation = obligationList[i];
         var currline = "<tr><td>";
-        currline += currObligation.obligationid + "<td>";
-        currline += currObligation.userid + "<td>";
         currline += currObligation.name + "<td>";
         currline += currObligation.description + "<td>";
         currline += currObligation.starttime + "<td>";
         currline += currObligation.endtime + "<td>";
         currline += String(currObligation.priority) + "<td>";
         currline += statuses[currObligation.status]  + "<td>";
-
         heading += currline + "</tr>";
     }
     heading += "</table>";
@@ -75,16 +63,12 @@ function createSortedList(orderby){
     $('#sendTo').html(heading);
 }
 
-function reorderListUserId() {
-    createSortedList(sortTypeUserId)
-}
-
 function reorderListPriority() {
     createSortedList(sortTypePriority)
 }
 
-function reorderListObligationId() {
-    createSortedList(sortTypeObligationId)
+function reorderListName() {
+    createSortedList(sortTypeName)
 }
 
 function reorderListStatus() {

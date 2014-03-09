@@ -73,7 +73,7 @@ Calendar.prototype.calculateCalendar = function()
 	prevMonth = this.calenMonth -1;
 	nextYear = this.calenYear;
 	nextMonth = this.calenMonth + 1;
-	if(prevMonth == -2)
+	if(prevMonth == -1)
 	{
 		prevYear = this.calenYear - 1;
 		prevMonth = 11;
@@ -92,7 +92,7 @@ Calendar.prototype.calculateCalendar = function()
 	//Initialize Monday-Sunday headers
 	for(var i = 0; i <= 6; i++ )
 	{
-		htmlCode += '<td  width="120">';
+		htmlCode += '<td  width="130">';
 		htmlCode += weekDays[i];
 		htmlCode += '</td>';
 	}
@@ -108,11 +108,6 @@ Calendar.prototype.calculateCalendar = function()
 				htmlCode += '<td>';
 				if (day <= monthLength && (i > 0 || j >= startingDay)) 
 				{
-					if(day == currentDay && currentMonth == this.calenMonth && currentYear == this.calenYear)
-						htmlCode += '<span style="color:red;">'+day+'</span>';
-					else
-						htmlCode += day;
-					
 					year = this.calenYear;
 					month = this.calenMonth +1;
 					if(month <= 9)
@@ -125,10 +120,20 @@ Calendar.prototype.calculateCalendar = function()
 						date = '0'+date;
 					}
 					dateString = ""+year+"-"+month+"-"+date;	
-					 if(this.checkDayForObligations(dateString) == 1)
-					 {
-						 htmlCode += '<input type="button" onclick="getObligationsFromDB(\''+dateString.toString()+'\')" style="width: 110px; height: 40px;" value="View Obligations"></button>';
-					 }
+					if(day == currentDay && currentMonth == this.calenMonth && currentYear == this.calenYear)
+					{
+						//alert("You have one or more obligation today! Check them on your schedule");
+						if(this.checkDayForObligations(dateString) == 1)
+							alert("You have one or more obligation today! Check them on your schedule");
+						htmlCode += '<b><span style="color:red; ">'+day+'</span></b>';
+					}
+					else
+						htmlCode += day;
+						
+					if(this.checkDayForObligations(dateString) == 1)
+					{
+						htmlCode += '<input type="button" onclick="getObligationsFromDB(\''+dateString.toString()+'\')" style="width: 110px; height: 40px;" value="View Obligations"></button>';
+					}
 
 					
 					day++;
@@ -203,10 +208,11 @@ function getObligationsFromDB(startTime)
 			var statusNum = 0;
 			var colors = ['black', 'yellow', 'green', 'blue', 'red'];
 			var obligationFields = ['obligationid','userid','name','description','startTime','endTime','priority','status','category'];
-			var heading = "<table border='1'><th>ObligationID</th><th>UserID</th><th>Name</th><th>Description</th><th>StartTime</th><th>EndTime</th><th>Priority</th><th>Status</th><th>Modify</th>";
+			var heading = "<table border='1'><th width='135'>Name</th><th  width='170'>Description</th><th width='170'>StartTime</th><th width='170'>EndTime</th><th>Priority</th><th width='170'>Status</th><th>Modify</th>";
 			var mainData = "";
 			var currline = "<tr>";
 			var obgid = 0;
+			var useridCol = 1;
 			var statusCol = 7;
 			var obgidCol = 0;
 			var editCol = 8;
@@ -225,8 +231,12 @@ function getObligationsFromDB(startTime)
 						{
 							obgid = miniparts[j];
 						}
+						else if(j == useridCol)
+						{
+							//Do nothing... we dont want to print the user's id
+						}
 						//If it's processing a status, show the string instead of the integer value
-						if(j == statusCol)
+						else if(j == statusCol)
 						{
 							statusNum = parseInt(miniparts[j]);
 							color = colors[statusNum];
@@ -303,6 +313,7 @@ function editOglibation(obgid)
 		obligid = parseInt(obligations[obgid-1].obligationid);
 		heading += '<input type="button" value="close" onclick="closeView(this.value,'+obligid+')"/>';
 		heading += '<input type="button" value="submit" onclick="closeView(this.value,'+obligid+' )"/>';
+		heading += '<input type="button" value="clear" onclick="closeView(this.value,'+obligid+' )"/>';
 		$("#editContent").html(heading);
 		$("#dial").show();
 		var editor = document.getElementById( 'editForm' );
@@ -323,7 +334,21 @@ function closeView(data, obgid)
     var cat = $("#cat").val();
     var errMsg = "";
     var cont = true;
-
+	
+	
+	
+	if('clear' == data)
+	{
+		$("#name").val("");
+		$("#description").val("");
+		$("#datepickerstart").val("");
+		$("#datepickerend").val("");
+		$('#stime').val("");
+		$('#etime').val("");
+		$("#pri").val("");
+		$("#stat").val("");
+		$("#cat").val("");
+	}
 	if('close' == data)
 	{
 		$("#obligations").show();
