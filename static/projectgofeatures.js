@@ -272,15 +272,3 @@ $('.delete1').on('click', function() {
         }
     });
 })
-
-function ISO8601Converter(rawDate){ //"YYYY-MM-DD"
-    return rawDate.getUTCFullYear() + "-" + zeroPad((rawDate.getMonth() + 1), '00') + "-" + zeroPad(rawDate.getDate(), '00');
-}
-
-function timeConverter(rawTime){ //"HH:MM:SS.SSS"
-    return zeroPad(rawTime.getHours(), '00') + ":" + zeroPad(rawTime.getMinutes(), '00') + ":" + zeroPad(rawTime.getSeconds(), '00') + "." + zeroPad(rawTime.getMilliseconds(), '000');
-}
-
-function zeroPad(num, field){
-    return field.substring(0, field.length - num.toString().length) + num;
-}
