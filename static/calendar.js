@@ -92,7 +92,7 @@ Calendar.prototype.calculateCalendar = function()
 	//Initialize Monday-Sunday headers
 	for(var i = 0; i <= 6; i++ )
 	{
-		htmlCode += '<td  width="120">';
+		htmlCode += '<td  width="130">';
 		htmlCode += weekDays[i];
 		htmlCode += '</td>';
 	}
@@ -108,11 +108,6 @@ Calendar.prototype.calculateCalendar = function()
 				htmlCode += '<td>';
 				if (day <= monthLength && (i > 0 || j >= startingDay)) 
 				{
-					if(day == currentDay && currentMonth == this.calenMonth && currentYear == this.calenYear)
-						htmlCode += '<span style="color:red;">'+day+'</span>';
-					else
-						htmlCode += day;
-					
 					year = this.calenYear;
 					month = this.calenMonth +1;
 					if(month <= 9)
@@ -125,10 +120,20 @@ Calendar.prototype.calculateCalendar = function()
 						date = '0'+date;
 					}
 					dateString = ""+year+"-"+month+"-"+date;	
-					 if(this.checkDayForObligations(dateString) == 1)
-					 {
-						 htmlCode += '<input type="button" onclick="getObligationsFromDB(\''+dateString.toString()+'\')" style="width: 110px; height: 40px;" value="View Obligations"></button>';
-					 }
+					if(day == currentDay && currentMonth == this.calenMonth && currentYear == this.calenYear)
+					{
+						//alert("You have one or more obligation today! Check them on your schedule");
+						if(this.checkDayForObligations(dateString) == 1)
+							alert("You have one or more obligation today! Check them on your schedule");
+						htmlCode += '<b><span style="color:red; ">'+day+'</span></b>';
+					}
+					else
+						htmlCode += day;
+						
+					if(this.checkDayForObligations(dateString) == 1)
+					{
+						htmlCode += '<input type="button" onclick="getObligationsFromDB(\''+dateString.toString()+'\')" style="width: 110px; height: 40px;" value="View Obligations"></button>';
+					}
 
 					
 					day++;
