@@ -313,6 +313,7 @@ function editOglibation(obgid)
 		obligid = parseInt(obligations[obgid-1].obligationid);
 		heading += '<input type="button" value="close" onclick="closeView(this.value,'+obligid+')"/>';
 		heading += '<input type="button" value="submit" onclick="closeView(this.value,'+obligid+' )"/>';
+		heading += '<input type="button" value="clear" onclick="closeView(this.value,'+obligid+' )"/>';
 		$("#editContent").html(heading);
 		$("#dial").show();
 		var editor = document.getElementById( 'editForm' );
@@ -333,7 +334,21 @@ function closeView(data, obgid)
     var cat = $("#cat").val();
     var errMsg = "";
     var cont = true;
-
+	
+	
+	
+	if('clear' == data)
+	{
+		$("#name").val("");
+		$("#description").val("");
+		$("#datepickerstart").val("");
+		$("#datepickerend").val("");
+		$('#stime').val("");
+		$('#etime').val("");
+		$("#pri").val("");
+		$("#stat").val("");
+		$("#cat").val("");
+	}
 	if('close' == data)
 	{
 		$("#obligations").show();
