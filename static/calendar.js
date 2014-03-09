@@ -315,19 +315,60 @@ function closeView(data, obgid)
 	}
 	else if('submit' == data)
 	{
-        $.post('/obligations/'+obgid+"",{
-                userid:"1",
-                name: nm,
-                description: desc,
-                starttime: startim,
-                endtime: endtim,
-                priority: pri,
-                status: stat,
-                category: cat
-            })
-			
-		$("#obligations").show();
-		$("#sendTo").show();
-		$("#dial").hide();
+		if(nm.length > 20 || nm.length == 0 )
+		{
+			cont = false;
+			$('#name2').css('background-color', 'red');
+		}
+		if(desc.length > 200)
+		{
+			cont = false;
+			$('#description2').css('background-color', 'red');
+		}
+		if(!$.isNumeric(pri))
+		{
+			cont = false;
+			$('#pri2').css('background-color', 'red');
+		}
+		//New errorcheck for dropdown status bar
+		if(stat > 4 && stat < 0)
+		{
+			cont = false;
+			$('#stat2').css('background-color', 'red');
+		}
+		if(!$.isNumeric(cat))
+		{
+			cont = false;
+			$('#cat2').css('background-color', 'red');
+		}
+		if(cont)
+		{
+			$.post('/obligations/'+obgid+"",{
+					userid:"1",
+					name: nm,
+					description: desc,
+					starttime: startim,
+					endtime: endtim,
+					priority: pri,
+					status: stat,
+					category: cat
+				})
+			$("#obligations").show();
+			$("#sendTo").show();
+			$("#dial").hide();
+		}
+		else
+		{
+			$.bootstrapGrowl("Please fix the selections labeled in red before trying to submit your obligation", {
+				type: 'info',
+				align: 'center',
+				width: 'auto',
+				offset: {from: 'top', amount: 200},
+				allow_dismiss: true,
+				delay: 5000,
+			  });
+		}
+		
+
 	}
 }
