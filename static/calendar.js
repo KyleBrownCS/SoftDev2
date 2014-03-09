@@ -277,44 +277,88 @@ function editOglibation(obgid)
 {
     $.get('/obligations/'+obgid+"", function(data) 
 	{
-
 		var heading = "";
 		var statusNum = 0;
 		var obligid;
-		heading += "<div id='name2'>name: <input type='text' id='name' value='"+obligations[obgid-1].name+"'></input></div>";
-		heading += "<div id='description2'>Description: <input type='text' id='description' value='"+obligations[obgid-1].description+"'></input></div>";
-		heading += "<div id='stime2'>Start Time: <input type='text' id='stime' value='"+obligations[obgid-1].starttime+"'></input></div>";
-		heading += "<div id='etime2'>End Time: <input type='text' id='etime' value='"+obligations[obgid-1].endtime+"'></input></div>";
-		heading += "<div id='pri2'>Priority: <input type='text' id='pri' value='"+obligations[obgid-1].priority+"'></input></div>";
-		heading += "<div id='cat2'>Category: <input type='text' id ='cat' value='"+obligations[obgid-1].category+"'></input></div>";
+
+		$("#editContent").append('<form> \
+  <div id="name2">Name: <input type="text" id="name"></div>\
+  <div id="description2">Description: <input type="text" id="description"></div>\
+  <div id="datepickerstart2">Start Date: <input type="text" id="datepickerstart"></div>\
+  <div id="stime2">Start time (If Applicable): <input id="stime" type="text" class="time ui-timepicker-input" autocomplete="off"></div>\
+  <div id="datepickerend2">End Date: <input type="text" id="datepickerend"></div>\
+  <div id="etime2">End time (If Applicable): <input id="etime" type="text" class="time ui-timepicker-input" autocomplete="off"></div>\
+  <div id="pri2">Priority: <input type="text" id="pri"></div>\
+  <div id="cat2">Category: <input type="text" id="cat"></div>\
+  Status:\
+  <select id="stat">\
+  <option value=0>None</option>\
+  <option value=1>In Progress</option>\
+  <option value=2>Completed</option>\
+  <option value=3>Important</option>\
+  <option value=4>Requires Assistance</option>\
+  </select><br>\
+</form>');
+		$("#name").val(obligations[obgid-1].name);
+		$("#description").val(obligations[obgid-1].description);
+
+		bootdatepickers();  //External file datepickerLoad.js
+
+		var timeParts;
+		var values;
+		var startDate;
+		var startTime;
+		var endDate;
+		var endTime;
+
+		timeParts = obligations[obgid-1].starttime
+		timeParts = timeParts.split(" ");
+		values = timeParts[0].split('-');
+		startDate = new Date(values[0], (parseInt(values[1])-1).toString(), values[2]);
+
+		if(timeParts.length == 2)
+		{
+			var values2 = timeParts[1].replace(".", ":").split(":");
+			startTime = new Date(values[0], (parseInt(values[1]) - 1).toString(), values[2], values2[0], values2[1], values2[2], values2[3]);
+		}
+		else
+		{
+			startTime = "";
+		}
+
+		timeParts = obligations[obgid-1].endtime.split(" ");
+		values = timeParts[0].split('-');
+		endDate = new Date(values[0], (parseInt(values[1]) - 1).toString(), values[2], 0, 0, 0, 0);
+
+		if(timeParts.length == 2)
+		{
+			var values2 = timeParts[1].replace(".", ":").split(":");
+			endTime = new Date(values[0], (parseInt(values[1]) - 1).toString(), values[2], values2[0], values2[1], values2[2], values2[3]);
+		}
+		else
+		{
+			endTime = "";
+		}
+
+		$("#datepickerstart").datepicker("setDate", startDate);
+		$("#datepickerend").datepicker("setDate", endDate);
+
+		$("#stime").timepicker({ 'scrollDefaultNow': true });
+    	$("#etime").timepicker({ 'scrollDefaultNow': true });
+		$("#stime").timepicker('setTime', startTime);
+		$("#etime").timepicker('setTime', endTime);
+
+
+		$("#pri").val(obligations[obgid-1].priority);
+		$("#cat").val(obligations[obgid-1].category);
 		statusNum = parseInt(obligations[obgid-1].status);
-		heading += "Status: <br> <select id='stat' selected="+statusNum+">";
-		if(0 == statusNum)
-			heading += "<option value=0 selected>None</option>";
-		else
-			heading += "<option value=0>None</option>";
-		if(1 == statusNum)
-			heading += "<option value=1 selected>In Progress</option>";
-		else
-			heading += "<option value=1>In Progress</option>";
-		if(2 == statusNum)
-			heading += "<option value=2 selected>Completed</option>";
-		else
-			heading += "<option value=2>Completed</option>";
-		if(3 == statusNum)
-			heading += "<option value=3 selected>Important</option>";
-		else
-			heading += "<option value=3>Important</option>";
-		if(4 == statusNum)
-			heading += "<option value=4 selected>Requires Assistance</option></select></br>";
-		else
-			heading += "<option value=4>Requires Assistance</option></select></br>";
-		
+		$("#stat").val(statusNum);
 		obligid = parseInt(obligations[obgid-1].obligationid);
-		heading += '<input type="button" value="close" onclick="closeView(this.value,'+obligid+')"/>';
-		heading += '<input type="button" value="submit" onclick="closeView(this.value,'+obligid+' )"/>';
-		heading += '<input type="button" value="clear" onclick="closeView(this.value,'+obligid+' )"/>';
-		$("#editContent").html(heading);
+
+		heading += '<input type="button" value="close" onclick="closeView(this.value,' + obligid + ')"/>';
+		heading += '<input type="button" value="submit" onclick="closeView(this.value,' + obligid + ' )"/>';
+		heading += '<input type="button" value="clear" onclick="closeView(this.value,' + obligid + ' )"/>';
+		$("#editContent").append(heading);
 		$("#dial").show();
 		var editor = document.getElementById( 'editForm' );
 		editor.style.display = 'block';
@@ -327,8 +371,10 @@ function closeView(data, obgid)
 {
     var nm = $("#name").val();
     var desc = $("#description").val();
-    var startim = $("#stime").val();
-    var endtim = $("#etime").val();
+    var stardate = $("#datepickerstart").datepicker('getDate');
+    var enddate = $("#datepickerend").datepicker('getDate');
+    var startim = $("#stime").timepicker('getTime');
+    var endtim = $("#etime").timepicker('getTime');
     var pri = $("#pri").val();
     var stat = $("#stat").val();
     var cat = $("#cat").val();
@@ -383,23 +429,50 @@ function closeView(data, obgid)
 			cont = false;
 			$('#cat2').css('background-color', 'red');
 		}
-		if(cont)
+			
+		//Convert dates into properly formatted types
+		startim = convertDateTimes(stardate, startim);   //external file datePickerLoad.js
+		endtim = convertDateTimes(enddate, endtim);       //external file datePickerLoad.js
+		if (cont)
 		{
-			$.post('/obligations/'+obgid+"",{
-					userid:"1",
-					name: nm,
-					description: desc,
-					starttime: startim,
-					endtime: endtim,
-					priority: pri,
-					status: stat,
-					category: cat
-				})
-			$("#obligations").show();
-			$("#sendTo").show();
-			$("#dial").hide();
-		}
-		else
+	        $.post('/obligations/'+obgid+"",{
+	                userid:"1",
+	                name: nm,
+	                description: desc,
+	                starttime: startim,
+	                endtime: endtim,
+	                priority: pri,
+	                status: stat,
+	                category: cat
+	            })
+
+	            .done(function (data) {
+	                  setTimeout(function() {
+	                    $.bootstrapGrowl("Your settings have been changed!", { 
+	                        type: 'success',
+	                        allow_dismiss: true,
+	                        align: 'center',
+	                        width: 'auto',
+	                        offset: {from: 'top', amount: 200}
+	                    });
+	                });
+
+					$("#obligations").show();
+					$("#sendTo").show();
+					$("#dial").hide();
+			    })
+	            .fail(function (data) {
+	                $.bootstrapGrowl("Failed to send in data. Please try again.", {
+	                type: 'info',
+	                align: 'center',
+	                width: 'auto',
+	                offset: {from: 'top', amount: 200},
+	                allow_dismiss: true,
+	                delay: 5000,
+	              });
+	        });
+	    }
+	    else
 		{
 			$.bootstrapGrowl("Please fix the selections labeled in red before trying to submit your obligation", {
 				type: 'info',
@@ -410,7 +483,5 @@ function closeView(data, obgid)
 				delay: 5000,
 			  });
 		}
-		
-
 	}
 }

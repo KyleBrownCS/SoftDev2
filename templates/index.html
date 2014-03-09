@@ -47,31 +47,27 @@
     <div class="container">
       <div class="starter-template">
         <h3>Add an Obligation...</h3>
-        <form> 
-          <div id="name2">Name: <input type="text" id="name"></div>
-          <div id="description2">Description: <input type="text" id="description"></div>
-          <div id="datepickerstart2">Start Date: <input type="text" id="datepickerstart"></div>
-          <div id="stime2">Start time (If Applicable): <input id="stime" type="text" class="time ui-timepicker-input" autocomplete="off"></div>
-          <div id="datepickerend2">End Date: <input type="text" id="datepickerend"></div>
-          <div id="etime2">End time (If Applicable): <input id="etime" type="text" class="time ui-timepicker-input" autocomplete="off"></div>
-          <div id="pri2">Priority: <input type="text" id="pri"></div>
-          <div id="cat2">Category: <input type="text" id="cat"></div>
-			    Status:
-			    <select id="stat">
-    			<option value=0>None</option>
-    			<option value=1>In Progress</option>
-    			<option value=2>Completed</option>
-    			<option value=3>Important</option>
-    			<option value=4>Requires Assistance</option>
-			    </select><br>
-          <button id="clear" type="button">Clear Fields</button>
-          <button id="submit1" type="button" name="submit">Submit</button>
-        </form>
+          <form> 
+            <div id="name2">Name: <input type="text" id="name"></div>
+            <div id="description2">Description: <input type="text" id="description"></div>
+            <div id="datepickerstart2">Start Date: <input type="text" id="datepickerstart"></div>
+            <div id="stime2">Start time (If Applicable): <input id="stime" type="text" class="time ui-timepicker-input" autocomplete="off"></div>
+            <div id="datepickerend2">End Date: <input type="text" id="datepickerend"></div>
+            <div id="etime2">End time (If Applicable): <input id="etime" type="text" class="time ui-timepicker-input" autocomplete="off"></div>
+            <div id="pri2">Priority: <input type="text" id="pri"></div>
+            <div id="cat2">Category: <input type="text" id="cat"></div>
+            Status:
+            <select id="stat">
+            <option value=0>None</option>
+            <option value=1>In Progress</option>
+            <option value=2>Completed</option>
+            <option value=3>Important</option>
+            <option value=4>Requires Assistance</option>
+            </select><br>
+            <button id="submit1" type="button" name="submit">Submit</button>
+          </form>
       </div>
     </div><!-- /.container -->
-	<div>
-	<br>
-	</div>
 	
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -84,5 +80,6 @@
     <script src="/static/jquery.timepicker.min.js"></script>
 
     <!-- make sure this script is the last one loaded -->
+    <script src="/static/datepickerLoad.js"></script>
     <script src="/static/projectgofeatures.js"></script>
 </body></html>
