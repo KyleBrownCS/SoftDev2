@@ -313,6 +313,22 @@ $('#submit1').click(function() {
     }
 })
 
+//used in conjuction with a delete button with class=delete1 and value=obligation_id
+$('.delete1').on('click', function() { 
+    var path = "/obligations/" + this.value;
+    $.ajax({
+        url: path,
+        type: 'DELETE',
+        success: function() {
+            alert('Obligation has successfully been Deleted.');
+        },
+        error: function(){
+            alert('error! could not delete ' + this.value);
+        }
+    });
+})
+
+
 function ISO8601Converter(rawDate){ //"YYYY-MM-DD"
     return rawDate.getUTCFullYear() + "-" + zeroPad((rawDate.getMonth() + 1), '00') + "-" + zeroPad(rawDate.getDate(), '00');
 }

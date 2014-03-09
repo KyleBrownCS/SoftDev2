@@ -44,6 +44,7 @@ function createSortedList(orderby){
 
     var statuses = ['none','In Progress','Completed','Important','Requires Assistance'];
 
+
     //generate the table
     var heading = "<table border='1'><th>Name<button onclick='reorderListName()'>Reorder</button></th><th>Description</th><th>StartTime</th><th>EndTime</th><th>Priority <button onclick='reorderListPriority()'>Reorder</button></th><th>Status <button onclick='reorderListStatus()'>Reorder</button></th><th>Modify</th>";
     for (var i = 0; i < obligationList.length; i++)
@@ -56,7 +57,8 @@ function createSortedList(orderby){
         currline += currObligation.endtime + "<td>";
         currline += String(currObligation.priority) + "<td>";
         currline += statuses[currObligation.status]  + "<td>";
-        heading += currline + "</tr>";
+
+        heading += currline + "<button onclick='deleteObligation("+ currObligation.obligationid +")'>Delete</button>" + "</tr>";
     }
     heading += "</table>";
 
@@ -65,6 +67,22 @@ function createSortedList(orderby){
 
 function reorderListPriority() {
     createSortedList(sortTypePriority)
+}
+
+function deleteObligation(obligation_id) {
+    var path = "/obligations/" + obligation_id;
+    $.ajax({
+        url: path,
+        type: 'DELETE',
+        success: function() {
+            alert('Obligation has successfully been Deleted.');
+            location.reload();
+        },
+        error: function(){
+            alert('error! could not delete ' + obligation_id);
+            location.reload();
+        }
+    });
 }
 
 function reorderListName() {
