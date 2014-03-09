@@ -193,6 +193,7 @@ function getObligationsFromDB(startTime)
 	var gotData = 0;
     $.get('/obligations/'+startTime, function(data) 
 	{
+	
 		if(data != null && data != "")
 		{
 			gotData = 1;
@@ -278,11 +279,27 @@ function editOglibation(obgid)
 		heading += "<div id='cat2'>Category: <input type='text' id ='cat' value='"+obligations[obgid-1].category+"'></input></div>";
 		statusNum = parseInt(obligations[obgid-1].status);
 		heading += "Status: <br> <select id='stat' selected="+statusNum+">";
-		heading += "<option value=0>None</option>";
-		heading += "<option value=1>In Progress</option>";
-		heading += "<option value=2>Completed</option>";
-		heading += "<option value=3>Important</option>";
-		heading += "<option value=4>Requires Assistance</option></select></br>";
+		if(0 == statusNum)
+			heading += "<option value=0 selected>None</option>";
+		else
+			heading += "<option value=0>None</option>";
+		if(1 == statusNum)
+			heading += "<option value=1 selected>In Progress</option>";
+		else
+			heading += "<option value=1>In Progress</option>";
+		if(2 == statusNum)
+			heading += "<option value=2 selected>Completed</option>";
+		else
+			heading += "<option value=2>Completed</option>";
+		if(3 == statusNum)
+			heading += "<option value=3 selected>Important</option>";
+		else
+			heading += "<option value=3>Important</option>";
+		if(4 == statusNum)
+			heading += "<option value=4 selected>Requires Assistance</option></select></br>";
+		else
+			heading += "<option value=4>Requires Assistance</option></select></br>";
+		
 		obligid = parseInt(obligations[obgid-1].obligationid);
 		heading += '<input type="button" value="close" onclick="closeView(this.value,'+obligid+')"/>';
 		heading += '<input type="button" value="submit" onclick="closeView(this.value,'+obligid+' )"/>';
@@ -315,19 +332,60 @@ function closeView(data, obgid)
 	}
 	else if('submit' == data)
 	{
-        $.post('/obligations/'+obgid+"",{
-                userid:"1",
-                name: nm,
-                description: desc,
-                starttime: startim,
-                endtime: endtim,
-                priority: pri,
-                status: stat,
-                category: cat
-            })
-			
-		$("#obligations").show();
-		$("#sendTo").show();
-		$("#dial").hide();
+		if(nm.length > 20 || nm.length == 0 )
+		{
+			cont = false;
+			$('#name2').css('background-color', 'red');
+		}
+		if(desc.length > 200)
+		{
+			cont = false;
+			$('#description2').css('background-color', 'red');
+		}
+		if(!$.isNumeric(pri))
+		{
+			cont = false;
+			$('#pri2').css('background-color', 'red');
+		}
+		//New errorcheck for dropdown status bar
+		if(stat > 4 && stat < 0)
+		{
+			cont = false;
+			$('#stat2').css('background-color', 'red');
+		}
+		if(!$.isNumeric(cat))
+		{
+			cont = false;
+			$('#cat2').css('background-color', 'red');
+		}
+		if(cont)
+		{
+			$.post('/obligations/'+obgid+"",{
+					userid:"1",
+					name: nm,
+					description: desc,
+					starttime: startim,
+					endtime: endtim,
+					priority: pri,
+					status: stat,
+					category: cat
+				})
+			$("#obligations").show();
+			$("#sendTo").show();
+			$("#dial").hide();
+		}
+		else
+		{
+			$.bootstrapGrowl("Please fix the selections labeled in red before trying to submit your obligation", {
+				type: 'info',
+				align: 'center',
+				width: 'auto',
+				offset: {from: 'top', amount: 200},
+				allow_dismiss: true,
+				delay: 5000,
+			  });
+		}
+		
+
 	}
 }
