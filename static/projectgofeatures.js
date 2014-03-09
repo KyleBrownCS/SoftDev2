@@ -314,18 +314,17 @@ $('#submit1').click(function() {
 })
 
 //used in conjuction with a delete button with class=delete1 and value=obligation_id
-$('.delete1').click(function() { 
+$('.delete1').on('click', function() { 
     var path = "/obligations/" + this.value;
     $.ajax({
         url: path,
         type: 'DELETE',
         success: function() {
-            alert('success');
+            alert('Obligation has successfully been Deleted.');
         },
-        error: function() {
-            alert('failure');
+        error: function(){
+            alert('error! could not delete ' + this.value);
         }
-
     });
 })
 

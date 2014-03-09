@@ -56,7 +56,9 @@ function createSortedList(orderby){
         currline += currObligation.endtime + "<td>";
         currline += String(currObligation.priority) + "<td>";
         currline += statuses[currObligation.status]  + "<td>";
-        heading += currline + "</tr>";
+        currline += currObligation.obligationid  + "<td>";
+
+        heading += currline + "<button onclick='deleteObligation("+ currObligation.obligationid +")'>Delete</button>" + "</tr>";
     }
     heading += "</table>";
 
@@ -65,6 +67,20 @@ function createSortedList(orderby){
 
 function reorderListPriority() {
     createSortedList(sortTypePriority)
+}
+
+function deleteObligation(obligation_id) {
+    var path = "/obligations/" + obligation_id;
+    $.ajax({
+        url: path,
+        type: 'DELETE',
+        success: function() {
+            alert('Obligation has successfully been Deleted.');
+        },
+        error: function(){
+            alert('error! could not delete ' + obligation_id);
+        }
+    });
 }
 
 function reorderListName() {
