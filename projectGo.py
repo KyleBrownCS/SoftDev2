@@ -38,7 +38,7 @@ def get_all_obligations():
     response = ""
 
     data = []
-    for row in db_cursor.execute("select * from " + ApplicationInfo.OBLIGATION_TABLE_NAME):
+    for row in db_cursor.execute("select * from " + applicationInfo.OBLIGATION_TABLE_NAME):
         #response = response + str(row) + "|\r\n"
         obligation_entry = {'obligationid' : row[row_pos_obligationid], #obligationid
             'userid'       : row[row_pos_userid], #userid
@@ -66,7 +66,7 @@ def obligationlist():
 def get_obligations_by_date(startTime):
     db_connection, db_cursor = get_db() 
     response = ""
-    for row in db_cursor.execute("select * from " + ApplicationInfo.OBLIGATION_TABLE_NAME):
+    for row in db_cursor.execute("select * from " + applicationInfo.OBLIGATION_TABLE_NAME):
         start_time = row[row_pos_starttime]
         time_split = start_time.split(" ", 1)
         start_time = time_split[0]
@@ -85,7 +85,7 @@ def get_obligation(obligation_id):
 
     #execute query and get all rows that match (since obligation_id is unique there will be 0 or 1
     db_connection, db_cursor = get_db()
-    my_query = "select * from " + ApplicationInfo.OBLIGATION_TABLE_NAME + " where " + ApplicationInfo.OBLIGATION_ID_NAME + " = " + str(obligation_id)
+    my_query = "select * from " + applicationInfo.OBLIGATION_TABLE_NAME + " where " + applicationInfo.OBLIGATION_ID_NAME + " = " + str(obligation_id)
     row = db_cursor.execute(my_query).fetchall()
 
     if (len(row) > 0):
@@ -123,8 +123,8 @@ def create_obligation():
     category = request.form['category']
 
     try:
-        db_cursor.execute("insert into " + ApplicationInfo.OBLIGATION_TABLE_NAME + " (obligationid, userid, name, description, starttime, endtime, priority, status, category) values (?, ?, ?, ?, ?, ?, ?, ?, ?)", (None, user_id, name, description, start_time, end_time, priority, status, category))
-        result = db_cursor.execute("select last_insert_rowid() FROM " + ApplicationInfo.OBLIGATION_TABLE_NAME).fetchall()
+        db_cursor.execute("insert into " + applicationInfo.OBLIGATION_TABLE_NAME + " (obligationid, userid, name, description, starttime, endtime, priority, status, category) values (?, ?, ?, ?, ?, ?, ?, ?, ?)", (None, user_id, name, description, start_time, end_time, priority, status, category))
+        result = db_cursor.execute("select last_insert_rowid() FROM " + applicationInfo.OBLIGATION_TABLE_NAME).fetchall()
         if (len(result) > 0):
             result = result[0]
         obligation_id = result[0]
@@ -149,7 +149,7 @@ def modify_obligation(obligation_id):
     response = ""
     response_code = None
     try:
-        my_query = "select * from " + ApplicationInfo.OBLIGATION_TABLE_NAME + " where " + ApplicationInfo.OBLIGATION_ID_NAME + "=" + str(obligation_id)
+        my_query = "select * from " + applicationInfo.OBLIGATION_TABLE_NAME + " where " + applicationInfo.OBLIGATION_ID_NAME + "=" + str(obligation_id)
         row = db_cursor.execute(my_query).fetchall()
 
         if (len(row) > 0):
@@ -189,7 +189,7 @@ def modify_obligation(obligation_id):
             else:
                 category = row[row_pos_category]
 
-            db_cursor.execute("update " + ApplicationInfo.OBLIGATION_TABLE_NAME + " set userid=?, name=?, description=?, starttime=?, endtime=?, priority=?, status=?, category=? where obligationid = ?", (user_id, name, description, start_time, end_time, priority, status, category, obligation_id))
+            db_cursor.execute("update " + applicationInfo.OBLIGATION_TABLE_NAME + " set userid=?, name=?, description=?, starttime=?, endtime=?, priority=?, status=?, category=? where obligationid = ?", (user_id, name, description, start_time, end_time, priority, status, category, obligation_id))
 
             db_connection.commit()
             response_code = 200
@@ -214,10 +214,10 @@ def delete_obligation(obligation_id):
     response_code = None
     try:
         if (isinstance(obligation_id,(int,long))):
-            my_query = "select * from " + ApplicationInfo.OBLIGATION_TABLE_NAME + " where " + ApplicationInfo.OBLIGATION_ID_NAME + "=" + str(obligation_id)
+            my_query = "select * from " + applicationInfo.OBLIGATION_TABLE_NAME + " where " + applicationInfo.OBLIGATION_ID_NAME + "=" + str(obligation_id)
             row = db_cursor.execute(my_query).fetchall()
             if (len(row) > 0):
-                db_cursor.execute("delete from " + ApplicationInfo.OBLIGATION_TABLE_NAME + " where " + ApplicationInfo.OBLIGATION_ID_NAME + "=" + str(obligation_id))
+                db_cursor.execute("delete from " + applicationInfo.OBLIGATION_TABLE_NAME + " where " + applicationInfo.OBLIGATION_ID_NAME + "=" + str(obligation_id))
                 db_connection.commit()
                 response = jsonify({'error': 'OK successfully deleted'})
                 response_code = 204
