@@ -88,7 +88,6 @@
 		6BBDB2D718CB9BD300AAD64E /* UIViewController+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBDB29618CB9BD300AAD64E /* UIViewController+TKCategory.m */; };
 		6BBDB2D918CB9C0C00AAD64E /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6BBDB2D818CB9C0C00AAD64E /* TapkuLibrary.bundle */; };
 		B29B6CE818CE44B400BE31F1 /* ObligationCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29B6CE718CE44B400BE31F1 /* ObligationCreationViewController.m */; };
-		B2B8384E18CE530800E5B270 /* AllObligationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B8384D18CE530800E5B270 /* AllObligationsViewController.m */; };
 		EEBCA0D418CBDD6B005830A7 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEBCA0D018CBDD6B005830A7 /* Main_iPad.storyboard */; };
 		EEBCA0D518CBDD6B005830A7 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEBCA0D218CBDD6B005830A7 /* Main_iPhone.storyboard */; };
 /* End PBXBuildFile section */
@@ -257,8 +256,6 @@
 		6BBDB2D818CB9C0C00AAD64E /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TapkuLibrary.bundle; sourceTree = "<group>"; };
 		B29B6CE618CE44B400BE31F1 /* ObligationCreationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObligationCreationViewController.h; sourceTree = "<group>"; };
 		B29B6CE718CE44B400BE31F1 /* ObligationCreationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObligationCreationViewController.m; sourceTree = "<group>"; };
-		B2B8384C18CE530700E5B270 /* AllObligationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AllObligationsViewController.h; path = ../AllObligationsViewController.h; sourceTree = "<group>"; };
-		B2B8384D18CE530800E5B270 /* AllObligationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AllObligationsViewController.m; path = ../AllObligationsViewController.m; sourceTree = "<group>"; };
 		EEBCA0D118CBDD6B005830A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ProjectGO/Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		EEBCA0D318CBDD6B005830A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ProjectGO/Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -325,8 +322,6 @@
 			children = (
 				EEBCA0D018CBDD6B005830A7 /* Main_iPad.storyboard */,
 				EEBCA0D218CBDD6B005830A7 /* Main_iPhone.storyboard */,
-				B2B8384C18CE530700E5B270 /* AllObligationsViewController.h */,
-				B2B8384D18CE530800E5B270 /* AllObligationsViewController.m */,
 				B29B6CE618CE44B400BE31F1 /* ObligationCreationViewController.h */,
 				B29B6CE718CE44B400BE31F1 /* ObligationCreationViewController.m */,
 				6B813A3D18C0B0DB00D03A65 /* ProjectGOAppDelegate.h */,
@@ -653,7 +648,6 @@
 				6BBDB29C18CB9BD300AAD64E /* NSString+TKCategory.m in Sources */,
 				6BBDB2D018CB9BD300AAD64E /* UIImagePickerController+TKCategory.m in Sources */,
 				6BBDB2C118CB9BD300AAD64E /* TKTextFieldCell.m in Sources */,
-				B2B8384E18CE530800E5B270 /* AllObligationsViewController.m in Sources */,
 				6BBDB2AB18CB9BD300AAD64E /* TKGradientView.m in Sources */,
 				6BBDB2B318CB9BD300AAD64E /* TKLabelTextViewCell.m in Sources */,
 				6BBDB2D218CB9BD300AAD64E /* UINavigationBar+TKCategory.m in Sources */,
