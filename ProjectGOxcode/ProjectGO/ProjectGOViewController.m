@@ -7,7 +7,6 @@
 //
 
 #import "ProjectGOViewController.h"
-#import "ProjectGOViewController.h"
 
 static int calendarShadowOffset = (int)-20;
 
@@ -28,33 +27,34 @@ static int calendarShadowOffset = (int)-20;
 
 - (void)loadView {
 	// Costruct the view because we aren't using a
-	int statusBarHeight = 20;
-	CGRect applicationFrame = (CGRect)[[UIScreen mainScreen] applicationFrame];
-	self.view = [[UIView alloc] initWithFrame:CGRectMake(0, statusBarHeight, applicationFrame.size.width, applicationFrame.size.height)];
-	self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-	self.view.backgroundColor = [UIColor grayColor];
-	
-	// Add button to toggle calendar
-	UIButton *toggleButton = [[UIButton alloc] initWithFrame:CGRectMake(50, 370, 220, 50)];
-	toggleButton.backgroundColor = [UIColor darkGrayColor];
-	toggleButton.titleLabel.font = [UIFont systemFontOfSize:12];
-	toggleButton.titleLabel.textColor = [UIColor whiteColor];
-	[toggleButton setTitle:@"Toggle Calendar" forState:UIControlStateNormal];
-	[toggleButton addTarget:self action:@selector(toggleCalendar) forControlEvents:UIControlEventTouchUpInside];
-	
-    
-    [self.view addSubview:toggleButton];
-	
-    
-	// Add Calendar to just off the top of the screen so it can later slide down
-	calendar.frame = CGRectMake(0, -calendar.frame.size.height+calendarShadowOffset, calendar.frame.size.width, calendar.frame.size.height);
-	// Ensure this is the last "addSubview" because the calendar must be the top most view layer
-    // Custom initialization.
-    calendar = 	[[TKCalendarMonthView alloc] init];
-    calendar.delegate = self;
-    calendar.dataSource = self;
-    
-	[self.view addSubview:calendar];
+    [super loadView];
+//	int statusBarHeight = 20;
+//	CGRect applicationFrame = (CGRect)[[UIScreen mainScreen] applicationFrame];
+//	self.view = [[UIView alloc] initWithFrame:CGRectMake(0, statusBarHeight, applicationFrame.size.width, applicationFrame.size.height)];
+//	self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+//	self.view.backgroundColor = [UIColor grayColor];
+//	
+//	// Add button to toggle calendar
+//	UIButton *toggleButton = [[UIButton alloc] initWithFrame:CGRectMake(50, 370, 220, 50)];
+//	toggleButton.backgroundColor = [UIColor darkGrayColor];
+//	toggleButton.titleLabel.font = [UIFont systemFontOfSize:12];
+//	toggleButton.titleLabel.textColor = [UIColor whiteColor];
+//	[toggleButton setTitle:@"Toggle Calendar" forState:UIControlStateNormal];
+//	[toggleButton addTarget:self action:@selector(toggleCalendar) forControlEvents:UIControlEventTouchUpInside];
+//	
+//    
+//    [self.view addSubview:toggleButton];
+//	
+//    
+//	// Add Calendar to just off the top of the screen so it can later slide down
+//	calendar.frame = CGRectMake(0, -calendar.frame.size.height+calendarShadowOffset, calendar.frame.size.width, calendar.frame.size.height);
+//	// Ensure this is the last "addSubview" because the calendar must be the top most view layer
+//    // Custom initialization.
+//    calendar = 	[[TKCalendarMonthView alloc] init];
+//    calendar.delegate = self;
+//    calendar.dataSource = self;
+//    
+//	[self.view addSubview:calendar];
 }
 
 
@@ -204,117 +204,98 @@ static int calendarShadowOffset = (int)-20;
     // Dispose of any resources that can be recreated.
 }
 
-//- (void) find:(id)sender
-//{
-//    const char *dbpath = [_databasePath UTF8String];
-//    sqlite3_stmt    *statement;
-//    
-//    if (sqlite3_open(dbpath, &_contactDB) == SQLITE_OK)
-//    {
-//        NSString *querySQL = [NSString stringWithFormat:
-//                              @"SELECT description, starttime,endtime,priority,status,category FROM contacts WHERE name=\"%@\"",
-//                              _name.text];
-//        
-//        const char *query_stmt = [querySQL UTF8String];
-//        
-//        if (sqlite3_prepare_v2(_contactDB,
-//                               query_stmt, -1, &statement, NULL) == SQLITE_OK)
-//        {
-//            if (sqlite3_step(statement) == SQLITE_ROW)
-//            {
-//                NSString *descriptionField = [[NSString alloc]
-//                                          initWithUTF8String:
-//                                          (const char *) sqlite3_column_text(
-//                                                                             statement, 0)];
-//                _description.text = descriptionField;
-//                
-//                NSString *starttimeField = [[NSString alloc]
-//                                        initWithUTF8String:(const char *)
-//                                        sqlite3_column_text(statement, 1)];
-//                
-//                
-//                
-//                _startTime.text = starttimeField;
-//                
-//                NSString *endtimeField = [[NSString alloc]
-//                                            initWithUTF8String:(const char *)
-//                                            sqlite3_column_text(statement, 2)];
-//                
-//                
-//                
-//                _endTime.text = endtimeField;
-//                
-//                NSString *priorityField = [[NSString alloc]
-//                                            initWithUTF8String:(const char *)
-//                                            sqlite3_column_text(statement, 3)];
-//                
-//                
-//                
-//                _priority.text = priorityField;
-//                
-//                NSString *statusField = [[NSString alloc]
-//                                            initWithUTF8String:(const char *)
-//                                            sqlite3_column_text(statement, 4)];
-//                
-//                
-//                
-//                _status.text = statusField;
-//                
-//                NSString *categoryField = [[NSString alloc]
-//                                         initWithUTF8String:(const char *)
-//                                         sqlite3_column_text(statement, 5)];
-//                
-//                _category.text = categoryField;
-//                
-//                _statuslbl.text = @"Match found";
-//            } else {
-//                _statuslbl.text = @"Match not found";
-//                _description.text = @"";
-//                _startTime.text = @"";
-//                _endTime.text = @"";
-//                _priority.text = @"";
-//                _status.text = @"";
-//                _category.text = @"";
-//            }
-//            sqlite3_finalize(statement);
-//        }
-//        sqlite3_close(_contactDB);
-//    }
-//}
+- (void) find:(id)sender
+{
+    NSString *serverAddress = @"http://54.201.135.92/obligations/";
+    NSString *getID = _obID.text;
+    NSString *url = [NSString stringWithFormat:@"%@%@", serverAddress, getID];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]
+                                                           cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                                       timeoutInterval:10];
 
-//- (void) saveData:(id)sender
-//{
-//    sqlite3_stmt    *statement;
-//    const char *dbpath = [_databasePath UTF8String];
-//    
-//    if (sqlite3_open(dbpath, &_contactDB) == SQLITE_OK)
-//    {
-//        
-//        NSString *insertSQL = [NSString stringWithFormat:
-//                               @"INSERT INTO CONTACTS (name, description, starttime,endtime,priority,status,category) VALUES (\"%@\", \"%@\", \"%@\", \"%@\", \"%@\",  \"%@\", \"%@\")",
-//                               _name.text, _description.text, _startTime.text,_endTime.text, _priority.text,_status.text, _category.text];
-//        
-//        const char *insert_stmt = [insertSQL UTF8String];
-//        sqlite3_prepare_v2(_contactDB, insert_stmt,
-//                           -1, &statement, NULL);
-//        if (sqlite3_step(statement) == SQLITE_DONE)
-//        {
-//            _statuslbl.text = @"Obligation added";
-//            _name.text = @"";
-//            _description.text = @"";
-//            _startTime.text = @"";
-//             _endTime.text = @"";
-//             _priority.text = @"";
-//             _status.text = @"";
-//             _category.text = @"";
-//            
-//            
-//        } else {
-//            _statuslbl.text = @"Failed to add contact";
-//        }
-//        sqlite3_finalize(statement);
-//        sqlite3_close(_contactDB);
-//    }
-//}
+    [request setHTTPMethod: @"GET"];
+    NSURLResponse *response = nil;
+    NSError *error = nil;
+    
+    //NSLog(@"request is %@",request);
+    
+    NSData *data = [NSURLConnection sendSynchronousRequest:request
+                                          returningResponse:&response
+                                                      error:&error];
+    
+    //NSLog(@"response is %@",response);
+    
+    if (error == nil)
+    {
+        // Parse data here
+        //printf("no error\n");
+    
+
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        //NSLog(@"%@",json);
+       
+        int failed = 0;
+        if ([[json valueForKeyPath:@"error"] intValue] > 0) {
+            failed = [[json objectForKey:@"error" ] integerValue];
+        }
+        //NSLog(@"failed value is %d",failed);
+        
+        if (failed) {
+            _statuslbl.text = @"Match not found";
+            _description.text = @"NOT FOUND";
+            _startTime.text = @"";
+            _endTime.text = @"";
+            _priority.text = @"";
+            _status.text = @"";
+            _category.text = @"";
+        }
+        else {
+            //NSLog(@"description is %@",[json objectForKey:@"description"]);
+            //_statuslbl.text = [json objectForKey:@"userid"];
+            _name.text = [json objectForKey:@"name"];
+            _description.text = [json objectForKey:@"description"];
+            _startTime.text = [json objectForKey:@"starttime"];
+            _endTime.text = [json objectForKey:@"endtime"];
+            _priority.text = [[json objectForKey:@"priority"] stringValue];
+            _status.text = [[json objectForKey:@"status"] stringValue];
+            _category.text = [[json objectForKey:@"category"] stringValue];
+        }
+    }
+    
+}
+- (void) saveData:(id)sender
+{
+    sqlite3_stmt    *statement;
+    const char *dbpath = [_databasePath UTF8String];
+    
+    if (sqlite3_open(dbpath, &_contactDB) == SQLITE_OK)
+    {
+        
+        NSString *insertSQL = [NSString stringWithFormat:
+                               @"INSERT INTO CONTACTS (name, description, starttime,endtime,priority,status,category) VALUES (\"%@\", \"%@\", \"%@\", \"%@\", \"%@\",  \"%@\", \"%@\")",
+                               _name.text, _description.text, _startTime.text,_endTime.text, _priority.text,_status.text, _category.text];
+        
+        const char *insert_stmt = [insertSQL UTF8String];
+        sqlite3_prepare_v2(_contactDB, insert_stmt,
+                           -1, &statement, NULL);
+        if (sqlite3_step(statement) == SQLITE_DONE)
+        {
+            _statuslbl.text = @"Obligation added";
+            _name.text = @"";
+            _description.text = @"";
+            _startTime.text = @"";
+             _endTime.text = @"";
+             _priority.text = @"";
+             _status.text = @"";
+             _category.text = @"";
+            
+            
+        } else {
+            _statuslbl.text = @"Failed to add contact";
+        }
+        sqlite3_finalize(statement);
+        sqlite3_close(_contactDB);
+    }
+}
 
 @end
