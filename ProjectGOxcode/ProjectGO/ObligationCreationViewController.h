@@ -25,4 +25,7 @@
 @property (strong, nonatomic) NSString *databasePath;
 @property (nonatomic) sqlite3 *contactDB;
 
+
+- (IBAction)addObligationButton:(id)sender;
+
 @end
