@@ -488,19 +488,3 @@ function closeView(data, obgid)
 		}
 	}
 }
-
-function deleteObligation(obligation_id) {
-    var path = "/obligations/" + obligation_id;
-    $.ajax({
-        url: path,
-        type: 'DELETE',
-        success: function() {
-            alert('Obligation has successfully been Deleted.');
-            location.reload();
-        },
-        error: function(){
-            alert('error! could not delete ' + obligation_id);
-            location.reload();
-        }
-    });
-}

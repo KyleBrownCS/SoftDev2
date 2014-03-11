@@ -14,3 +14,19 @@ function Obligation (obligationid,userid,name,description,startTime,endTime,prio
 Obligation.prototype.toString = function() {
     return "Name: "+ this.name + "\nDescription: "+this.description+ "\nStart time:"+this.startTime+"\nEnd Time:"+this.endTime+"\n";
 }
+
+function deleteObligation(obligation_id) {
+    var path = "/obligations/" + obligation_id;
+    $.ajax({
+        url: path,
+        type: 'DELETE',
+        success: function() {
+            alert('Obligation has successfully been Deleted.');
+            location.reload();
+        },
+        error: function(){
+            alert('error! could not delete ' + obligation_id);
+            location.reload();
+        }
+    });
+}
