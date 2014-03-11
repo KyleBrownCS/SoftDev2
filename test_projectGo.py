@@ -107,6 +107,19 @@ class Test(unittest.TestCase):
         def test_get_all_obligations(self):
             result = self.app.get('/obligations')
             self.assertEquals(result.status, '200 OK')
+
+    #test of DELETE method for delete_obligation
+    def test_delete_obligation(self):
+        #typical delete case of existing obligation
+        result = self.app.delete('/obligations/1')
+        self.assertEquals(result.status, '204 NO CONTENT')
+        #delete case for non existing obligation
+        result = self.app.delete('/obligations/1')
+        self.assertEquals(result.status, '404 NOT FOUND')
+        #delete case for invalid obligation
+        result = self.app.delete('/obligations/abcdefg')
+        self.assertEquals(result.status, '405 METHOD NOT ALLOWED')
+
 	
 if __name__ == '__main__':
     unittest.main()
