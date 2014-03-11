@@ -208,7 +208,7 @@ function getObligationsFromDB(startTime)
 			var statusNum = 0;
 			var colors = ['black', 'yellow', 'green', 'blue', 'red'];
 			var obligationFields = ['obligationid','userid','name','description','startTime','endTime','priority','status','category'];
-			var heading = "<table border='1'><th width='135'>Name</th><th  width='170'>Description</th><th width='170'>StartTime</th><th width='170'>EndTime</th><th>Priority</th><th width='170'>Status</th><th>Modify</th>";
+			var heading = "<table border='1'><th width='135'>Name</th><th  width='170'>Description</th><th width='170'>StartTime</th><th width='170'>EndTime</th><th>Priority</th><th width='170'>Status</th><th>Modify</th><th>Delete</th>";
 			var mainData = "";
 			var currline = "<tr>";
 			var obgid = 0;
@@ -216,6 +216,7 @@ function getObligationsFromDB(startTime)
 			var statusCol = 7;
 			var obgidCol = 0;
 			var editCol = 8;
+			var deleteCol = 9;
 			for (var i = 0; i < datas.length; i++)
 			{
 				var miniparts = datas[i].trim().split(",");
@@ -252,6 +253,8 @@ function getObligationsFromDB(startTime)
 						}
 						
 					}
+					currline += obgid + "<td>";
+					currline += "<button onclick='deleteObligation("+ obgid +")'>Delete</button>" + "</tr>";
 					heading = heading + currline + '</tr>';
 					currline = "<tr>";
 				}
