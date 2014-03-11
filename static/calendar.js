@@ -459,10 +459,11 @@ function closeView(data, obgid)
 	                        offset: {from: 'top', amount: 200}
 	                    });
 	                });
-
+					
 					$("#obligations").show();
 					$("#sendTo").show();
 					$("#dial").hide();
+					location.reload();
 			    })
 	            .fail(function (data) {
 	                $.bootstrapGrowl("Failed to send in data. Please try again.", {
