@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>projectGO testing</title>
+ 
+  <link rel="stylesheet" href="./qunit/qunit.css">
+  <script src="./qunit/qunit.js"></script>
+  
+  <script src="./static/jquery.js"></script>
+  <script src="./static/jquery.bootstrap-growl.min.js"></script>
+  <script src="./static/bootstrap.js"></script>
+  
+  <script src="./static/projectObjects.js"></script>
+  <script src="./static/obligationlist.js"></script>
+
+  <!--
+  <script src="./static/projectgofeatures.js"></script>
+  
+  <script src="./static/calendar.js"></script>
+  <script src="./static/schedule.js"></script>
+  <script src="./static/datepickerLoad.js"></script>
+  -->
+  
+  <script>
+  test("projectObjects.js testing", function() {
+    //creating object to test on
+	var obj = new Obligation("1","2","name","desc","start","end","3","4","5");	
+    //test object creation ok
+	equal(obj.obligationid, "1");
+	equal(obj.userid, "2");
+	equal(obj.name, "name");
+	equal(obj.description, "desc");
+	equal(obj.startTime, "start");
+	equal(obj.endTime, "end");
+	equal(obj.priority, "3");
+	equal(obj.status, "4");
+	equal(obj.category, "5");
+	//test the toString
+	equal(obj,"Name: name\nDescription: desc\nStart time:start\nEnd Time:end\n");
+
+  });
+  </script>
+  <script>
+  test("obligationList.js testing", function() {
+    //creating object to test on (obligationid userid name description starttime endtime priority status category)
+	var obj1 = new Obligation("1","2","name1","desc1","start1","end1","3","4","5");
+	var obj2 = new Obligation("6","7","name2","desc2","start2","end2","8","9","10");
+	
+	//test sort by name
+	obligationList = [obj2,obj1];
+    equal(obligationList[0].name,"name2");
+	equal(obligationList[1].name,"name1");
+	reorderListName();
+	equal(obligationList[0].name,"name1");
+	equal(obligationList[1].name,"name2");
+	
+	//test sort by priority
+	obligationList = [obj1,obj2];
+    equal(obligationList[0].priority,"3");
+	equal(obligationList[1].priority,"8");
+	reorderListPriority();
+	equal(obligationList[0].priority,"8");
+	equal(obligationList[1].priority,"3");
+	
+	//test sort by status
+	obligationList = [obj1,obj2];
+    equal(obligationList[0].status,"4");
+	equal(obligationList[1].status,"9");
+	reorderListStatus();
+	equal(obligationList[0].status,"9");
+	equal(obligationList[1].status,"4");
+	
+  });
+  </script>
+</head>
+<body>
+
+<div id="qunit"></div>
+ 
+</body>
+</html>
