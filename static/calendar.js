@@ -14,7 +14,7 @@ var currentDate = new Date();
 var currentDay = currentDate.getDate();
 var currentMonth = currentDate.getMonth();
 var currentYear = currentDate.getFullYear();
-var obligations;
+var obligations = null;
 
 //Constructor for the calendar. Useful
 //when we need to construct next/previous month
@@ -196,76 +196,32 @@ Calendar.prototype.checkDayForObligations = function(startTime)
 function getObligationsFromDB(startTime)
 {
 	var gotData = 0;
+	var obligationList = null;
+	
     $.get('/obligations/'+startTime, function(data) 
 	{
-	
-		if(data != null && data != "")
+		obligationList = eval(data);
+		
+		var heading = "<table border='1'><th>Name</th><th>Description</th><th>StartTime</th><th>EndTime</th><th>Priority </th><th>Status</th><th>Modify</th><th>Delete</th>";
+		for (var i = 0; i < obligationList.length; i++)
 		{
-			gotData = 1;
-			var mydata = data.trim().replace(/\(/g, "");
-			mydata = mydata.replace(/\)/g, "");
-			var datas = mydata.split("|");
-			var statusNum = 0;
-			var colors = ['black', 'yellow', 'green', 'blue', 'red'];
-			var obligationFields = ['obligationid','userid','name','description','startTime','endTime','priority','status','category'];
-			var heading = "<table border='1'><th width='135'>Name</th><th  width='170'>Description</th><th width='170'>StartTime</th><th width='170'>EndTime</th><th>Priority</th><th width='170'>Status</th><th>Modify</th><th>Delete</th>";
-			var mainData = "";
-			var currline = "<tr>";
-			var obgid = 0;
-			var useridCol = 1;
-			var statusCol = 7;
-			var obgidCol = 0;
-			var editCol = 8;
-			var deleteCol = 9;
-			for (var i = 0; i < datas.length; i++)
-			{
-				var miniparts = datas[i].trim().split(",");
-				//if we get an object, create an obligation
-				if(9 == miniparts.length)
-				{
-					var obligation = new Obligation(0,0,'','','','',1,1,1);
-					for (var j = 0; j < miniparts.length; j++)
-					{
-						miniparts[j] = miniparts[j].replace(/\u'/g, "");
-						miniparts[j] = miniparts[j].replace(/\'/g, "");
-						if(j == obgidCol)
-						{
-							obgid = miniparts[j];
-						}
-						else if(j == useridCol)
-						{
-							//Do nothing... we dont want to print the user's id
-						}
-						//If it's processing a status, show the string instead of the integer value
-						else if(j == statusCol)
-						{
-							statusNum = parseInt(miniparts[j]);
-							color = colors[statusNum];
-							currline = currline + "<td style=\"color:"+color+";\">" + statuses[statusNum] + "</td>";
-						}
-						else if(j == editCol)
-						{
-							currline = currline + '<td><input type="button" value="Edit" onclick="editOglibation('+obgid+')"></td>'
-						}
-						else
-						{
-							currline = currline + "<td>" + miniparts[j] + "</td>";
-						}
-						
-					}
-					currline += obgid + "<td>";
-					currline += "<button onclick='deleteObligation("+ obgid +")'>Delete</button>" + "</tr>";
-					heading = heading + currline + '</tr>';
-					currline = "<tr>";
-				}
-				
-			}
-			heading = heading + "</table>";
-			
-			
-			$("#obligations").html(heading);
+			var currObligation = obligationList[i];
+			var obgid = currObligation.obligationid;
+			var currline = "<tr><td>";
+			currline += currObligation.name + "<td>";
+			currline += currObligation.description + "<td>";
+			currline += currObligation.starttime + "<td>";
+			currline += currObligation.endtime + "<td>";
+			currline += String(currObligation.priority) + "<td>";
+			currline += statuses[currObligation.status]  + "<td>";
+
+			heading += currline + '<button onclick="editOglibation('+(obgid-1)+')">Edit</button>' + '<td>';
+			heading += "<button onclick='deleteObligation("+ (obgid-1) +")'>Delete</button>" + "</tr>";
 		}
+		heading += "</table>";
+		$("#obligations").html(heading);
 	});
+	
 	return gotData;
 }
 
