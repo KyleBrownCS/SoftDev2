@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoadAllObligationsViewController : UIViewController
+@interface LoadAllObligationsViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableList;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingSpinner;
-@property (weak, nonatomic) IBOutlet UITableView *mainView;
 
 @end
