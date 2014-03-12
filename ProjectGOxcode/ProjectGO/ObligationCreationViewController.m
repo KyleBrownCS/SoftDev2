@@ -7,6 +7,7 @@
 //
 
 #import "ObligationCreationViewController.h"
+#import "constants.h"
 
 @interface ObligationCreationViewController ()
 
@@ -40,47 +41,27 @@
     return [NSString stringWithFormat:@"%@ /%@", theDate, theTime];
 }
 
-
-- (IBAction)sendInObligation:(id)sender {
+- (IBAction)addObligationButton:(id)sender {
     
-    sqlite3_stmt    *statement;
-    NSString* startDetails;
-    NSString* endDetails;
+    NSString *url = [NSString stringWithFormat:@"%@%@", SERVER_ADDRESS, OBLIGATION_SUB_URL];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]
+                                                           cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                                       timeoutInterval:10];
     
-    const char *dbpath = [_databasePath UTF8String];
-    [_statusSymb startAnimating];    
+    [request setHTTPMethod: @"POST"];
+    NSURLResponse *response = nil;
+    NSError *error = nil;
     
-    if (sqlite3_open(dbpath, &_contactDB) == SQLITE_OK)
-    {
-        startDetails = [self convertDateTimes:_startDate.text temp: _startTime.text];
-        endDetails = [self convertDateTimes:_endDate.text temp: _endTime.text];
-        
-        
-        NSString *insertSQL = [NSString stringWithFormat:
-                               @"INSERT INTO CONTACTS (name, description, starttime,endtime,priority,status,category) VALUES (\"%@\", \"%@\", \"%@\", \"%@\", \"%@\",  \"%@\", \"%@\")",
-                               _name.text, _description.text, startDetails, endDetails, _priority.text,_status.text, _category.text];
-        
-        const char *insert_stmt = [insertSQL UTF8String];
-        sqlite3_prepare_v2(_contactDB, insert_stmt,
-                           -1, &statement, NULL);
-        if (sqlite3_step(statement) == SQLITE_DONE)
-        {
-            _name.text = @"";
-            _description.text = @"";
-            _startTime.text = @"";
-            _endTime.text = @"";
-            _priority.text = @"";
-            _status.text = @"";
-            _category.text = @"";
-            
-            
-        } else {
-            //Failure
-        }
-        sqlite3_finalize(statement);
-        sqlite3_close(_contactDB);
-        [_statusSymb stopAnimating];
+    NSData *data = [NSURLConnection sendSynchronousRequest:request
+                                         returningResponse:&response
+                                                     error:&error];
+    
+    if (error == nil){
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     }
+    else{
+        
+    }
+    
 }
-
 @end

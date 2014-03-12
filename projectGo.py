@@ -66,13 +66,24 @@ def obligationlist():
 def get_obligations_by_date(startTime):
     db_connection, db_cursor = get_db() 
     response = ""
+    data = []
     for row in db_cursor.execute("select * from " + applicationInfo.OBLIGATION_TABLE_NAME):
         start_time = row[row_pos_starttime]
         time_split = start_time.split(" ", 1)
         start_time = time_split[0]
         start_time.replace("'", "")
         if start_time == startTime:
-            response = response + str(row) + "|\r\n"
+            obligation_entry = {'obligationid' : row[row_pos_obligationid], #obligationid
+                'userid'       : row[row_pos_userid], #userid
+                'name'         : row[row_pos_name], #name
+                'description'  : row[row_pos_description], #description
+                'starttime'    : row[row_pos_starttime], #starttime
+                'endtime'      : row[row_pos_endtime], #endtime
+                'priority'     : row[row_pos_priority], #priority
+                'status'       : row[row_pos_status], #status
+                'category'     : row[row_pos_category]} #category
+            data.append(obligation_entry)
+            response = json.dumps(data)
         #else:
         #    response = response + "Tested: %s against %s \r\n" % (startTime, start_time)
     return response

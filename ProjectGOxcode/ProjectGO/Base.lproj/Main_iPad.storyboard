@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="6VS-tl-XCE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="6VS-tl-XCE">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -120,7 +120,7 @@
         <!--View Controller-->
         <scene sceneID="gAf-6c-azK">
             <objects>
-                <viewController id="40n-DE-ztx" sceneMemberID="viewController">
+                <viewController id="40n-DE-ztx" customClass="ObligationCreationViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="B2i-XL-FbP"/>
                         <viewControllerLayoutGuide type="bottom" id="UgF-wf-9QP"/>
@@ -243,6 +243,9 @@
                                 <state key="normal" title="Send In Obligation">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="addObligationButton:" destination="40n-DE-ztx" eventType="touchDown" id="WKM-VF-0CN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXq-9s-7lv">
                                 <rect key="frame" x="197" y="718" width="60" height="30"/>
