@@ -11,5 +11,6 @@
 @interface LoadAllObligationsViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableList;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingSpinner;
+@property (weak, nonatomic) IBOutlet UITableView *mainView;
 
 @end

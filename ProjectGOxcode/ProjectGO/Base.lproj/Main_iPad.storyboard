@@ -8,15 +8,10 @@
         <scene sceneID="4nm-bl-Zei">
             <objects>
                 <tableViewController id="Kp8-yf-rh5" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="GZb-E5-MEP">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="3" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="GZb-E5-MEP">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <tableView key="tableFooterView" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cvy-hu-rg0">
-                            <rect key="frame" x="0.0" y="196" width="768" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </tableView>
                         <sections>
                             <tableViewSection id="iCK-l3-iEK">
                                 <cells>
@@ -54,7 +49,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="JDu-V8-6fK" kind="push" id="wT7-n1-7vw"/>
+                                            <segue destination="JDu-V8-6fK" kind="push" id="9Zz-av-jXT"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="kP5-h3-bQ2" style="IBUITableViewCellStyleDefault" id="khP-9T-K0f">
@@ -114,12 +109,13 @@
                     <navigationItem key="navigationItem" id="nv1-Ev-wEA"/>
                     <connections>
                         <outlet property="loadingSpinner" destination="rLs-r2-8a0" id="zyN-SA-0Ei"/>
+                        <outlet property="mainView" destination="YCR-Tf-uO4" id="uYp-VB-svy"/>
                         <outlet property="tableList" destination="YCR-Tf-uO4" id="OIr-Hx-MST"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vBo-fE-fgB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="787" y="910"/>
+            <point key="canvasLocation" x="632" y="154"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="gAf-6c-azK">

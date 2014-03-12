@@ -10,9 +10,25 @@
 
 @interface LoadAllObligationsViewController ()
 
+
 @end
 
+NSArray *headings;
+
 @implementation LoadAllObligationsViewController
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //create a cell
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    
+    cell.textLabel.text = [headings objectAtIndex:indexPath.row];
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return headings.count;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,6 +41,9 @@
 
 - (void)viewDidLoad
 {
+    //mainView is the table view that we can add stuff too
+
+    
     [super viewDidLoad];
     [_loadingSpinner startAnimating];
     
@@ -43,9 +62,11 @@
     {
         //parse all the json and import into the tableview.
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        //NSArray *titles = [[json objectForKey:@"name"]objectAtIndex:0];
         
-        //Work with all the json and create a table view column for each data received.
+        headings = [json valueForKeyPath:@"name"];
         
+        [_mainView reloadData];
     }
     
     else
