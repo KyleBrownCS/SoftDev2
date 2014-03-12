@@ -48,7 +48,22 @@
                                                            cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
                                                        timeoutInterval:10];
     
+    NSString *nameFieldText = _name.text;
+    NSString *descriptionFieldText = _description.text;
+    NSString *priorityFieldText = _priority.text;
+    NSString *statusFieldText = _status.text;
+    NSString *categoryFieldText = _category.text;
+    
+    //convert the numeric fields to numbers
+    NSInteger priorityFieldInt = [priorityFieldText integerValue];
+    NSInteger statusFieldInt = [statusFieldText integerValue];
+    NSInteger categoryFieldInt = [categoryFieldText integerValue];
+    
+    NSString *postDataString = [NSString stringWithFormat:@"userid=1&name=%@&description=%@&starttime=2014-01-01 00:00:00.000&endtime=2014-01-01 00:00:00.000&priority=%d&status=%d&category=%d", nameFieldText, descriptionFieldText, priorityFieldInt, statusFieldInt, categoryFieldInt];
+    
     [request setHTTPMethod: @"POST"];
+    [request setHTTPBody:[postDataString dataUsingEncoding:NSUTF8StringEncoding]];
+    
     NSURLResponse *response = nil;
     NSError *error = nil;
     
@@ -58,9 +73,15 @@
     
     if (error == nil){
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    }
-    else{
         
+        //check if the request failed on the server
+        error = [json objectForKey:@"error" ];
+        if(error != nil) {
+            //success
+        }
+        else {
+            //error occured server side
+        }
     }
     
 }
