@@ -26,12 +26,6 @@ function Calendar(month, year, obligs)
 	this.htmlCode = '';
 }
 
-//A prototype to get the htmlCode generated table for the month.
-Calendar.prototype.gethtmlCode = function() 
-{
-  return this.htmlCode;
-}
-
 Calendar.prototype.calculateCalendar = function()
 {
 	var day = 1;
@@ -39,9 +33,6 @@ Calendar.prototype.calculateCalendar = function()
 	var maxWeekLines = 6;
 	var outOfDays = 0;
 	var dateString = "";
-	var tempDate = 0;
-	var status = 0;
-	var color = 'black';
 	var date = 0;
 	var month = 0;
 	var year = 0;
@@ -54,10 +45,10 @@ Calendar.prototype.calculateCalendar = function()
 	var startingDay = new Date(this.calenYear, this.calenMonth, 1).getDay();
 	var monthLength = numDaysInMonth[this.calenMonth];
 	
-	
 	//If it's feburary, do calculation for leap year
 	if (this.calenMonth == 1) 
 	{
+	
 	//A calculation for leap year.
 		if((this.calenYear % 4 == 0 && this.calenYear % 100 != 0) || this.calenYear % 400 == 0)
 		{
@@ -65,7 +56,6 @@ Calendar.prototype.calculateCalendar = function()
 			monthLength = 29;
 		}
 	}
-
 	//Create the table, start with the month and the year
 	var monthName = monthsOfYear[this.calenMonth];
 	var htmlCode = '<table border=3 style="line-height: 4;" class="calendar-table">';
@@ -148,27 +138,14 @@ Calendar.prototype.calculateCalendar = function()
 		}
 	}
 
-  
   htmlCode += '</tr></table>';
-  
-  
-  
   this.htmlCode = htmlCode;
 }
 
-
-Calendar.prototype.getColor = function(status)
+//A prototype to get the htmlCode generated table for the month.
+Calendar.prototype.gethtmlCode = function() 
 {
-	var color = 'gray';
-	if(status == 1)
-		color = 'yellow';
-	else if(status == 2)
-		color = 'green';
-	else if(status == 3)
-		color = 'blue';
-	else if(status == 4)
-		color = 'red';
-	return color;
+  return this.htmlCode;
 }
 
 Calendar.prototype.checkDayForObligations = function(startTime)
@@ -220,6 +197,7 @@ function getObligationsFromDB(startTime)
 		}
 		heading += "</table>";
 		$("#obligations").html(heading);
+		window.scrollTo(0,document.body.scrollHeight);
 	});
 	
 	return gotData;
