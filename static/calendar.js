@@ -74,9 +74,9 @@ Calendar.prototype.calculateCalendar = function()
 		nextMonth = 0;
 	}
 	htmlCode += '<tr><th colspan="7" style="text-align:center;">';
-	htmlCode += "<input type='button' value='Previous month' onclick='generateNextMonth("+prevMonth+", "+prevYear+")'></input>";
+	htmlCode += '<img src="static/img/leftArrow.png" onclick="generateNextMonth('+prevMonth+', '+prevYear+')"/>'
 	htmlCode +=  monthName + "&nbsp;" + this.calenYear;
-	htmlCode += "<input type='button' value='Next month' onclick='generateNextMonth("+nextMonth+", "+nextYear+")'></input>"
+	htmlCode += '<img src="static/img/rightArrow.png" onclick="generateNextMonth('+nextMonth+', '+nextYear+')"/>'
 	htmlCode += '</th></tr>';
 	htmlCode += '<tr class="calendar-header">';
 	//Initialize Monday-Sunday headers
