@@ -1,3 +1,0 @@
-DEBUG:root:attempting to edit obligation: 6
-DEBUG:root:incoming update data: ImmutableMultiDict([('status', u'4'), ('category', u'1'), ('name', u'SHOULD WORK'), ('userid', u'1'), ('priority', u'1'), ('starttime', u'2014-03-08 00:00:00.000'), ('endtime', u'2014-04-8 01:00:00.000'), ('description', u'SHOULD WORK DESk')])
-DEBUG:root:Obligation was updated and commited to the db
