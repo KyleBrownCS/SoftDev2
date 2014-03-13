@@ -93,4 +93,11 @@
     }
     
 }
+- (IBAction)clearFields:(id)sender {
+    _name.text = @"";
+    _description.text  = @"";
+    _priority.text = @"";
+    _category.text = @"";
+    _status.text = @"";
+}
 @end

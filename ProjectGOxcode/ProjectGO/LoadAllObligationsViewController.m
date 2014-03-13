@@ -88,7 +88,7 @@ NSString *userid;
     myobj = [[NSMutableArray alloc] init];
     
     NSData *jsonSource = [NSData dataWithContentsOfURL:
-                          [NSURL URLWithString:@"http://54.201.135.92/obligations"]];
+                          [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", SERVER_ADDRESS, OBLIGATION_SUB_URL]]];
     
     id jsonObjects = [NSJSONSerialization JSONObjectWithData:
                       jsonSource options:NSJSONReadingMutableContainers error:nil];
