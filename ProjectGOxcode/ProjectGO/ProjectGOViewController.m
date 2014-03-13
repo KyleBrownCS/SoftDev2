@@ -7,6 +7,7 @@
 //
 
 #import "ProjectGOViewController.h"
+#import "constants.h"
 
 static int calendarShadowOffset = (int)-20;
 
@@ -204,65 +205,62 @@ static int calendarShadowOffset = (int)-20;
     // Dispose of any resources that can be recreated.
 }
 
-- (void) find:(id)sender
-{
-    NSString *serverAddress = @"http://54.201.135.92/obligations/";
-    NSString *getID = _obID.text;
-    NSString *url = [NSString stringWithFormat:@"%@%@", serverAddress, getID];
+- (NSDictionary*)getObligationWithID:(NSString*)obID {
+    
+    NSString *url = [NSString stringWithFormat:@"%@%@%@", SERVER_ADDRESS, OBLIGATION_SUB_URL, obID];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]
                                                            cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
                                                        timeoutInterval:10];
-
+    
     [request setHTTPMethod: @"GET"];
     NSURLResponse *response = nil;
     NSError *error = nil;
     
-    //NSLog(@"request is %@",request);
-    
     NSData *data = [NSURLConnection sendSynchronousRequest:request
-                                          returningResponse:&response
-                                                      error:&error];
+                                         returningResponse:&response
+                                                     error:&error];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     
-    //NSLog(@"response is %@",response);
-    
-    if (error == nil)
+    if (error != nil)
     {
-        // Parse data here
-        //printf("no error\n");
+        json = [[NSDictionary alloc] initWithObjectsAndKeys:@"1", @"error", nil];
+    }
     
+    return json;
+}
 
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        //NSLog(@"%@",json);
-       
-        int failed = 0;
-        if ([[json valueForKeyPath:@"error"] intValue] > 0) {
-            failed = [[json objectForKey:@"error" ] integerValue];
-        }
-        //NSLog(@"failed value is %d",failed);
-        
-        if (failed) {
-            _statuslbl.text = @"Match not found";
-            _description.text = @"NOT FOUND";
-            _startTime.text = @"";
-            _endTime.text = @"";
-            _priority.text = @"";
-            _status.text = @"";
-            _category.text = @"";
-        }
-        else {
-            //NSLog(@"description is %@",[json objectForKey:@"description"]);
-            //_statuslbl.text = [json objectForKey:@"userid"];
-            _name.text = [json objectForKey:@"name"];
-            _description.text = [json objectForKey:@"description"];
-            _startTime.text = [json objectForKey:@"starttime"];
-            _endTime.text = [json objectForKey:@"endtime"];
-            _priority.text = [[json objectForKey:@"priority"] stringValue];
-            _status.text = [[json objectForKey:@"status"] stringValue];
-            _category.text = [[json objectForKey:@"category"] stringValue];
-        }
+- (void) find:(id)sender
+{
+    
+    NSDictionary* json = [self getObligationWithID:_obID.text];
+    int failed = 0;
+    if ([[json valueForKeyPath:@"error"] intValue] > 0) {
+        failed = [[json objectForKey:@"error" ] integerValue];
+    }
+    
+    if (failed) {
+        _statuslbl.text = @"Match not found";
+        _description.text = @"NOT FOUND";
+        _startTime.text = @"";
+        _endTime.text = @"";
+        _priority.text = @"";
+        _status.text = @"";
+        _category.text = @"";
+    }
+    else {
+        //NSLog(@"description is %@",[json objectForKey:@"description"]);
+        //_statuslbl.text = [json objectForKey:@"userid"];
+        _name.text = [json objectForKey:@"name"];
+        _description.text = [json objectForKey:@"description"];
+        _startTime.text = [json objectForKey:@"starttime"];
+        _endTime.text = [json objectForKey:@"endtime"];
+        _priority.text = [[json objectForKey:@"priority"] stringValue];
+        _status.text = [[json objectForKey:@"status"] stringValue];
+        _category.text = [[json objectForKey:@"category"] stringValue];
     }
     
 }
+
 - (void) saveData:(id)sender
 {
     sqlite3_stmt    *statement;

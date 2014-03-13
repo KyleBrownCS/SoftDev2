@@ -84,12 +84,12 @@
 		6BBDB2D518CB9BD300AAD64E /* UITextField+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBDB29218CB9BD300AAD64E /* UITextField+TKCategory.m */; };
 		6BBDB2D618CB9BD300AAD64E /* UIView+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBDB29418CB9BD300AAD64E /* UIView+TKCategory.m */; };
 		6BBDB2D718CB9BD300AAD64E /* UIViewController+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BBDB29618CB9BD300AAD64E /* UIViewController+TKCategory.m */; };
-		A98F303118D1087E00F4B4C9 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A98F302F18D1087E00F4B4C9 /* Main_iPad.storyboard */; };
 		B29B6CE818CE44B400BE31F1 /* ObligationCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29B6CE718CE44B400BE31F1 /* ObligationCreationViewController.m */; };
 		B2CF8FAE18D0D443005DF37E /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2CF8FAC18D0D443005DF37E /* Main_iPad.storyboard */; };
 		B2CF8FB118D0D8A9005DF37E /* DetailedObligationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CF8FB018D0D8A9005DF37E /* DetailedObligationViewController.m */; };
 		B2E261D818CE6AD80091D5EC /* LoadAllObligationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E261D718CE6AD80091D5EC /* LoadAllObligationsViewController.m */; };
-		EEBCA0D518CBDD6B005830A7 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEBCA0D218CBDD6B005830A7 /* Main_iPhone.storyboard */; };
+		EE4D30EF18D2330A0003B663 /* constants.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4D30EE18D2330A0003B663 /* constants.m */; };
+		EEBCA0D518CBDD6B005830A7 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEBCA0D218CBDD6B005830A7 /* Main_iPad.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -254,7 +254,6 @@
 		6BBDB29518CB9BD300AAD64E /* UIViewController+TKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TKCategory.h"; sourceTree = "<group>"; };
 		6BBDB29618CB9BD300AAD64E /* UIViewController+TKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TKCategory.m"; sourceTree = "<group>"; };
 		6BBDB2D818CB9C0C00AAD64E /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TapkuLibrary.bundle; sourceTree = "<group>"; };
-		A9272A1D18D100FA008B51F9 /* ObligationCreationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObligationCreationViewController.h; sourceTree = "<group>"; };
 		A94DD3C218CE61E90029C02F /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		A98676A118CFB23800515DB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ProjectGO/Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		A98F303018D1087E00F4B4C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ProjectGO/Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
@@ -264,7 +263,7 @@
 		B2CF8FB018D0D8A9005DF37E /* DetailedObligationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedObligationViewController.m; sourceTree = "<group>"; };
 		B2E261D618CE6AD80091D5EC /* LoadAllObligationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadAllObligationsViewController.h; sourceTree = "<group>"; };
 		B2E261D718CE6AD80091D5EC /* LoadAllObligationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadAllObligationsViewController.m; sourceTree = "<group>"; };
-		EEBCA0D318CBDD6B005830A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ProjectGO/Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		EE4D30EE18D2330A0003B663 /* constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = constants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,7 +294,6 @@
 		6B813A2218C0B0DB00D03A65 = {
 			isa = PBXGroup;
 			children = (
-				A98F302F18D1087E00F4B4C9 /* Main_iPad.storyboard */,
 				A98676A018CFB23800515DB9 /* Main_iPhone.storyboard */,
 				6BBDB20F18CB9A7200AAD64E /* Libraries */,
 				6B813A3418C0B0DB00D03A65 /* ProjectGo */,
@@ -342,6 +340,7 @@
 				6B813A4918C0B0DB00D03A65 /* Images.xcassets */,
 				6B813A3518C0B0DB00D03A65 /* Supporting Files */,
 				A94DD3C218CE61E90029C02F /* constants.h */,
+				EE4D30EE18D2330A0003B663 /* constants.m */,
 			);
 			name = ProjectGo;
 			path = ProjectGO;
@@ -604,12 +603,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A94DD3C518CE74C20029C02F /* Main_iPad.storyboard in Resources */,
-				6B813A4A18C0B0DB00D03A65 /* Images.xcassets in Resources */,
-				EEBCA0D518CBDD6B005830A7 /* Main_iPhone.storyboard in Resources */,
+				EEBCA0D518CBDD6B005830A7 /* Main_iPad.storyboard in Resources */,
 				B2CF8FAE18D0D443005DF37E /* Main_iPad.storyboard in Resources */,
-				6BBDB2D918CB9C0C00AAD64E /* TapkuLibrary.bundle in Resources */,
-				6B813A3918C0B0DB00D03A65 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,6 +674,7 @@
 				6BBDB29718CB9BD300AAD64E /* NSArray+TKCategory.m in Sources */,
 				6BBDB2BC18CB9BD300AAD64E /* TKShimmerLabel.m in Sources */,
 				6BBDB2A718CB9BD300AAD64E /* TKCoverflowView.m in Sources */,
+				EE4D30EF18D2330A0003B663 /* constants.m in Sources */,
 				6BBDB2CF18CB9BD300AAD64E /* UIImage+TKCategory.m in Sources */,
 				6BBDB2A418CB9BD300AAD64E /* TKCalendarMonthTableViewController.m in Sources */,
 				6BBDB2A218CB9BD300AAD64E /* TKCalendarDayView.m in Sources */,
@@ -754,7 +750,7 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		EEBCA0D218CBDD6B005830A7 /* Main_iPhone.storyboard */ = {
+		EEBCA0D218CBDD6B005830A7 /* Main_iPad.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A98F303018D1087E00F4B4C9 /* Base */,
