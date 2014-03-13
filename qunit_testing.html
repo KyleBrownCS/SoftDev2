@@ -73,6 +73,38 @@
 	
   });
   </script>
+  
+  <script>
+  test("calendar.js testing", function() {
+    //creating object to test on (obligationid userid name description starttime endtime priority status category)
+	var obj1 = new Obligation("1","2","name1","desc1","start1","end1","3","4","5");
+	var obj2 = new Obligation("6","7","name2","desc2","start2","end2","8","9","10");
+	var testobj1 = 0;
+	
+	//test obligation names
+	obligations = [obj1,obj2];
+    equal(obligations[0].name,"name1");
+	equal(obligations[1].name,"name2");
+	
+	//Now lets make sure there doesnt exist an obligation at obligations[2].
+	testobj1 = obligations[2];
+	equal(testobj1, undefined);
+
+	//Now lets make sure calendar.js has the correct fields for obligations[0].
+	equal(obligations[0].obligationid, 1)
+	equal(obligations[0].obligationid, "1");
+	equal(obligations[0].userid, "2");
+	equal(obligations[0].name, "name1");
+	equal(obligations[0].description, "desc1");
+	equal(obligations[0].startTime, "start1");
+	equal(obligations[0].endTime, "end1");
+	equal(obligations[0].priority, "3");
+	equal(obligations[0].status, "4");
+	equal(obligations[0].category, "5");
+	
+  });
+  </script>
+  
 </head>
 <body>
 
