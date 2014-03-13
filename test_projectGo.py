@@ -108,6 +108,13 @@ class Test(unittest.TestCase):
             result = self.app.get('/obligations')
             self.assertEquals(result.status, '200 OK')
 
+    #Test of GET method for obligations on a given day
+    def test_get_date_obligations(self):
+        result = self.app.get('/obligations/2014-01-01')
+        self.assertEquals(result.status, '200 OK')
+        result = self.app.get('/obligations/2019-01-01')
+        self.assertEquals(result.status, '404 NOT FOUND')
+
     #test of DELETE method for delete_obligation
     def test_delete_obligation(self):
         #typical delete case of existing obligation
