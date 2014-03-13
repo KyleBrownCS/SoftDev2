@@ -32,8 +32,6 @@
 - (IBAction)searchByID:(id)sender {
     
     NSDictionary* json = [self getObligationsByID:_idField.text];
-    NSLog(@"Blah: %@", json);
-    
     
     int failed = 0;
     if ([[json valueForKeyPath:@"error"] intValue] > 0) {

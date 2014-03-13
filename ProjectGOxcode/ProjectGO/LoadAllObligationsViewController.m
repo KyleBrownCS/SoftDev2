@@ -88,7 +88,6 @@ NSString *userid;
     
     NSData *jsonSource = [NSData dataWithContentsOfURL:
                           [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", SERVER_ADDRESS, OBLIGATION_SUB_URL]]];
-    NSLog(@"more stuff: %@", jsonSource);
     
     id jsonObjects = [NSJSONSerialization JSONObjectWithData:
                       jsonSource options:NSJSONReadingMutableContainers error:nil];
