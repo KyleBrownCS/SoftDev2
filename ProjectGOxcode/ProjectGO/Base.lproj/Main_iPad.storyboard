@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="6VS-tl-XCE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="6VS-tl-XCE">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -107,6 +107,10 @@
                                 <rect key="frame" x="0.0" y="65" width="768" height="959"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="JDu-V8-6fK" id="rxe-g7-R9g"/>
+                                    <outlet property="delegate" destination="JDu-V8-6fK" id="i3P-CD-fO8"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -114,12 +118,12 @@
                     <navigationItem key="navigationItem" id="nv1-Ev-wEA"/>
                     <connections>
                         <outlet property="loadingSpinner" destination="rLs-r2-8a0" id="zyN-SA-0Ei"/>
-                        <outlet property="tableList" destination="YCR-Tf-uO4" id="OIr-Hx-MST"/>
+                        <outlet property="tableList" destination="YCR-Tf-uO4" id="93G-zq-3Fv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vBo-fE-fgB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="787" y="910"/>
+            <point key="canvasLocation" x="881" y="812"/>
         </scene>
         <!--Obligation Creation View Controller-->
         <scene sceneID="gAf-6c-azK">
