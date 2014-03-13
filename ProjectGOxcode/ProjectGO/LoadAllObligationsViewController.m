@@ -7,7 +7,6 @@
 //
 
 #import "LoadAllObligationsViewController.h"
-#import "DetailedObligationViewController.h"
 
 @interface LoadAllObligationsViewController ()
 
@@ -105,16 +104,6 @@ NSString *userid;
         NSString *cat_data = [dataDict objectForKey:@"category"];
         NSString *description_data = [dataDict objectForKey:@"description"];
         
-        NSLog(@"priv: %@",pri_data);
-        NSLog(@"stat: %@",stat_data);
-        NSLog(@"obid: %@",obid_data);
-        NSLog(@"name: %@",name_data);
-        NSLog(@"start: %@",stat_data);
-        NSLog(@"end: %@",endtime_data);
-        NSLog(@"userid: %@",userid_data);
-        NSLog(@"cat: %@",cat_data);
-        NSLog(@"desc: %@",description_data);
-        
         myDict = [NSDictionary dictionaryWithObjectsAndKeys:
                   userid_data, userid,
                   obid_data, obligationid,
@@ -134,15 +123,6 @@ NSString *userid;
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"showDetails"]) {
-        NSIndexPath *indexPath = [self.tableList indexPathForSelectedRow];
-        DetailedObligationViewController *destViewController = segue.destinationViewController;
-        destViewController.object = [myobj objectAtIndex:indexPath.row];
-        NSLog(@"alldata: %@", [myobj objectAtIndex:indexPath.row]);
-    }
 }
 
 @end

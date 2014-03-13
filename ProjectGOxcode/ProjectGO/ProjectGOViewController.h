@@ -8,30 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <sqlite3.h>
-#import "TKCalendarMonthView.h"
 
-@interface ProjectGOViewController : UIViewController <TKCalendarMonthViewDelegate,TKCalendarMonthViewDataSource> {
-	TKCalendarMonthView *calendar;
+@interface ProjectGOViewController : UIViewController{
 }
-@property (strong, nonatomic) IBOutlet UITextField *name;
-@property (strong, nonatomic) IBOutlet UITextField *description;
-@property (strong, nonatomic) IBOutlet UITextField *startTime;
-@property (strong, nonatomic) IBOutlet UITextField *endTime;
-@property (strong, nonatomic) IBOutlet UITextField *priority;
-@property (strong, nonatomic) IBOutlet UITextField *status;
-@property (strong, nonatomic) IBOutlet UITextField *category;
-@property (strong, nonatomic) IBOutlet UILabel *statuslbl;
-@property (strong, nonatomic) IBOutlet UITextField *obID;
-
-
-//- (IBAction)saveData:(id)sender;
-//- (IBAction)find:(id)sender;
-
-@property (strong, nonatomic) NSString *databasePath;
-@property (nonatomic) sqlite3 *contactDB;
-
-@property (nonatomic, retain) TKCalendarMonthView *calendar;
-
--(void)toggleCalendar;
 
 @end

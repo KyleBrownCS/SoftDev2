@@ -9,11 +9,7 @@
 #import "ProjectGOViewController.h"
 #import "constants.h"
 
-static int calendarShadowOffset = (int)-20;
-
 @implementation ProjectGOViewController
-
-@synthesize calendar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -70,38 +66,6 @@ static int calendarShadowOffset = (int)-20;
     }
     
     return json;
-}
-
-- (void) find:(id)sender
-{
-    
-    NSDictionary* json = [self getObligationWithID:_obID.text];
-    int failed = 0;
-    if ([[json valueForKeyPath:@"error"] intValue] > 0) {
-        failed = [[json objectForKey:@"error" ] integerValue];
-    }
-    
-    if (failed) {
-        _statuslbl.text = @"Match not found";
-        _description.text = @"NOT FOUND";
-        _startTime.text = @"";
-        _endTime.text = @"";
-        _priority.text = @"";
-        _status.text = @"";
-        _category.text = @"";
-    }
-    else {
-        //NSLog(@"description is %@",[json objectForKey:@"description"]);
-        //_statuslbl.text = [json objectForKey:@"userid"];
-        _name.text = [json objectForKey:@"name"];
-        _description.text = [json objectForKey:@"description"];
-        _startTime.text = [json objectForKey:@"starttime"];
-        _endTime.text = [json objectForKey:@"endtime"];
-        _priority.text = [[json objectForKey:@"priority"] stringValue];
-        _status.text = [[json objectForKey:@"status"] stringValue];
-        _category.text = [[json objectForKey:@"category"] stringValue];
-    }
-    
 }
 
 @end
