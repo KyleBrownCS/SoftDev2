@@ -66,7 +66,9 @@ def obligationlist():
 def get_obligations_by_date(startTime):
     db_connection, db_cursor = get_db() 
     response = ""
+    response_code = None
     data = []
+    count = 0;
     for row in db_cursor.execute("select * from " + applicationInfo.OBLIGATION_TABLE_NAME):
         start_time = row[row_pos_starttime]
         time_split = start_time.split(" ", 1)
@@ -84,9 +86,13 @@ def get_obligations_by_date(startTime):
                 'category'     : row[row_pos_category]} #category
             data.append(obligation_entry)
             response = json.dumps(data)
-        #else:
-        #    response = response + "Tested: %s against %s \r\n" % (startTime, start_time)
-    return response
+            count = count + 1
+    if 0 == count:
+        response_code = 404
+    else:
+        response_code = 200
+
+    return response, response_code
 
 @app.route('/obligations/<int:obligation_id>', methods = ['GET'])
 def get_obligation(obligation_id):
