@@ -12,14 +12,12 @@
 @interface ObligationCreationViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextField *name;
+@property (weak, nonatomic) IBOutlet UIDatePicker *startDate;
+@property (weak, nonatomic) IBOutlet UIDatePicker *endDate;
 @property (weak, nonatomic) IBOutlet UITextField *description;
-@property (weak, nonatomic) IBOutlet UITextField *startDate;
-@property (weak, nonatomic) IBOutlet UITextField *startTime;
-@property (weak, nonatomic) IBOutlet UITextField *endTime;
 @property (weak, nonatomic) IBOutlet UITextField *priority;
 @property (weak, nonatomic) IBOutlet UITextField *status;
 @property (weak, nonatomic) IBOutlet UITextField *category;
-@property (weak, nonatomic) IBOutlet UITextField *endDate;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *statusSymb;
 
 @property (strong, nonatomic) NSString *databasePath;

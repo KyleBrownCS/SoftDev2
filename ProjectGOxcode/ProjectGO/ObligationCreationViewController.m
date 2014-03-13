@@ -59,7 +59,15 @@
     NSInteger statusFieldInt = [statusFieldText integerValue];
     NSInteger categoryFieldInt = [categoryFieldText integerValue];
     
-    NSString *postDataString = [NSString stringWithFormat:@"userid=1&name=%@&description=%@&starttime=2014-01-01 00:00:00.000&endtime=2014-01-01 00:00:00.000&priority=%d&status=%d&category=%d", nameFieldText, descriptionFieldText, priorityFieldInt, statusFieldInt, categoryFieldInt];
+    //The dates/times
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd H:m:s"];
+    NSDate *startDate = _startDate.date;
+    NSDate *endDate = _endDate.date;
+    NSString *stringStartDate = [dateFormat stringFromDate:startDate];
+    NSString *stringEndDate = [dateFormat stringFromDate:endDate];
+    
+    NSString *postDataString = [NSString stringWithFormat:@"userid=1&name=%@&description=%@&starttime=%@.000&endtime=%@.000&priority=%d&status=%d&category=%d", nameFieldText, descriptionFieldText,stringStartDate, stringEndDate, priorityFieldInt, statusFieldInt, categoryFieldInt];
     
     [request setHTTPMethod: @"POST"];
     [request setHTTPBody:[postDataString dataUsingEncoding:NSUTF8StringEncoding]];
