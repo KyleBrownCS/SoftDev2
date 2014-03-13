@@ -43,6 +43,7 @@
 
 - (IBAction)addObligationButton:(id)sender {
     
+    
     NSString *url = [NSString stringWithFormat:@"%@%@", SERVER_ADDRESS, OBLIGATION_SUB_URL];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]
                                                            cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
@@ -59,37 +60,66 @@
     NSInteger statusFieldInt = [statusFieldText integerValue];
     NSInteger categoryFieldInt = [categoryFieldText integerValue];
     
-    //The dates/times
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyy-MM-dd H:m:s"];
-    NSDate *startDate = _startDate.date;
-    NSDate *endDate = _endDate.date;
-    NSString *stringStartDate = [dateFormat stringFromDate:startDate];
-    NSString *stringEndDate = [dateFormat stringFromDate:endDate];
-    
-    NSString *postDataString = [NSString stringWithFormat:@"userid=1&name=%@&description=%@&starttime=%@.000&endtime=%@.000&priority=%d&status=%d&category=%d", nameFieldText, descriptionFieldText,stringStartDate, stringEndDate, priorityFieldInt, statusFieldInt, categoryFieldInt];
-    
-    [request setHTTPMethod: @"POST"];
-    [request setHTTPBody:[postDataString dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    NSURLResponse *response = nil;
-    NSError *error = nil;
-    
-    NSData *data = [NSURLConnection sendSynchronousRequest:request
-                                         returningResponse:&response
-                                                     error:&error];
-    
-    if (error == nil){
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if([nameFieldText length] == 0 || [priorityFieldText length] == 0 || [statusFieldText length] == 0 || [categoryFieldText length] ==0)
+    {
+        NSString* result = @"";
         
-        //check if the request failed on the server
-        error = [json objectForKey:@"error" ];
-        if(error != nil) {
-            //success
+        if([nameFieldText length] == 0){
+            result = [result stringByAppendingString:@"Name Missing.\n"];
         }
-        else {
-            //error occured server side
+        
+        if([priorityFieldText length] == 0)
+        {
+           result = [result stringByAppendingString:@"Priority Missing.\n"];
         }
+        
+        if([statusFieldText length] == 0)
+        {
+            result = [result stringByAppendingString:@"Status Missing.\n"];
+        }
+        
+        if([categoryFieldText length] == 0)
+        {
+            result = [result stringByAppendingString:@"Category Missing.\n"];
+        }
+        _errorBox.text = result;
+    }
+    
+    else
+    {
+        //The dates/times
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd H:m:s"];
+        NSDate *startDate = _startDate.date;
+        NSDate *endDate = _endDate.date;
+        NSString *stringStartDate = [dateFormat stringFromDate:startDate];
+        NSString *stringEndDate = [dateFormat stringFromDate:endDate];
+        
+        NSString *postDataString = [NSString stringWithFormat:@"userid=1&name=%@&description=%@&starttime=%@.000&endtime=%@.000&priority=%d&status=%d&category=%d", nameFieldText, descriptionFieldText,stringStartDate, stringEndDate, priorityFieldInt, statusFieldInt, categoryFieldInt];
+        
+        [request setHTTPMethod: @"POST"];
+        [request setHTTPBody:[postDataString dataUsingEncoding:NSUTF8StringEncoding]];
+        
+        NSURLResponse *response = nil;
+        NSError *error = nil;
+        
+        NSData *data = [NSURLConnection sendSynchronousRequest:request
+                                             returningResponse:&response
+                                                         error:&error];
+        
+        if (error == nil){
+            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+            
+            //check if the request failed on the server
+            error = [json objectForKey:@"error" ];
+            if(error != nil) {
+                //success
+            }
+            else {
+                //error occured server side
+            }
+        }
+        _errorBox.text = @"DATA SUCCESSFULLY ADDED";
     }
     
 }

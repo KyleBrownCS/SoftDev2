@@ -9,4 +9,4 @@
 #include "constants.h"
 //const NSString *SERVER_ADDRESS = @"http://54.213.113.207/"; //jeremy (test)
 const NSString *SERVER_ADDRESS = @"http://54.201.135.92/";   //prod
-const NSString *OBLIGATION_SUB_URL = @"obligations/";
+const NSString *OBLIGATION_SUB_URL = @"obligations";

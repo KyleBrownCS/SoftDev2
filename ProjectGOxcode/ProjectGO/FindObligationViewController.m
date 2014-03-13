@@ -17,22 +17,17 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
     return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 - (IBAction)searchByID:(id)sender {
     
@@ -69,7 +64,7 @@
 
 - (NSDictionary*)getObligationsByID:(NSString*)obid{
     
-    NSString *url = [NSString stringWithFormat:@"%@%@%@", SERVER_ADDRESS, OBLIGATION_SUB_URL, _idField.text];
+    NSString *url = [NSString stringWithFormat:@"%@%@/%@", SERVER_ADDRESS, OBLIGATION_SUB_URL, _idField.text];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]
                                                            cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
                                                        timeoutInterval:10];
@@ -82,8 +77,6 @@
                                          returningResponse:&response
                                                      error:&error];
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    
-    NSLog(@"GET STUFF: %@", response);
     
     if (error != nil)
     {

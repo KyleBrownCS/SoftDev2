@@ -21,10 +21,8 @@
 		6B813A6718C0B12900D03A65 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B813A6618C0B12900D03A65 /* libsqlite3.dylib */; };
 		B29B6CE818CE44B400BE31F1 /* ObligationCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29B6CE718CE44B400BE31F1 /* ObligationCreationViewController.m */; };
 		B2AC9D9B18D2577200F90786 /* FindObligationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2AC9D9A18D2577200F90786 /* FindObligationViewController.m */; };
-		B2CF8FAE18D0D443005DF37E /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2CF8FAC18D0D443005DF37E /* Main_iPad.storyboard */; };
 		B2E261D818CE6AD80091D5EC /* LoadAllObligationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E261D718CE6AD80091D5EC /* LoadAllObligationsViewController.m */; };
 		EE4D30EF18D2330A0003B663 /* constants.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4D30EE18D2330A0003B663 /* constants.m */; };
-		EEBCA0D518CBDD6B005830A7 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEBCA0D218CBDD6B005830A7 /* Main_iPad.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +56,6 @@
 		6B813A5C18C0B0DB00D03A65 /* ProjectGOTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectGOTests.m; sourceTree = "<group>"; };
 		6B813A6618C0B12900D03A65 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		A94DD3C218CE61E90029C02F /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
-		A98F303018D1087E00F4B4C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ProjectGO/Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		B29B6CE718CE44B400BE31F1 /* ObligationCreationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObligationCreationViewController.m; sourceTree = "<group>"; };
 		B2AC9D9918D2577200F90786 /* FindObligationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindObligationViewController.h; sourceTree = "<group>"; };
 		B2AC9D9A18D2577200F90786 /* FindObligationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindObligationViewController.m; sourceTree = "<group>"; };
@@ -256,8 +253,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEBCA0D518CBDD6B005830A7 /* Main_iPad.storyboard in Resources */,
-				B2CF8FAE18D0D443005DF37E /* Main_iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,14 +323,6 @@
 			);
 			name = Main_iPad.storyboard;
 			path = ..;
-			sourceTree = "<group>";
-		};
-		EEBCA0D218CBDD6B005830A7 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A98F303018D1087E00F4B4C9 /* Base */,
-			);
-			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
