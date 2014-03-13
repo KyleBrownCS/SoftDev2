@@ -6,9 +6,6 @@
 //  Copyright (c) 2014 com.ProjectGO. All rights reserved.
 //
 
-//prod
-//const NSString *SERVER_ADDRESS = @"http://54.201.135.92";
 
-//jeremy
-extern const NSString *SERVER_ADDRESS; // @"http://54.213.113.207/";
-extern const NSString *OBLIGATION_SUB_URL; // @"/obligations";
+extern const NSString *SERVER_ADDRESS;
+extern const NSString *OBLIGATION_SUB_URL;

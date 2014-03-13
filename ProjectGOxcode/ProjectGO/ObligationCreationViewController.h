@@ -20,9 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *category;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *statusSymb;
 
-@property (strong, nonatomic) NSString *databasePath;
-@property (nonatomic) sqlite3 *contactDB;
-
+@property (weak, nonatomic) IBOutlet UITextView *errorBox;
 
 - (IBAction)addObligationButton:(id)sender;
 

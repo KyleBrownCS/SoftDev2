@@ -44,8 +44,7 @@ NSString *userid;
     text = [NSMutableString stringWithFormat:@"%@", [tmpDict objectForKeyedSubscript:name]];
     
     NSMutableString *detail;
-    detail = [NSMutableString stringWithFormat:@"Description: %@ ",
-              [tmpDict objectForKey:description]];
+    detail = [NSMutableString stringWithFormat:@"(%@) \"%@\"", [tmpDict objectForKey:obligationid], [tmpDict objectForKey:description]];
     
     cell.textLabel.text = text;
     cell.detailTextLabel.text= detail;
@@ -73,6 +72,7 @@ NSString *userid;
 {
     [super viewDidLoad];
     [_loadingSpinner startAnimating];
+    
     name = @"name";
     description = @"description";
     obligationid = @"obligationid";
