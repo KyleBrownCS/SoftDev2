@@ -7,7 +7,6 @@
 //
 
 #import "ProjectGOViewController.h"
-#import "constants.h"
 
 @implementation ProjectGOViewController
 
@@ -42,30 +41,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (NSDictionary*)getObligationWithID:(NSString*)obID {
-    
-    NSString *url = [NSString stringWithFormat:@"%@%@%@", SERVER_ADDRESS, OBLIGATION_SUB_URL, obID];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]
-                                                           cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
-                                                       timeoutInterval:10];
-    
-    [request setHTTPMethod: @"GET"];
-    NSURLResponse *response = nil;
-    NSError *error = nil;
-    
-    NSData *data = [NSURLConnection sendSynchronousRequest:request
-                                         returningResponse:&response
-                                                     error:&error];
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    
-    if (error != nil)
-    {
-        json = [[NSDictionary alloc] initWithObjectsAndKeys:@"1", @"error", nil];
-    }
-    
-    return json;
 }
 
 @end

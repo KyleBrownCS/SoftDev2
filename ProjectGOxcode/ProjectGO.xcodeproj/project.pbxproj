@@ -20,6 +20,7 @@
 		6B813A5D18C0B0DB00D03A65 /* ProjectGOTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B813A5C18C0B0DB00D03A65 /* ProjectGOTests.m */; };
 		6B813A6718C0B12900D03A65 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B813A6618C0B12900D03A65 /* libsqlite3.dylib */; };
 		B29B6CE818CE44B400BE31F1 /* ObligationCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29B6CE718CE44B400BE31F1 /* ObligationCreationViewController.m */; };
+		B2AC9D9B18D2577200F90786 /* FindObligationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2AC9D9A18D2577200F90786 /* FindObligationViewController.m */; };
 		B2CF8FAE18D0D443005DF37E /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2CF8FAC18D0D443005DF37E /* Main_iPad.storyboard */; };
 		B2E261D818CE6AD80091D5EC /* LoadAllObligationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E261D718CE6AD80091D5EC /* LoadAllObligationsViewController.m */; };
 		EE4D30EF18D2330A0003B663 /* constants.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4D30EE18D2330A0003B663 /* constants.m */; };
@@ -57,9 +58,10 @@
 		6B813A5C18C0B0DB00D03A65 /* ProjectGOTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectGOTests.m; sourceTree = "<group>"; };
 		6B813A6618C0B12900D03A65 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		A94DD3C218CE61E90029C02F /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
-		A98676A118CFB23800515DB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ProjectGO/Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		A98F303018D1087E00F4B4C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ProjectGO/Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		B29B6CE718CE44B400BE31F1 /* ObligationCreationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObligationCreationViewController.m; sourceTree = "<group>"; };
+		B2AC9D9918D2577200F90786 /* FindObligationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindObligationViewController.h; sourceTree = "<group>"; };
+		B2AC9D9A18D2577200F90786 /* FindObligationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindObligationViewController.m; sourceTree = "<group>"; };
 		B2CF8FAD18D0D443005DF37E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ProjectGO/Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		B2E261D618CE6AD80091D5EC /* LoadAllObligationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadAllObligationsViewController.h; sourceTree = "<group>"; };
 		B2E261D718CE6AD80091D5EC /* LoadAllObligationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadAllObligationsViewController.m; sourceTree = "<group>"; };
@@ -94,7 +96,6 @@
 		6B813A2218C0B0DB00D03A65 = {
 			isa = PBXGroup;
 			children = (
-				A98676A018CFB23800515DB9 /* Main_iPhone.storyboard */,
 				6B813A3418C0B0DB00D03A65 /* ProjectGo */,
 				6B813A5618C0B0DB00D03A65 /* ProjectGoTests */,
 				6B813A2D18C0B0DB00D03A65 /* Frameworks */,
@@ -127,6 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				B2CF8FAC18D0D443005DF37E /* Main_iPad.storyboard */,
+				B2AC9D9918D2577200F90786 /* FindObligationViewController.h */,
+				B2AC9D9A18D2577200F90786 /* FindObligationViewController.m */,
 				B2E261D618CE6AD80091D5EC /* LoadAllObligationsViewController.h */,
 				B2E261D718CE6AD80091D5EC /* LoadAllObligationsViewController.m */,
 				B29B6CE718CE44B400BE31F1 /* ObligationCreationViewController.m */,
@@ -276,6 +279,7 @@
 				B29B6CE818CE44B400BE31F1 /* ObligationCreationViewController.m in Sources */,
 				6B813A4818C0B0DB00D03A65 /* ProjectGOViewController.m in Sources */,
 				B2E261D818CE6AD80091D5EC /* LoadAllObligationsViewController.m in Sources */,
+				B2AC9D9B18D2577200F90786 /* FindObligationViewController.m in Sources */,
 				6B813A3F18C0B0DB00D03A65 /* ProjectGOAppDelegate.m in Sources */,
 				6B813A3B18C0B0DB00D03A65 /* main.m in Sources */,
 				EE4D30EF18D2330A0003B663 /* constants.m in Sources */,
@@ -315,14 +319,6 @@
 				6B813A5A18C0B0DB00D03A65 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		A98676A018CFB23800515DB9 /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A98676A118CFB23800515DB9 /* Base */,
-			);
-			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 		B2CF8FAC18D0D443005DF37E /* Main_iPad.storyboard */ = {
