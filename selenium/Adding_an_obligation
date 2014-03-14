@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://54.213.113.207/" />
+<title>Adding_an_obligation</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Adding_an_obligation</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>selenium test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description</td>
+	<td>this is a selenium test</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=datepickerstart</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.ui-datepicker-title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=16</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=datepickerend</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=div.ui-datepicker-title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=16</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=pri</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=cat</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=stat</td>
+	<td>label=Important</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submit1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//body/div[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>//body/div[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//body/div[4]</td>
+	<td>×Data successfully received!</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
