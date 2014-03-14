@@ -8,8 +8,9 @@
 <body>
 <table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
 <tr><td><b>Test Suite</b></td></tr>
-<tr><td><a href="projectgo_selenium_test_suite">Verify_Elements_Schedule</a></td></tr>
-<tr><td><a href="test">Verify_Elements_Obligations</a></td></tr>
+<tr><td><a href="Verify_Schedule">Verify_Add_an_Obligation</a></td></tr>
+<tr><td><a href="Verify_Schedule">Verify_Schedule</a></td></tr>
+<tr><td><a href="Verify_Obligations">Verify_Obligations</a></td></tr>
 </tbody></table>
 </body>
 </html>
