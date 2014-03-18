@@ -190,7 +190,7 @@
 		6B813A4618C0B0DB00D03A65 /* ProjectGOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectGOViewController.h; sourceTree = "<group>"; };
 		6B813A4718C0B0DB00D03A65 /* ProjectGOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectGOViewController.m; sourceTree = "<group>"; };
 		6B813A4918C0B0DB00D03A65 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images.xcassets; sourceTree = "<group>"; };
-		6B813A4F18C0B0DB00D03A65 /* ProjectGoTests */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ProjectGoTests; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B813A4F18C0B0DB00D03A65 /* ProjectGoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectGoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B813A5018C0B0DB00D03A65 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6B813A5818C0B0DB00D03A65 /* ProjectGOTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ProjectGOTests-Info.plist"; sourceTree = "<group>"; };
 		6B813A5A18C0B0DB00D03A65 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -207,7 +207,7 @@
 		B2E261D618CE6AD80091D5EC /* LoadAllObligationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadAllObligationsViewController.h; sourceTree = "<group>"; };
 		B2E261D718CE6AD80091D5EC /* LoadAllObligationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadAllObligationsViewController.m; sourceTree = "<group>"; };
 		EE4D30EE18D2330A0003B663 /* constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = constants.m; sourceTree = "<group>"; };
-		EEB1B8A318D269E400FECB59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Base; path = ProjectGO/Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		EEB1B8A318D269E400FECB59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ProjectGO/Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -357,7 +357,7 @@
 			isa = PBXGroup;
 			children = (
 				6B813A2B18C0B0DB00D03A65 /* ProjectGo.app */,
-				6B813A4F18C0B0DB00D03A65 /* ProjectGoTests */,
+				6B813A4F18C0B0DB00D03A65 /* ProjectGoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -465,7 +465,7 @@
 			);
 			name = ProjectGoTests;
 			productName = ProjectGoTests;
-			productReference = 6B813A4F18C0B0DB00D03A65 /* ProjectGoTests */;
+			productReference = 6B813A4F18C0B0DB00D03A65 /* ProjectGoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -488,6 +488,7 @@
 			};
 			buildConfigurationList = 6B813A2618C0B0DB00D03A65 /* Build configuration list for PBXProject "ProjectGO" */;
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,

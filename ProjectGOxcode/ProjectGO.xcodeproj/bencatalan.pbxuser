@@ -51,6 +51,16 @@
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
 	};
+	6B360A4118C0C586006BC399 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6B813A4718C0B0DB00D03A65 /* ProjectGOViewController.m */;
+		name = "ProjectGOViewController.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 880;
+		vrLoc = 2264;
+	};
 	6B360A5718C0CA4C006BC399 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 6B813A4718C0B0DB00D03A65 /* ProjectGOViewController.m */;
@@ -58,18 +68,8 @@
 		rLen = 0;
 		rLoc = 0;
 		rType = 0;
-		vrLen = 0;
-		vrLoc = 847;
-	};
-	6B3B0C1718D82299005571DB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 6B813A4718C0B0DB00D03A65 /* ProjectGOViewController.m */;
-		name = "ProjectGOViewController.m: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 304;
-		vrLoc = 543;
+		vrLen = 830;
+		vrLoc = 2264;
 	};
 	6B813A2318C0B0DB00D03A65 /* Project object */ = {
 		activeBuildConfigurationName = Debug;
@@ -102,13 +102,13 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 416817755;
-			PBXWorkspaceStateSaveDate = 416817755;
+			PBXPerProjectTemplateStateSaveDate = 415287882;
+			PBXWorkspaceStateSaveDate = 415287882;
 		};
 		perUserProjectItems = {
 			6B360A1418C0C14F006BC399 /* PBXTextBookmark */ = 6B360A1418C0C14F006BC399 /* PBXTextBookmark */;
+			6B360A4118C0C586006BC399 /* PBXTextBookmark */ = 6B360A4118C0C586006BC399 /* PBXTextBookmark */;
 			6B360A5718C0CA4C006BC399 /* PBXTextBookmark */ = 6B360A5718C0CA4C006BC399 /* PBXTextBookmark */;
-			6B3B0C1718D82299005571DB /* PBXTextBookmark */ = 6B3B0C1718D82299005571DB /* PBXTextBookmark */;
 		};
 		sourceControlManager = 6B360A1C18C0C14F006BC399 /* Source Control */;
 		userBuildSettings = {
@@ -129,9 +129,9 @@
 	};
 	6B813A4718C0B0DB00D03A65 /* ProjectGOViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {586, 559}}";
+			sepNavIntBoundsRect = "{{0, 0}, {908, 2418}}";
 			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{543, 304}";
+			sepNavVisRange = "{2264, 830}";
 		};
 	};
 	6B813A4E18C0B0DB00D03A65 /* ProjectGoTests */ = {
