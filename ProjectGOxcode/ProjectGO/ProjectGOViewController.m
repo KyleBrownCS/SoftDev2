@@ -13,10 +13,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization.
-		//calendar = 	[[TKCalendarMonthView alloc] init];
-		//calendar.delegate = self;
-		//calendar.dataSource = self;
     }
     return self;
 }
