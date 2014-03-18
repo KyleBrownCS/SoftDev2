@@ -8,13 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "ProjectGOViewController.h"
+#import "CalendarViewController.h"
 
 @interface ProjectGOAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
     ProjectGOViewController *projectGOViewController;
+    CalendarViewController *calendarViewController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) ProjectGOViewController *projectGoViewController;
+@property (nonatomic, retain) CalendarViewController
+    *calendarController;
 
 @end

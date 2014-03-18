@@ -7,6 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B3BD3D518D80A7200631E05 /* NSArray+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD37A18D80A7200631E05 /* NSArray+TKCategory.m */; };
+		6B3BD3D618D80A7200631E05 /* NSDate+CalendarGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD37C18D80A7200631E05 /* NSDate+CalendarGrid.m */; };
+		6B3BD3D718D80A7200631E05 /* NSDate+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD37E18D80A7200631E05 /* NSDate+TKCategory.m */; };
+		6B3BD3D818D80A7200631E05 /* NSString+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD38018D80A7200631E05 /* NSString+TKCategory.m */; };
+		6B3BD3D918D80A7200631E05 /* TapDetectingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD38218D80A7200631E05 /* TapDetectingView.m */; };
+		6B3BD3DB18D80A7200631E05 /* TKAlertCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD38618D80A7200631E05 /* TKAlertCenter.m */; };
+		6B3BD3DC18D80A7200631E05 /* TKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD38818D80A7200631E05 /* TKAppDelegate.m */; };
+		6B3BD3DD18D80A7200631E05 /* TKButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD38A18D80A7200631E05 /* TKButtonCell.m */; };
+		6B3BD3DE18D80A7200631E05 /* TKCalendarDayEventView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD38C18D80A7200631E05 /* TKCalendarDayEventView.m */; settings = {COMPILER_FLAGS = "-w"; }; };
+		6B3BD3DF18D80A7200631E05 /* TKCalendarDayTimelineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD38E18D80A7200631E05 /* TKCalendarDayTimelineView.m */; settings = {COMPILER_FLAGS = "-w"; }; };
+		6B3BD3E018D80A7200631E05 /* TKCalendarDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD39018D80A7200631E05 /* TKCalendarDayViewController.m */; };
+		6B3BD3E118D80A7200631E05 /* TKCalendarMonthTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD39218D80A7200631E05 /* TKCalendarMonthTableViewController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
+		6B3BD3E218D80A7200631E05 /* TKCalendarMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD39418D80A7200631E05 /* TKCalendarMonthView.m */; settings = {COMPILER_FLAGS = "-w"; }; };
+		6B3BD3E318D80A7200631E05 /* TKCalendarMonthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD39618D80A7200631E05 /* TKCalendarMonthViewController.m */; settings = {COMPILER_FLAGS = "-w"; }; };
+		6B3BD3E418D80A7200631E05 /* TKCoverflowCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD39818D80A7200631E05 /* TKCoverflowCoverView.m */; };
+		6B3BD3E518D80A7200631E05 /* TKCoverflowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD39A18D80A7200631E05 /* TKCoverflowView.m */; };
+		6B3BD3E618D80A7200631E05 /* TKEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD39C18D80A7200631E05 /* TKEmptyView.m */; };
+		6B3BD3E718D80A7200631E05 /* TKGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD39E18D80A7200631E05 /* TKGlobal.m */; };
+		6B3BD3E818D80A7200631E05 /* TKGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD3A018D80A7200631E05 /* TKGradientView.m */; };
+		6B3BD3E918D80A7200631E05 /* TKHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD3A218D80A7200631E05 /* TKHTTPRequest.m */; settings = {COMPILER_FLAGS = "-w"; }; };
+		6B3BD3EA18D80A7200631E05 /* TKImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD3A418D80A7200631E05 /* TKImageCache.m */; settings = {COMPILER_FLAGS = "-w"; }; };
+		6B3BD3EB18D80A7200631E05 /* TKLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD3A618D80A7200631E05 /* TKLabelCell.m */; };
+		6B3BD3EC18D80A7200631E05 /* TKLabelFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD3A818D80A7200631E05 /* TKLabelFieldCell.m */; };
+		6B3BD3ED18D80A7200631E05 /* TKLabelSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD3AA18D80A7200631E05 /* TKLabelSwitchCell.m */; };
+		6B3BD3EE18D80A7200631E05 /* TKLabelTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD3AC18D80A7200631E05 /* TKLabelTextFieldCell.m */; };
+		6B3BD3EF18D80A7200631E05 /* TKLabelTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD3AE18D80A7200631E05 /* TKLabelTextViewCell.m */; };
+		6B3BD3F018D80A7200631E05 /* TKNetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD3B018D80A7200631E05 /* TKNetworkQueue.m */; };
+		6B3BD3F118D80A7200631E05 /* TKProgressAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD3B218D80A7200631E05 /* TKProgressAlertView.m */; };
+		6B3BD3F218D80A7200631E05 /* TKProgressBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD3B418D80A7200631E05 /* TKProgressBarView.m */; };
+		6B3BD3F318D80A7200631E05 /* TKProgressCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD3B618D80A7200631E05 /* TKProgressCircleView.m */; };
+		6B3BD3F418D80A7200631E05 /* TKShapeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD3B818D80A7200631E05 /* TKShapeView.m */; };
+		6B3BD3F518D80A7200631E05 /* TKSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD3BA18D80A7200631E05 /* TKSwitchCell.m */; };
+		6B3BD3F618D80A7200631E05 /* TKTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD3BC18D80A7200631E05 /* TKTableViewCell.m */; };
+		6B3BD3F718D80A7200631E05 /* TKTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD3BE18D80A7200631E05 /* TKTableViewController.m */; };
+		6B3BD3F818D80A7200631E05 /* TKTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD3C018D80A7200631E05 /* TKTextViewCell.m */; };
+		6B3BD3F918D80A7200631E05 /* TKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD3C218D80A7200631E05 /* TKViewController.m */; };
+		6B3BD3FA18D80A7200631E05 /* TKWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD3C418D80A7200631E05 /* TKWindow.m */; };
+		6B3BD3FB18D80A7200631E05 /* UIBarButtonItem+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD3C618D80A7200631E05 /* UIBarButtonItem+TKCategory.m */; };
+		6B3BD3FC18D80A7200631E05 /* UIButton+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD3C818D80A7200631E05 /* UIButton+TKCategory.m */; };
+		6B3BD3FD18D80A7200631E05 /* UIColor+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD3CA18D80A7200631E05 /* UIColor+TKCategory.m */; };
+		6B3BD3FE18D80A7200631E05 /* UIImage+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD3CC18D80A7200631E05 /* UIImage+TKCategory.m */; };
+		6B3BD3FF18D80A7200631E05 /* UIImageView+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD3CE18D80A7200631E05 /* UIImageView+TKCategory.m */; };
+		6B3BD40018D80A7200631E05 /* UIScrollview+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD3D018D80A7200631E05 /* UIScrollview+TKCategory.m */; };
+		6B3BD40118D80A7200631E05 /* UIView+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD3D218D80A7200631E05 /* UIView+TKCategory.m */; settings = {COMPILER_FLAGS = "-w"; }; };
+		6B3BD40218D80A7200631E05 /* UIViewController+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BD3D418D80A7200631E05 /* UIViewController+TKCategory.m */; settings = {COMPILER_FLAGS = "-w"; }; };
+		6B3BD40318D80A8B00631E05 /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6B3BD38318D80A7200631E05 /* TapkuLibrary.bundle */; };
 		6B813A2F18C0B0DB00D03A65 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B813A2E18C0B0DB00D03A65 /* Foundation.framework */; };
 		6B813A3118C0B0DB00D03A65 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B813A3018C0B0DB00D03A65 /* CoreGraphics.framework */; };
 		6B813A3318C0B0DB00D03A65 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B813A3218C0B0DB00D03A65 /* UIKit.framework */; };
@@ -19,6 +65,8 @@
 		6B813A5B18C0B0DB00D03A65 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B813A5918C0B0DB00D03A65 /* InfoPlist.strings */; };
 		6B813A5D18C0B0DB00D03A65 /* ProjectGOTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B813A5C18C0B0DB00D03A65 /* ProjectGOTests.m */; };
 		6B813A6718C0B12900D03A65 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B813A6618C0B12900D03A65 /* libsqlite3.dylib */; };
+		6BDB4E1218D2F8350008E3D9 /* CalendarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BDB4E1118D2F8350008E3D9 /* CalendarController.m */; };
+		6BDB4E1818D766AE0008E3D9 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BDB4E1718D766AE0008E3D9 /* CalendarViewController.m */; };
 		B29B6CE818CE44B400BE31F1 /* ObligationCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B29B6CE718CE44B400BE31F1 /* ObligationCreationViewController.m */; };
 		B2AC9D9B18D2577200F90786 /* FindObligationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2AC9D9A18D2577200F90786 /* FindObligationViewController.m */; };
 		B2E261D818CE6AD80091D5EC /* LoadAllObligationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E261D718CE6AD80091D5EC /* LoadAllObligationsViewController.m */; };
@@ -37,6 +85,98 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B3BD37918D80A7200631E05 /* NSArray+TKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+TKCategory.h"; sourceTree = "<group>"; };
+		6B3BD37A18D80A7200631E05 /* NSArray+TKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+TKCategory.m"; sourceTree = "<group>"; };
+		6B3BD37B18D80A7200631E05 /* NSDate+CalendarGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+CalendarGrid.h"; sourceTree = "<group>"; };
+		6B3BD37C18D80A7200631E05 /* NSDate+CalendarGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+CalendarGrid.m"; sourceTree = "<group>"; };
+		6B3BD37D18D80A7200631E05 /* NSDate+TKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TKCategory.h"; sourceTree = "<group>"; };
+		6B3BD37E18D80A7200631E05 /* NSDate+TKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TKCategory.m"; sourceTree = "<group>"; };
+		6B3BD37F18D80A7200631E05 /* NSString+TKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TKCategory.h"; sourceTree = "<group>"; };
+		6B3BD38018D80A7200631E05 /* NSString+TKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TKCategory.m"; sourceTree = "<group>"; };
+		6B3BD38118D80A7200631E05 /* TapDetectingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapDetectingView.h; sourceTree = "<group>"; };
+		6B3BD38218D80A7200631E05 /* TapDetectingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapDetectingView.m; sourceTree = "<group>"; };
+		6B3BD38318D80A7200631E05 /* TapkuLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TapkuLibrary.bundle; sourceTree = "<group>"; };
+		6B3BD38418D80A7200631E05 /* TapkuLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapkuLibrary.h; sourceTree = "<group>"; };
+		6B3BD38518D80A7200631E05 /* TKAlertCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKAlertCenter.h; sourceTree = "<group>"; };
+		6B3BD38618D80A7200631E05 /* TKAlertCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKAlertCenter.m; sourceTree = "<group>"; };
+		6B3BD38718D80A7200631E05 /* TKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKAppDelegate.h; sourceTree = "<group>"; };
+		6B3BD38818D80A7200631E05 /* TKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKAppDelegate.m; sourceTree = "<group>"; };
+		6B3BD38918D80A7200631E05 /* TKButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKButtonCell.h; sourceTree = "<group>"; };
+		6B3BD38A18D80A7200631E05 /* TKButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKButtonCell.m; sourceTree = "<group>"; };
+		6B3BD38B18D80A7200631E05 /* TKCalendarDayEventView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKCalendarDayEventView.h; sourceTree = "<group>"; };
+		6B3BD38C18D80A7200631E05 /* TKCalendarDayEventView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKCalendarDayEventView.m; sourceTree = "<group>"; };
+		6B3BD38D18D80A7200631E05 /* TKCalendarDayTimelineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKCalendarDayTimelineView.h; sourceTree = "<group>"; };
+		6B3BD38E18D80A7200631E05 /* TKCalendarDayTimelineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKCalendarDayTimelineView.m; sourceTree = "<group>"; };
+		6B3BD38F18D80A7200631E05 /* TKCalendarDayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKCalendarDayViewController.h; sourceTree = "<group>"; };
+		6B3BD39018D80A7200631E05 /* TKCalendarDayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKCalendarDayViewController.m; sourceTree = "<group>"; };
+		6B3BD39118D80A7200631E05 /* TKCalendarMonthTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKCalendarMonthTableViewController.h; sourceTree = "<group>"; };
+		6B3BD39218D80A7200631E05 /* TKCalendarMonthTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKCalendarMonthTableViewController.m; sourceTree = "<group>"; };
+		6B3BD39318D80A7200631E05 /* TKCalendarMonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKCalendarMonthView.h; sourceTree = "<group>"; };
+		6B3BD39418D80A7200631E05 /* TKCalendarMonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKCalendarMonthView.m; sourceTree = "<group>"; };
+		6B3BD39518D80A7200631E05 /* TKCalendarMonthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKCalendarMonthViewController.h; sourceTree = "<group>"; };
+		6B3BD39618D80A7200631E05 /* TKCalendarMonthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKCalendarMonthViewController.m; sourceTree = "<group>"; };
+		6B3BD39718D80A7200631E05 /* TKCoverflowCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKCoverflowCoverView.h; sourceTree = "<group>"; };
+		6B3BD39818D80A7200631E05 /* TKCoverflowCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKCoverflowCoverView.m; sourceTree = "<group>"; };
+		6B3BD39918D80A7200631E05 /* TKCoverflowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKCoverflowView.h; sourceTree = "<group>"; };
+		6B3BD39A18D80A7200631E05 /* TKCoverflowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKCoverflowView.m; sourceTree = "<group>"; };
+		6B3BD39B18D80A7200631E05 /* TKEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKEmptyView.h; sourceTree = "<group>"; };
+		6B3BD39C18D80A7200631E05 /* TKEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKEmptyView.m; sourceTree = "<group>"; };
+		6B3BD39D18D80A7200631E05 /* TKGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKGlobal.h; sourceTree = "<group>"; };
+		6B3BD39E18D80A7200631E05 /* TKGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKGlobal.m; sourceTree = "<group>"; };
+		6B3BD39F18D80A7200631E05 /* TKGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKGradientView.h; sourceTree = "<group>"; };
+		6B3BD3A018D80A7200631E05 /* TKGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKGradientView.m; sourceTree = "<group>"; };
+		6B3BD3A118D80A7200631E05 /* TKHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKHTTPRequest.h; sourceTree = "<group>"; };
+		6B3BD3A218D80A7200631E05 /* TKHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKHTTPRequest.m; sourceTree = "<group>"; };
+		6B3BD3A318D80A7200631E05 /* TKImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKImageCache.h; sourceTree = "<group>"; };
+		6B3BD3A418D80A7200631E05 /* TKImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKImageCache.m; sourceTree = "<group>"; };
+		6B3BD3A518D80A7200631E05 /* TKLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLabelCell.h; sourceTree = "<group>"; };
+		6B3BD3A618D80A7200631E05 /* TKLabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKLabelCell.m; sourceTree = "<group>"; };
+		6B3BD3A718D80A7200631E05 /* TKLabelFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLabelFieldCell.h; sourceTree = "<group>"; };
+		6B3BD3A818D80A7200631E05 /* TKLabelFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKLabelFieldCell.m; sourceTree = "<group>"; };
+		6B3BD3A918D80A7200631E05 /* TKLabelSwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLabelSwitchCell.h; sourceTree = "<group>"; };
+		6B3BD3AA18D80A7200631E05 /* TKLabelSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKLabelSwitchCell.m; sourceTree = "<group>"; };
+		6B3BD3AB18D80A7200631E05 /* TKLabelTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLabelTextFieldCell.h; sourceTree = "<group>"; };
+		6B3BD3AC18D80A7200631E05 /* TKLabelTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKLabelTextFieldCell.m; sourceTree = "<group>"; };
+		6B3BD3AD18D80A7200631E05 /* TKLabelTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLabelTextViewCell.h; sourceTree = "<group>"; };
+		6B3BD3AE18D80A7200631E05 /* TKLabelTextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKLabelTextViewCell.m; sourceTree = "<group>"; };
+		6B3BD3AF18D80A7200631E05 /* TKNetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKNetworkQueue.h; sourceTree = "<group>"; };
+		6B3BD3B018D80A7200631E05 /* TKNetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKNetworkQueue.m; sourceTree = "<group>"; };
+		6B3BD3B118D80A7200631E05 /* TKProgressAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKProgressAlertView.h; sourceTree = "<group>"; };
+		6B3BD3B218D80A7200631E05 /* TKProgressAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKProgressAlertView.m; sourceTree = "<group>"; };
+		6B3BD3B318D80A7200631E05 /* TKProgressBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKProgressBarView.h; sourceTree = "<group>"; };
+		6B3BD3B418D80A7200631E05 /* TKProgressBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKProgressBarView.m; sourceTree = "<group>"; };
+		6B3BD3B518D80A7200631E05 /* TKProgressCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKProgressCircleView.h; sourceTree = "<group>"; };
+		6B3BD3B618D80A7200631E05 /* TKProgressCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKProgressCircleView.m; sourceTree = "<group>"; };
+		6B3BD3B718D80A7200631E05 /* TKShapeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKShapeView.h; sourceTree = "<group>"; };
+		6B3BD3B818D80A7200631E05 /* TKShapeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKShapeView.m; sourceTree = "<group>"; };
+		6B3BD3B918D80A7200631E05 /* TKSwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKSwitchCell.h; sourceTree = "<group>"; };
+		6B3BD3BA18D80A7200631E05 /* TKSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKSwitchCell.m; sourceTree = "<group>"; };
+		6B3BD3BB18D80A7200631E05 /* TKTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTableViewCell.h; sourceTree = "<group>"; };
+		6B3BD3BC18D80A7200631E05 /* TKTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKTableViewCell.m; sourceTree = "<group>"; };
+		6B3BD3BD18D80A7200631E05 /* TKTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTableViewController.h; sourceTree = "<group>"; };
+		6B3BD3BE18D80A7200631E05 /* TKTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKTableViewController.m; sourceTree = "<group>"; };
+		6B3BD3BF18D80A7200631E05 /* TKTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTextViewCell.h; sourceTree = "<group>"; };
+		6B3BD3C018D80A7200631E05 /* TKTextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKTextViewCell.m; sourceTree = "<group>"; };
+		6B3BD3C118D80A7200631E05 /* TKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKViewController.h; sourceTree = "<group>"; };
+		6B3BD3C218D80A7200631E05 /* TKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKViewController.m; sourceTree = "<group>"; };
+		6B3BD3C318D80A7200631E05 /* TKWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKWindow.h; sourceTree = "<group>"; };
+		6B3BD3C418D80A7200631E05 /* TKWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKWindow.m; sourceTree = "<group>"; };
+		6B3BD3C518D80A7200631E05 /* UIBarButtonItem+TKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+TKCategory.h"; sourceTree = "<group>"; };
+		6B3BD3C618D80A7200631E05 /* UIBarButtonItem+TKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+TKCategory.m"; sourceTree = "<group>"; };
+		6B3BD3C718D80A7200631E05 /* UIButton+TKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+TKCategory.h"; sourceTree = "<group>"; };
+		6B3BD3C818D80A7200631E05 /* UIButton+TKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+TKCategory.m"; sourceTree = "<group>"; };
+		6B3BD3C918D80A7200631E05 /* UIColor+TKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TKCategory.h"; sourceTree = "<group>"; };
+		6B3BD3CA18D80A7200631E05 /* UIColor+TKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TKCategory.m"; sourceTree = "<group>"; };
+		6B3BD3CB18D80A7200631E05 /* UIImage+TKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TKCategory.h"; sourceTree = "<group>"; };
+		6B3BD3CC18D80A7200631E05 /* UIImage+TKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TKCategory.m"; sourceTree = "<group>"; };
+		6B3BD3CD18D80A7200631E05 /* UIImageView+TKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+TKCategory.h"; sourceTree = "<group>"; };
+		6B3BD3CE18D80A7200631E05 /* UIImageView+TKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+TKCategory.m"; sourceTree = "<group>"; };
+		6B3BD3CF18D80A7200631E05 /* UIScrollview+TKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollview+TKCategory.h"; sourceTree = "<group>"; };
+		6B3BD3D018D80A7200631E05 /* UIScrollview+TKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollview+TKCategory.m"; sourceTree = "<group>"; };
+		6B3BD3D118D80A7200631E05 /* UIView+TKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TKCategory.h"; sourceTree = "<group>"; };
+		6B3BD3D218D80A7200631E05 /* UIView+TKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TKCategory.m"; sourceTree = "<group>"; };
+		6B3BD3D318D80A7200631E05 /* UIViewController+TKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TKCategory.h"; sourceTree = "<group>"; };
+		6B3BD3D418D80A7200631E05 /* UIViewController+TKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TKCategory.m"; sourceTree = "<group>"; };
 		6B813A2B18C0B0DB00D03A65 /* ProjectGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B813A2E18C0B0DB00D03A65 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6B813A3018C0B0DB00D03A65 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -56,6 +196,10 @@
 		6B813A5A18C0B0DB00D03A65 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6B813A5C18C0B0DB00D03A65 /* ProjectGOTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectGOTests.m; sourceTree = "<group>"; };
 		6B813A6618C0B12900D03A65 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		6BDB4E1018D2F8350008E3D9 /* CalendarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarController.h; sourceTree = "<group>"; };
+		6BDB4E1118D2F8350008E3D9 /* CalendarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarController.m; sourceTree = "<group>"; };
+		6BDB4E1618D766AE0008E3D9 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
+		6BDB4E1718D766AE0008E3D9 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		A94DD3C218CE61E90029C02F /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		B29B6CE718CE44B400BE31F1 /* ObligationCreationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObligationCreationViewController.m; sourceTree = "<group>"; };
 		B2AC9D9918D2577200F90786 /* FindObligationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindObligationViewController.h; sourceTree = "<group>"; };
@@ -91,9 +235,117 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B3171CC18D28ED0000FBBE5 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				6B3BD37818D80A7200631E05 /* TapkuLibrary */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		6B3BD37818D80A7200631E05 /* TapkuLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				6B3BD37918D80A7200631E05 /* NSArray+TKCategory.h */,
+				6B3BD37A18D80A7200631E05 /* NSArray+TKCategory.m */,
+				6B3BD37B18D80A7200631E05 /* NSDate+CalendarGrid.h */,
+				6B3BD37C18D80A7200631E05 /* NSDate+CalendarGrid.m */,
+				6B3BD37D18D80A7200631E05 /* NSDate+TKCategory.h */,
+				6B3BD37E18D80A7200631E05 /* NSDate+TKCategory.m */,
+				6B3BD37F18D80A7200631E05 /* NSString+TKCategory.h */,
+				6B3BD38018D80A7200631E05 /* NSString+TKCategory.m */,
+				6B3BD38118D80A7200631E05 /* TapDetectingView.h */,
+				6B3BD38218D80A7200631E05 /* TapDetectingView.m */,
+				6B3BD38318D80A7200631E05 /* TapkuLibrary.bundle */,
+				6B3BD38418D80A7200631E05 /* TapkuLibrary.h */,
+				6B3BD38518D80A7200631E05 /* TKAlertCenter.h */,
+				6B3BD38618D80A7200631E05 /* TKAlertCenter.m */,
+				6B3BD38718D80A7200631E05 /* TKAppDelegate.h */,
+				6B3BD38818D80A7200631E05 /* TKAppDelegate.m */,
+				6B3BD38918D80A7200631E05 /* TKButtonCell.h */,
+				6B3BD38A18D80A7200631E05 /* TKButtonCell.m */,
+				6B3BD38B18D80A7200631E05 /* TKCalendarDayEventView.h */,
+				6B3BD38C18D80A7200631E05 /* TKCalendarDayEventView.m */,
+				6B3BD38D18D80A7200631E05 /* TKCalendarDayTimelineView.h */,
+				6B3BD38E18D80A7200631E05 /* TKCalendarDayTimelineView.m */,
+				6B3BD38F18D80A7200631E05 /* TKCalendarDayViewController.h */,
+				6B3BD39018D80A7200631E05 /* TKCalendarDayViewController.m */,
+				6B3BD39118D80A7200631E05 /* TKCalendarMonthTableViewController.h */,
+				6B3BD39218D80A7200631E05 /* TKCalendarMonthTableViewController.m */,
+				6B3BD39318D80A7200631E05 /* TKCalendarMonthView.h */,
+				6B3BD39418D80A7200631E05 /* TKCalendarMonthView.m */,
+				6B3BD39518D80A7200631E05 /* TKCalendarMonthViewController.h */,
+				6B3BD39618D80A7200631E05 /* TKCalendarMonthViewController.m */,
+				6B3BD39718D80A7200631E05 /* TKCoverflowCoverView.h */,
+				6B3BD39818D80A7200631E05 /* TKCoverflowCoverView.m */,
+				6B3BD39918D80A7200631E05 /* TKCoverflowView.h */,
+				6B3BD39A18D80A7200631E05 /* TKCoverflowView.m */,
+				6B3BD39B18D80A7200631E05 /* TKEmptyView.h */,
+				6B3BD39C18D80A7200631E05 /* TKEmptyView.m */,
+				6B3BD39D18D80A7200631E05 /* TKGlobal.h */,
+				6B3BD39E18D80A7200631E05 /* TKGlobal.m */,
+				6B3BD39F18D80A7200631E05 /* TKGradientView.h */,
+				6B3BD3A018D80A7200631E05 /* TKGradientView.m */,
+				6B3BD3A118D80A7200631E05 /* TKHTTPRequest.h */,
+				6B3BD3A218D80A7200631E05 /* TKHTTPRequest.m */,
+				6B3BD3A318D80A7200631E05 /* TKImageCache.h */,
+				6B3BD3A418D80A7200631E05 /* TKImageCache.m */,
+				6B3BD3A518D80A7200631E05 /* TKLabelCell.h */,
+				6B3BD3A618D80A7200631E05 /* TKLabelCell.m */,
+				6B3BD3A718D80A7200631E05 /* TKLabelFieldCell.h */,
+				6B3BD3A818D80A7200631E05 /* TKLabelFieldCell.m */,
+				6B3BD3A918D80A7200631E05 /* TKLabelSwitchCell.h */,
+				6B3BD3AA18D80A7200631E05 /* TKLabelSwitchCell.m */,
+				6B3BD3AB18D80A7200631E05 /* TKLabelTextFieldCell.h */,
+				6B3BD3AC18D80A7200631E05 /* TKLabelTextFieldCell.m */,
+				6B3BD3AD18D80A7200631E05 /* TKLabelTextViewCell.h */,
+				6B3BD3AE18D80A7200631E05 /* TKLabelTextViewCell.m */,
+				6B3BD3AF18D80A7200631E05 /* TKNetworkQueue.h */,
+				6B3BD3B018D80A7200631E05 /* TKNetworkQueue.m */,
+				6B3BD3B118D80A7200631E05 /* TKProgressAlertView.h */,
+				6B3BD3B218D80A7200631E05 /* TKProgressAlertView.m */,
+				6B3BD3B318D80A7200631E05 /* TKProgressBarView.h */,
+				6B3BD3B418D80A7200631E05 /* TKProgressBarView.m */,
+				6B3BD3B518D80A7200631E05 /* TKProgressCircleView.h */,
+				6B3BD3B618D80A7200631E05 /* TKProgressCircleView.m */,
+				6B3BD3B718D80A7200631E05 /* TKShapeView.h */,
+				6B3BD3B818D80A7200631E05 /* TKShapeView.m */,
+				6B3BD3B918D80A7200631E05 /* TKSwitchCell.h */,
+				6B3BD3BA18D80A7200631E05 /* TKSwitchCell.m */,
+				6B3BD3BB18D80A7200631E05 /* TKTableViewCell.h */,
+				6B3BD3BC18D80A7200631E05 /* TKTableViewCell.m */,
+				6B3BD3BD18D80A7200631E05 /* TKTableViewController.h */,
+				6B3BD3BE18D80A7200631E05 /* TKTableViewController.m */,
+				6B3BD3BF18D80A7200631E05 /* TKTextViewCell.h */,
+				6B3BD3C018D80A7200631E05 /* TKTextViewCell.m */,
+				6B3BD3C118D80A7200631E05 /* TKViewController.h */,
+				6B3BD3C218D80A7200631E05 /* TKViewController.m */,
+				6B3BD3C318D80A7200631E05 /* TKWindow.h */,
+				6B3BD3C418D80A7200631E05 /* TKWindow.m */,
+				6B3BD3C518D80A7200631E05 /* UIBarButtonItem+TKCategory.h */,
+				6B3BD3C618D80A7200631E05 /* UIBarButtonItem+TKCategory.m */,
+				6B3BD3C718D80A7200631E05 /* UIButton+TKCategory.h */,
+				6B3BD3C818D80A7200631E05 /* UIButton+TKCategory.m */,
+				6B3BD3C918D80A7200631E05 /* UIColor+TKCategory.h */,
+				6B3BD3CA18D80A7200631E05 /* UIColor+TKCategory.m */,
+				6B3BD3CB18D80A7200631E05 /* UIImage+TKCategory.h */,
+				6B3BD3CC18D80A7200631E05 /* UIImage+TKCategory.m */,
+				6B3BD3CD18D80A7200631E05 /* UIImageView+TKCategory.h */,
+				6B3BD3CE18D80A7200631E05 /* UIImageView+TKCategory.m */,
+				6B3BD3CF18D80A7200631E05 /* UIScrollview+TKCategory.h */,
+				6B3BD3D018D80A7200631E05 /* UIScrollview+TKCategory.m */,
+				6B3BD3D118D80A7200631E05 /* UIView+TKCategory.h */,
+				6B3BD3D218D80A7200631E05 /* UIView+TKCategory.m */,
+				6B3BD3D318D80A7200631E05 /* UIViewController+TKCategory.h */,
+				6B3BD3D418D80A7200631E05 /* UIViewController+TKCategory.m */,
+			);
+			path = TapkuLibrary;
+			sourceTree = "<group>";
+		};
 		6B813A2218C0B0DB00D03A65 = {
 			isa = PBXGroup;
 			children = (
+				6B3171CC18D28ED0000FBBE5 /* Library */,
 				6B813A3418C0B0DB00D03A65 /* ProjectGo */,
 				6B813A5618C0B0DB00D03A65 /* ProjectGoTests */,
 				6B813A2D18C0B0DB00D03A65 /* Frameworks */,
@@ -139,6 +391,10 @@
 				6B813A3518C0B0DB00D03A65 /* Supporting Files */,
 				A94DD3C218CE61E90029C02F /* constants.h */,
 				EE4D30EE18D2330A0003B663 /* constants.m */,
+				6BDB4E1018D2F8350008E3D9 /* CalendarController.h */,
+				6BDB4E1118D2F8350008E3D9 /* CalendarController.m */,
+				6BDB4E1618D766AE0008E3D9 /* CalendarViewController.h */,
+				6BDB4E1718D766AE0008E3D9 /* CalendarViewController.m */,
 			);
 			name = ProjectGo;
 			path = ProjectGO;
@@ -254,6 +510,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B3BD40318D80A8B00631E05 /* TapkuLibrary.bundle in Resources */,
 				EEB1B8A418D269E400FECB59 /* Main_iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,13 +530,60 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B3BD3F618D80A7200631E05 /* TKTableViewCell.m in Sources */,
 				B29B6CE818CE44B400BE31F1 /* ObligationCreationViewController.m in Sources */,
+				6B3BD3D718D80A7200631E05 /* NSDate+TKCategory.m in Sources */,
 				6B813A4818C0B0DB00D03A65 /* ProjectGOViewController.m in Sources */,
+				6B3BD3FE18D80A7200631E05 /* UIImage+TKCategory.m in Sources */,
+				6B3BD3E818D80A7200631E05 /* TKGradientView.m in Sources */,
+				6B3BD3E518D80A7200631E05 /* TKCoverflowView.m in Sources */,
+				6B3BD3FA18D80A7200631E05 /* TKWindow.m in Sources */,
+				6B3BD3F918D80A7200631E05 /* TKViewController.m in Sources */,
+				6BDB4E1218D2F8350008E3D9 /* CalendarController.m in Sources */,
+				6B3BD3D818D80A7200631E05 /* NSString+TKCategory.m in Sources */,
+				6B3BD3DC18D80A7200631E05 /* TKAppDelegate.m in Sources */,
 				B2E261D818CE6AD80091D5EC /* LoadAllObligationsViewController.m in Sources */,
+				6B3BD3FB18D80A7200631E05 /* UIBarButtonItem+TKCategory.m in Sources */,
 				B2AC9D9B18D2577200F90786 /* FindObligationViewController.m in Sources */,
+				6B3BD3E218D80A7200631E05 /* TKCalendarMonthView.m in Sources */,
+				6B3BD3F418D80A7200631E05 /* TKShapeView.m in Sources */,
+				6B3BD3FF18D80A7200631E05 /* UIImageView+TKCategory.m in Sources */,
+				6B3BD3EA18D80A7200631E05 /* TKImageCache.m in Sources */,
+				6BDB4E1818D766AE0008E3D9 /* CalendarViewController.m in Sources */,
+				6B3BD3FC18D80A7200631E05 /* UIButton+TKCategory.m in Sources */,
+				6B3BD3DF18D80A7200631E05 /* TKCalendarDayTimelineView.m in Sources */,
+				6B3BD3D918D80A7200631E05 /* TapDetectingView.m in Sources */,
+				6B3BD3E118D80A7200631E05 /* TKCalendarMonthTableViewController.m in Sources */,
+				6B3BD3EC18D80A7200631E05 /* TKLabelFieldCell.m in Sources */,
+				6B3BD3E918D80A7200631E05 /* TKHTTPRequest.m in Sources */,
+				6B3BD3D618D80A7200631E05 /* NSDate+CalendarGrid.m in Sources */,
+				6B3BD3DB18D80A7200631E05 /* TKAlertCenter.m in Sources */,
 				6B813A3F18C0B0DB00D03A65 /* ProjectGOAppDelegate.m in Sources */,
+				6B3BD3D518D80A7200631E05 /* NSArray+TKCategory.m in Sources */,
+				6B3BD3F218D80A7200631E05 /* TKProgressBarView.m in Sources */,
+				6B3BD3E418D80A7200631E05 /* TKCoverflowCoverView.m in Sources */,
+				6B3BD3F718D80A7200631E05 /* TKTableViewController.m in Sources */,
+				6B3BD3E618D80A7200631E05 /* TKEmptyView.m in Sources */,
+				6B3BD3DD18D80A7200631E05 /* TKButtonCell.m in Sources */,
+				6B3BD40218D80A7200631E05 /* UIViewController+TKCategory.m in Sources */,
+				6B3BD3EB18D80A7200631E05 /* TKLabelCell.m in Sources */,
+				6B3BD3F118D80A7200631E05 /* TKProgressAlertView.m in Sources */,
+				6B3BD3E718D80A7200631E05 /* TKGlobal.m in Sources */,
 				6B813A3B18C0B0DB00D03A65 /* main.m in Sources */,
 				EE4D30EF18D2330A0003B663 /* constants.m in Sources */,
+				6B3BD40018D80A7200631E05 /* UIScrollview+TKCategory.m in Sources */,
+				6B3BD3EF18D80A7200631E05 /* TKLabelTextViewCell.m in Sources */,
+				6B3BD3F518D80A7200631E05 /* TKSwitchCell.m in Sources */,
+				6B3BD3ED18D80A7200631E05 /* TKLabelSwitchCell.m in Sources */,
+				6B3BD3FD18D80A7200631E05 /* UIColor+TKCategory.m in Sources */,
+				6B3BD3F318D80A7200631E05 /* TKProgressCircleView.m in Sources */,
+				6B3BD3F818D80A7200631E05 /* TKTextViewCell.m in Sources */,
+				6B3BD3E018D80A7200631E05 /* TKCalendarDayViewController.m in Sources */,
+				6B3BD3E318D80A7200631E05 /* TKCalendarMonthViewController.m in Sources */,
+				6B3BD3F018D80A7200631E05 /* TKNetworkQueue.m in Sources */,
+				6B3BD40118D80A7200631E05 /* UIView+TKCategory.m in Sources */,
+				6B3BD3DE18D80A7200631E05 /* TKCalendarDayEventView.m in Sources */,
+				6B3BD3EE18D80A7200631E05 /* TKLabelTextFieldCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +662,7 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -392,6 +697,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
