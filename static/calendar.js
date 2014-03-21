@@ -170,15 +170,26 @@ Calendar.prototype.checkDayForObligations = function(startTime)
 	return obgFound;
 }
 
+function getObligationsByStartTime(startTime)
+{
+	var obligationList = null;
+
+	$.get('/obligations/'+startTime, function(data) 
+	{
+		obligationList = eval(data);
+	}
+
+	return obligationList;
+
+}
+
 function getObligationsFromDB(startTime)
 {
 	var gotData = 0;
-	var obligationList = null;
+	var obligationList = getObligationsByStartTime(startTime);
 	
-    $.get('/obligations/'+startTime, function(data) 
+    if (obligationList != null)
 	{
-		obligationList = eval(data);
-		
 		var heading = "<table border='1'><th>Name</th><th>Description</th><th>StartTime</th><th>EndTime</th><th>Priority </th><th>Status</th><th>Modify</th><th>Delete</th>";
 		for (var i = 0; i < obligationList.length; i++)
 		{
