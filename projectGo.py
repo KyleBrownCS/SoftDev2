@@ -25,7 +25,6 @@ row_pos_category = 8
 def get_db():
     db_connection = sqlite3.connect(applicationInfo.database_filepath)
     db_cursor = db_connection.cursor()
-
     return db_connection, db_cursor
 
 @app.route('/')
@@ -39,8 +38,8 @@ def get_all_obligations():
 
     data = []
     for row in db_cursor.execute("select * from " + applicationInfo.OBLIGATION_TABLE_NAME):
-        #response = response + str(row) + "|\r\n"
-        obligation_entry = {'obligationid' : row[row_pos_obligationid], #obligationid
+        obligation_entry = {
+        'obligationid' : row[row_pos_obligationid], #obligationid
             'userid'       : row[row_pos_userid], #userid
             'name'         : row[row_pos_name], #name
             'description'  : row[row_pos_description], #description
@@ -107,7 +106,8 @@ def get_obligation(obligation_id):
 
     if (len(row) > 0):
         row = row[0]
-        data = {'obligationid' : row[row_pos_obligationid], #obligationid
+        data = {
+            'obligationid' : row[row_pos_obligationid], #obligationid
             'userid'       : row[row_pos_userid], #userid
             'name'         : row[row_pos_name], #name
             'description'  : row[row_pos_description], #description
@@ -229,6 +229,7 @@ def delete_obligation(obligation_id):
     db_connection, db_cursor = get_db()
     response = ""
     response_code = None
+
     try:
         if (isinstance(obligation_id,(int,long))):
             my_query = "select * from " + applicationInfo.OBLIGATION_TABLE_NAME + " where " + applicationInfo.OBLIGATION_ID_NAME + "=" + str(obligation_id)
@@ -237,8 +238,8 @@ def delete_obligation(obligation_id):
                 db_cursor.execute("delete from " + applicationInfo.OBLIGATION_TABLE_NAME + " where " + applicationInfo.OBLIGATION_ID_NAME + "=" + str(obligation_id))
                 db_connection.commit()
                 response = jsonify({'error': 'OK successfully deleted'})
-                response_code = 204
-            else:
+                response_code = 200
+            else
                 response = jsonify({'error': 'No such obligation id'})
                 response_code = 404
         else:

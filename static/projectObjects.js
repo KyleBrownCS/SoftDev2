@@ -21,24 +21,34 @@ function deleteObligation(obligation_id) {
         url: path,
         type: 'DELETE',
         success: function() {
-            $.bootstrapGrowl("Obligation was successfully deleted!", { 
-                type: 'success',
-                allow_dismiss: true,
-                align: 'center',
-                width: 'auto',
-                offset: {from: 'top', amount: 200}
-            });
+            obligationDeleteSuccess();
             location.reload();
         },
         error: function(){
-            $.bootstrapGrowl("We were unable to delete obligaion " + obligation_id + "! Try again shortly.", { 
-                type: 'info',
-                allow_dismiss: true,
-                align: 'center',
-                width: 'auto',
-                offset: {from: 'top', amount: 200}
-            });
+            obligationDeleteFailure();
             location.reload();
         }
+    });
+}
+
+function obligationDeleteSuccess()
+{
+    $.bootstrapGrowl("Obligation was successfully deleted!", { 
+        type: 'success',
+        allow_dismiss: true,
+        align: 'center',
+        width: 'auto',
+        offset: {from: 'top', amount: 200}
+    });
+}
+
+function obligationDeleteFailure()
+{
+    $.bootstrapGrowl("We were unable to delete obligaion " + obligation_id + "! Try again shortly.", { 
+        type: 'info',
+        allow_dismiss: true,
+        align: 'center',
+        width: 'auto',
+        offset: {from: 'top', amount: 200}
     });
 }
