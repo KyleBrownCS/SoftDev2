@@ -32,6 +32,10 @@ def get_db():
 def index():
     return render_template("index.html")
 
+@app.route('/addobligation')
+def add_obligation_page():
+    return render_template("addobligation.html")
+
 @app.route('/obligations', methods = ['GET'])
 def get_all_obligations():
     db_connection, db_cursor = get_db() 
