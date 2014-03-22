@@ -1,4 +1,4 @@
-function Obligation (obligationid,userid,name,description,startTime,endTime,priority,status,category)
+function Obligation (obligationid, userid, name, description, startTime, endTime, priority, status, category)
 {
     this.obligationid = obligationid;
     this.userid = userid;
@@ -21,11 +21,23 @@ function deleteObligation(obligation_id) {
         url: path,
         type: 'DELETE',
         success: function() {
-            alert('Obligation has successfully been Deleted.');
+            $.bootstrapGrowl("Obligation was successfully deleted!", { 
+                type: 'success',
+                allow_dismiss: true,
+                align: 'center',
+                width: 'auto',
+                offset: {from: 'top', amount: 200}
+            });
             location.reload();
         },
         error: function(){
-            alert('error! could not delete ' + obligation_id);
+            $.bootstrapGrowl("We were unable to delete obligaion " + obligation_id + "! Try again shortly.", { 
+                type: 'info',
+                allow_dismiss: true,
+                align: 'center',
+                width: 'auto',
+                offset: {from: 'top', amount: 200}
+            });
             location.reload();
         }
     });

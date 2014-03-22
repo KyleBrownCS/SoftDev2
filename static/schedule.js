@@ -4,11 +4,11 @@ $(document).ready(function(e) {
 
     	//Push data to screen in a presentable matter
     	//$("#sendTo").append(heading);
-	var currentDate = new Date();
-	var currentMonth = currentDate.getMonth();
-	var currentYear = currentDate.getFullYear();
-	var calen = new Calendar(currentMonth,currentYear, obligations);
-	calen.calculateCalendar();
-	$('#sendTo').html(calen.gethtmlCode());
+		var currentDate = new Date();
+		var currentMonth = currentDate.getMonth();
+		var currentYear = currentDate.getFullYear();
+		var calen = new Calendar(currentMonth,currentYear, obligations);
+		calen.calculateCalendar();
+		$('#sendTo').html(calen.gethtmlCode());
     });
 });
