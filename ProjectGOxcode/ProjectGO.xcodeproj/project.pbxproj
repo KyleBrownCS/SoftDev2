@@ -63,6 +63,7 @@
 		B2E261D618CE6AD80091D5EC /* LoadAllObligationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadAllObligationsViewController.h; sourceTree = "<group>"; };
 		B2E261D718CE6AD80091D5EC /* LoadAllObligationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadAllObligationsViewController.m; sourceTree = "<group>"; };
 		EE4D30EE18D2330A0003B663 /* constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = constants.m; sourceTree = "<group>"; };
+		EE5E4B3618DE019900615A70 /* ObligationCreationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObligationCreationViewController.h; sourceTree = "<group>"; };
 		EEB1B8A318D269E400FECB59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ProjectGO/Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +131,7 @@
 				B2AC9D9A18D2577200F90786 /* FindObligationViewController.m */,
 				B2E261D618CE6AD80091D5EC /* LoadAllObligationsViewController.h */,
 				B2E261D718CE6AD80091D5EC /* LoadAllObligationsViewController.m */,
+				EE5E4B3618DE019900615A70 /* ObligationCreationViewController.h */,
 				B29B6CE718CE44B400BE31F1 /* ObligationCreationViewController.m */,
 				6B813A3D18C0B0DB00D03A65 /* ProjectGOAppDelegate.h */,
 				6B813A3E18C0B0DB00D03A65 /* ProjectGOAppDelegate.m */,
@@ -449,12 +451,12 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ProjectGo/ProjectGo-Prefix.pch";
+				GCC_PREFIX_HEADER = "ProjectGO/ProjectGO-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "ProjectGoTests/ProjectGoTests-Info.plist";
+				INFOPLIST_FILE = "ProjectGOTests/ProjectGOTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -472,8 +474,8 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ProjectGo/ProjectGo-Prefix.pch";
-				INFOPLIST_FILE = "ProjectGoTests/ProjectGoTests-Info.plist";
+				GCC_PREFIX_HEADER = "ProjectGO/ProjectGO-Prefix.pch";
+				INFOPLIST_FILE = "ProjectGOTests/ProjectGOTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

@@ -62,9 +62,6 @@ NSString *userid;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
     return self;
 }
 
@@ -83,16 +80,19 @@ NSString *userid;
     priority =@"priortity";
     status = @"status";
     
-    
-    myobj = [[NSMutableArray alloc] init];
-    
     NSData *jsonSource = [NSData dataWithContentsOfURL:
                           [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", SERVER_ADDRESS, OBLIGATION_SUB_URL]]];
     
     id jsonObjects = [NSJSONSerialization JSONObjectWithData:
                       jsonSource options:NSJSONReadingMutableContainers error:nil];
-   
     
+    myobj = [self fillObj: jsonObjects];
+
+}
+
+- (NSMutableArray*)fillObj:(id)jsonObjects
+{
+    NSMutableArray *thisObj = [[NSMutableArray alloc] init];
     for (NSDictionary *dataDict in jsonObjects) {
         NSString *pri_data = [dataDict objectForKey:@"priority"];
         NSString *stat_data = [dataDict objectForKey:@"status"];
@@ -115,8 +115,9 @@ NSString *userid;
                   cat_data, category,
                   stat_data, status, nil];
         
-        [myobj addObject:myDict];
+        [thisObj addObject:myDict];
     }
+    return thisObj;
 }
 
 - (void)didReceiveMemoryWarning

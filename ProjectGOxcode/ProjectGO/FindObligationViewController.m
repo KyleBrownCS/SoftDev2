@@ -48,8 +48,6 @@
         _category.text = @"";
     }
     else {
-        //NSLog(@"description is %@",[json objectForKey:@"description"]);
-        //_statuslbl.text = [json objectForKey:@"userid"];
         _name.text = [json objectForKey:@"name"];
         _desription.text = [json objectForKey:@"description"];
         _startdate.text = [json objectForKey:@"starttime"];
