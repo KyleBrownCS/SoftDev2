@@ -241,7 +241,7 @@ def delete_obligation(obligation_id):
             if (len(row) > 0):
                 db_cursor.execute("delete from " + applicationInfo.OBLIGATION_TABLE_NAME + " where " + applicationInfo.OBLIGATION_ID_NAME + "=" + str(obligation_id))
                 db_connection.commit()
-                response = jsonify({'error': 'OK successfully deleted'})
+                response = jsonify({'success': 'OK successfully deleted'})
                 response_code = 200
             else
                 response = jsonify({'error': 'No such obligation id'})
