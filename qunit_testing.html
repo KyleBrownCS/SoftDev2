@@ -13,13 +13,13 @@
   
   <script src="./static/projectObjects.js"></script>
   <script src="./static/obligationlist.js"></script>
+  <script src="./static/datepickerLoad.js"></script>
 
   <!--
   <script src="./static/projectgofeatures.js"></script>
   
   <script src="./static/calendar.js"></script>
   <script src="./static/schedule.js"></script>
-  <script src="./static/datepickerLoad.js"></script>
   -->
   
   <script>
@@ -104,7 +104,62 @@
 	
   });
   </script>
-  
+
+  <script>
+  test("dateickerLoad.js zeroPad formatting testing", function() {
+  	equal(zeroPad("101", "0000"), "0101");
+  	equal(zeroPad("0101", "0000"), "0101");
+  	equal(zeroPad("1", "0000" ), "0001");
+  	equal(zeroPad("", "0000" ), "0000");
+  	equal(zeroPad("1", "" ), "1");
+  });
+
+  test("dateickerLoad.js timeConversion format testing", function() {
+  	//new date format: (year, month, day, hours, minutes, seconds, milliseconds);
+  	var tempTime = new Date("1", "1", "1", "12", "12", "12", "12");
+  	equal(timeConverter(tempTime), "12:12:12.012");
+
+  	var tempTime = new Date("1", "1", "1", "12", "12", "12","2");
+  	equal(timeConverter(tempTime), "12:12:12.002");
+
+  	var tempTime = new Date("1", "1", "1", "12", "12", "12","");
+  	equal(timeConverter(tempTime), "12:12:12.000");
+
+  	var tempTime = new Date("1", "1", "1", "0", "0", "0","0");
+  	equal(timeConverter(tempTime), "00:00:00.000");
+
+  	var tempTime = new Date("1", "1", "1", "18", "19", "20","21");
+  	equal(timeConverter(tempTime), "18:19:20.021");
+  });
+
+  test("dateickerLoad.js ISO8601Converter(date) format testing", function() {
+  	//new date format: (year, month, day, hours, minutes, seconds, milliseconds);
+  	var tempTime = new Date("1111", "1", "1", "0", "0", "0","0");
+  	equal(ISO8601Converter(tempTime), "1111-02-01");
+
+  	var tempTime = new Date("1212", "12", "30", "0", "0", "0","0");
+  	equal(ISO8601Converter(tempTime), "1213-01-30");
+
+  	var tempTime = new Date("2000", "1", "1", "0", "0", "0","0");
+  	equal(ISO8601Converter(tempTime), "2000-02-01");
+  });
+
+   test("dateickerLoad.js convertDateTimes format testing", function() {
+  	//new date format: (year, month, day, hours, minutes, seconds, milliseconds);
+  	var tempTime = new Date("1111", "1", "1", "0", "0", "0","0");
+  	equal(convertDateTimes(tempTime, tempTime), "1111-02-01 00:00:00.000");
+
+  	var tempTime = new Date("1111", "1", "1", "23", "10", "03","9");
+  	equal(convertDateTimes(tempTime, tempTime), "1111-02-01 23:10:03.009");
+
+  	var tempTime = new Date("2014", "12", "30");
+  	equal(convertDateTimes(tempTime, tempTime), "2015-01-30 00:00:00.000");
+
+  	var tempTime = new Date("2014", "12", "30", "18", "18", "18","22");
+  	equal(convertDateTimes(tempTime, tempTime), "2015-01-30 18:18:18.022");
+  });
+  </script>
+
 </head>
 <body>
 
