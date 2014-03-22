@@ -15,15 +15,15 @@
 NSMutableArray *myobj;
 NSDictionary *myDict;
 
-NSString *name;
-NSString *description;
-NSString *obligationid;
-NSString *status;
-NSString *endtime;
-NSString *starttime;
-NSString *category;
-NSString *priority;
-NSString *userid;
+NSString *name = @"name";
+NSString *description = @"description";
+NSString *obligationid = @"obligationid";
+NSString *status = @"status";
+NSString *endtime = @"endtime";
+NSString *starttime = @"starttime";
+NSString *category = @"category";
+NSString *priority = @"priortity";
+NSString *userid = @"userid";
 
 @implementation LoadAllObligationsViewController
 
@@ -70,27 +70,17 @@ NSString *userid;
     [super viewDidLoad];
     [_loadingSpinner startAnimating];
     
-    name = @"name";
-    description = @"description";
-    obligationid = @"obligationid";
-    starttime = @"starttime";
-    endtime = @"endtime";
-    userid  = @"userid";
-    category = @"category";
-    priority =@"priortity";
-    status = @"status";
-    
     NSData *jsonSource = [NSData dataWithContentsOfURL:
                           [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", SERVER_ADDRESS, OBLIGATION_SUB_URL]]];
     
     id jsonObjects = [NSJSONSerialization JSONObjectWithData:
                       jsonSource options:NSJSONReadingMutableContainers error:nil];
     
-    myobj = [self fillObj: jsonObjects];
+    myobj = [LoadAllObligationsViewController fillObj: jsonObjects];
 
 }
 
-- (NSMutableArray*)fillObj:(id)jsonObjects
++ (NSMutableArray*)fillObj:(id)jsonObjects
 {
     NSMutableArray *thisObj = [[NSMutableArray alloc] init];
     for (NSDictionary *dataDict in jsonObjects) {
