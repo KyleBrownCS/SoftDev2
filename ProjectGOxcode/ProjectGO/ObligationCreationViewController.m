@@ -43,12 +43,6 @@
 
 - (IBAction)addObligationButton:(id)sender {
     
-    
-    NSString *url = [NSString stringWithFormat:@"%@%@", SERVER_ADDRESS, OBLIGATION_SUB_URL];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]
-                                                           cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
-                                                       timeoutInterval:10];
-    
     NSString *nameFieldText = _name.text;
     NSString *descriptionFieldText = _description.text;
     NSString *priorityFieldText = _priority.text;
@@ -95,34 +89,44 @@
         NSString *stringStartDate = [dateFormat stringFromDate:startDate];
         NSString *stringEndDate = [dateFormat stringFromDate:endDate];
         
-        NSString *postDataString = [NSString stringWithFormat:@"userid=1&name=%@&description=%@&starttime=%@.000&endtime=%@.000&priority=%d&status=%d&category=%d", nameFieldText, descriptionFieldText,stringStartDate, stringEndDate, priorityFieldInt, statusFieldInt, categoryFieldInt];
+        NSString *postString = [NSString stringWithFormat:@"userid=1&name=%@&description=%@&starttime=%@.000&endtime=%@.000&priority=%d&status=%d&category=%d", nameFieldText, descriptionFieldText,stringStartDate, stringEndDate, priorityFieldInt, statusFieldInt, categoryFieldInt];
         
-        [request setHTTPMethod: @"POST"];
-        [request setHTTPBody:[postDataString dataUsingEncoding:NSUTF8StringEncoding]];
-        
-        NSURLResponse *response = nil;
-        NSError *error = nil;
-        
-        NSData *data = [NSURLConnection sendSynchronousRequest:request
-                                             returningResponse:&response
-                                                         error:&error];
-        
-        if (error == nil){
-            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-            
-            //check if the request failed on the server
-            error = [json objectForKey:@"error" ];
-            if(error != nil) {
-                //success
-            }
-            else {
-                //error occured server side
-            }
-        }
-        _errorBox.text = @"DATA SUCCESSFULLY ADDED";
+        NSString *result = [self addObligation: postString];
+        _errorBox.text = result;
     }
     
 }
+//- (NSMutableArray*)fillObj:(id)jsonObjects
+- (NSString*)addObligation: (NSString*)postData {
+    NSString *ret = @"";
+    NSString *url = [NSString stringWithFormat:@"%@%@", SERVER_ADDRESS, OBLIGATION_SUB_URL];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]
+                                                           cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                                       timeoutInterval:10];
+    [request setHTTPMethod: @"POST"];
+    [request setHTTPBody:[postData dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSURLResponse *response = nil;
+    NSError *error = nil;
+    
+    NSData *data = [NSURLConnection sendSynchronousRequest:request
+                                         returningResponse:&response
+                                                     error:&error];
+    if (error == nil){
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        
+        //check if the request failed on the server
+        error = [json objectForKey:@"error" ];
+        if(error != nil) {
+            ret = @"COULD NOT ADD OBLIGATION";
+        }
+        else {
+            ret = @"DATA SUCCESSFULLY ADDED";
+        }
+    }
+    return ret;
+}
+
 - (IBAction)clearFields:(id)sender {
     _name.text = @"";
     _description.text  = @"";

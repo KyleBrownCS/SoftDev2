@@ -23,5 +23,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *errorBox;
 
 - (IBAction)addObligationButton:(id)sender;
+- (NSString*) convertDateTimes:(NSString*) theDate temp:(NSString*) theTime;
+
 
 @end

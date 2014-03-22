@@ -12,5 +12,5 @@
 @interface LoadAllObligationsViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableList;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingSpinner;
-
+- (NSMutableArray*)fillObj:(id)jsonObjects;
 @end

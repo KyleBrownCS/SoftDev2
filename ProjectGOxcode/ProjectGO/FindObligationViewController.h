@@ -19,4 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *category;
 @property (weak, nonatomic) IBOutlet UITextField *idField;
 
+- (IBAction)searchByID:(id)sender;
+- (NSDictionary*)getObligationsByID:(NSString*)obid;
+
 @end
