@@ -243,33 +243,6 @@ $('#submit1').click(function() {
     }
 })
 
-//used in conjuction with a delete button with class=delete1 and value=obligation_id
-$('.delete1').on('click', function() { 
-    var path = "/obligations/" + this.value;
-    $.ajax({
-        url: path,
-        type: 'DELETE',
-        success: function() {
-            $.bootstrapGrowl("Obligation was successfully deleted!", { 
-                type: 'success',
-                allow_dismiss: true,
-                align: 'center',
-                width: 'auto',
-                offset: {from: 'top', amount: 200}
-            });
-        },
-        error: function(){
-            $.bootstrapGrowl("We were unable to delete obligaion " + this.value + "! Try again shortly.", { 
-                type: 'info',
-                allow_dismiss: true,
-                align: 'center',
-                width: 'auto',
-                offset: {from: 'top', amount: 200}
-            });
-        }
-    });
-})
-
 function obligationSendSuccess()
 {
     $.bootstrapGrowl("Data successfully received!", { 
