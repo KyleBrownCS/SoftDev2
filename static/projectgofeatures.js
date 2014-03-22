@@ -224,26 +224,11 @@ $('#submit1').click(function() {
                 category: cat
             })
             .done(function (data) {
-                  setTimeout(function() {
-                    $.bootstrapGrowl("Data successfully received!", { 
-                        type: 'success',
-                        allow_dismiss: true,
-                        align: 'center',
-                        width: 'auto',
-                        offset: {from: 'top', amount: 200}
-                    });
-                });
+                obligationSendSuccess();
             })
             .fail(function (data) {
-                $.bootstrapGrowl("Failed to send in Obligation information! Please retry.", {
-                type: 'info',
-                align: 'center',
-                width: 'auto',
-                offset: {from: 'top', amount: 200},
-                allow_dismiss: true,
-                delay: 5000,
-              });
-        });
+                obligationSendFailure();
+        }); 
     }
     else
     {
@@ -265,10 +250,49 @@ $('.delete1').on('click', function() {
         url: path,
         type: 'DELETE',
         success: function() {
-            alert('Obligation has successfully been Deleted.');
+            $.bootstrapGrowl("Obligation was successfully deleted!", { 
+                type: 'success',
+                allow_dismiss: true,
+                align: 'center',
+                width: 'auto',
+                offset: {from: 'top', amount: 200}
+            });
         },
         error: function(){
-            alert('error! could not delete ' + this.value);
+            $.bootstrapGrowl("We were unable to delete obligaion " + this.value + "! Try again shortly.", { 
+                type: 'info',
+                allow_dismiss: true,
+                align: 'center',
+                width: 'auto',
+                offset: {from: 'top', amount: 200}
+            });
         }
     });
 })
+
+function obligationSendSuccess()
+{
+    $.bootstrapGrowl("Data successfully received!", { 
+        type: 'success',
+        allow_dismiss: true,
+        align: 'center',
+        width: 'auto',
+        offset: {from: 'top', amount: 200}
+    });
+
+    return 0;
+}
+
+function obligationSendFailure()
+{
+    $.bootstrapGrowl("Failed to send in Obligation information! Please retry.", {
+        type: 'info',
+        align: 'center',
+        width: 'auto',
+        offset: {from: 'top', amount: 200},
+        allow_dismiss: true,
+        delay: 5000,
+    });
+
+    return 0;
+}
