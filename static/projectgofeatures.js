@@ -210,7 +210,7 @@ $('#submit1').click(function() {
     if(cont)
     {
         //Convert dates into properly formatted types
-        starttim2 = convertDateTimes(stardate, startime); //external file datePickerLoad.js
+        starttim2 = convertDateTimes(stardate, startime);  //external file datePickerLoad.js
         endtime2 = convertDateTimes(enddate, endtime);     //external file datePickerLoad.js
 
         $.post('/obligations', {
@@ -233,13 +233,13 @@ $('#submit1').click(function() {
     else
     {
         $.bootstrapGrowl("Please fix the selections labeled in red before trying to submit your obligation", {
-        type: 'info',
-        align: 'center',
-        width: 'auto',
-        offset: {from: 'top', amount: 200},
-        allow_dismiss: true,
-        delay: 5000,
-      });
+            type: 'info',
+            align: 'center',
+            width: 'auto',
+            offset: {from: 'top', amount: 200},
+            allow_dismiss: true,
+            delay: 5000,
+          });
     }
 })
 
@@ -252,8 +252,6 @@ function obligationSendSuccess()
         width: 'auto',
         offset: {from: 'top', amount: 200}
     });
-
-    return 0;
 }
 
 function obligationSendFailure()
@@ -266,6 +264,4 @@ function obligationSendFailure()
         allow_dismiss: true,
         delay: 5000,
     });
-
-    return 0;
 }
