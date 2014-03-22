@@ -208,7 +208,7 @@ function getObligationsFromDB(startTime)
 		}
 		heading += "</table>";
 		$("#obligations").html(heading);
-		window.scrollTo(0,document.body.scrollHeight);
+		window.scrollTo(0, document.body.scrollHeight);
 	});
 	
 	return gotData;
@@ -390,29 +390,16 @@ function closeView(data, obgid)
 	                category: cat
 	            })
 
-	            .done(function (data) {
-                    $.bootstrapGrowl("Your settings have been changed!", { 
-                        type: 'success',
-                        allow_dismiss: true,
-                        align: 'center',
-                        width: 'auto',
-                        offset: {from: 'top', amount: 200}
-	                });
-					
-					$("#obligations").show();
+	            .done(function (data){
+	            	editChangeSuccess();
+
+	            	$("#obligations").show();
 					$("#sendTo").show();
 					$("#dial").hide();
 					location.reload();
 			    })
-	            .fail(function (data) {
-	                $.bootstrapGrowl("Failed to send in data. Please try again.", {
-		                type: 'info',
-		                align: 'center',
-		                width: 'auto',
-		                offset: {from: 'top', amount: 200},
-		                allow_dismiss: true,
-		                delay: 5000,
-		              });
+	            .fail(function (data){
+	            	editChangeFailure();
 	        });
 	    }
 	    else
@@ -424,7 +411,30 @@ function closeView(data, obgid)
 				offset: {from: 'top', amount: 200},
 				allow_dismiss: true,
 				delay: 5000,
-			  });
+			});
 		}
 	}
+}
+
+function editChangeSuccess()
+{
+	$.bootstrapGrowl("Your settings have been changed!", { 
+	    type: 'success',
+	    allow_dismiss: true,
+	    align: 'center',
+	    width: 'auto',
+	    offset: {from: 'top', amount: 200}
+	});
+}
+
+function editChangeFailure()
+{
+	$.bootstrapGrowl("Failed to send in data. Please try again.", {
+        type: 'info',
+        align: 'center',
+        width: 'auto',
+        offset: {from: 'top', amount: 200},
+        allow_dismiss: true,
+        delay: 5000,
+    });
 }
