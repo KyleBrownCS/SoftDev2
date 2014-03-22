@@ -243,7 +243,7 @@ def delete_obligation(obligation_id):
                 db_connection.commit()
                 response = jsonify({'success': 'OK successfully deleted'})
                 response_code = 200
-            else
+            else:
                 response = jsonify({'error': 'No such obligation id'})
                 response_code = 404
         else:
