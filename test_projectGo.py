@@ -119,7 +119,7 @@ class Test(unittest.TestCase):
     def test_delete_obligation(self):
         #typical delete case of existing obligation
         result = self.app.delete('/obligations/1')
-        self.assertEquals(result.status, '204 NO CONTENT')
+        self.assertEquals(result.status, '200 OK')
         #delete case for non existing obligation
         result = self.app.delete('/obligations/1')
         self.assertEquals(result.status, '404 NOT FOUND')
