@@ -43,11 +43,11 @@
 
 - (IBAction)addObligationButton:(id)sender {
     
-    NSString *nameFieldText = _name.text;
-    NSString *descriptionFieldText = _description.text;
-    NSString *priorityFieldText = _priority.text;
-    NSString *statusFieldText = _status.text;
-    NSString *categoryFieldText = _category.text;
+    [self setupAddObligation: _name.text: _description.text: _priority.text: _status.text: _category.text];
+    
+}
+
+- (void) setupAddObligation:(NSString*) nameFieldText :(NSString*) descriptionFieldText :(NSString*) priorityFieldText :(NSString*) statusFieldText :(NSString*) categoryFieldText {
     
     //convert the numeric fields to numbers
     NSInteger priorityFieldInt = [priorityFieldText integerValue];
