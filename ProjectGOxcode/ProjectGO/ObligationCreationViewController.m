@@ -96,7 +96,7 @@
     }
     
 }
-//- (NSMutableArray*)fillObj:(id)jsonObjects
+
 - (NSString*)addObligation: (NSString*)postData {
     NSString *ret = @"";
     NSString *url = [NSString stringWithFormat:@"%@%@", SERVER_ADDRESS, OBLIGATION_SUB_URL];
