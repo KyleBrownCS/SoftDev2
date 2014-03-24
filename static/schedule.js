@@ -6,9 +6,33 @@ $(document).ready(function(e) {
     	//$("#sendTo").append(heading);
 		var currentDate = new Date();
 		var currentMonth = currentDate.getMonth();
+		alert(currentDate);
 		var currentYear = currentDate.getFullYear();
 		var calen = new Calendar(currentMonth,currentYear, obligations);
 		calen.calculateCalendar();
 		$('#sendTo').html(calen.gethtmlCode());
     });
 });
+function getCurrTime()
+{
+	var currentDat = new Date();
+	return currentDat;
+}
+function getCurrDay()
+{
+	var currentDat = new Date();
+	var currentDay = currentDat.getDate();
+	return currentDay;
+}
+function getCurrMonth()
+{
+	var currentDat = new Date();
+	var currentMonth = currentDat.getMonth();
+	return currentMonth;
+}
+function getCurrYear()
+{
+	var currentDat = new Date();
+	var currentYear = currentDat.getFullYear();
+	return currentYear;
+}
