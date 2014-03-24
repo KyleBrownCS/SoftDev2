@@ -15,7 +15,9 @@
   
   <script src="../static/projectObjects.js"></script>
   <script src="../static/obligationlist.js"></script>
+  <script src="../static/schedule.js"></script>
   <script src="../static/datepickerLoad.js"></script>
+  
 
   <!--
   <script src="./static/projectgofeatures.js"></script>
@@ -166,8 +168,74 @@
   });
   </script>
 
-  
+  <script>
+  test("projectgofeatures.js testing", function() {
+    //creating object to test on (obligationid userid name description starttime endtime priority status category)
+	var startTime = '2014-09-09'
+	var obligationList = null;
+	var testobj1;
+	var uid = '1';
+	var oname = 'data';
+	var odesc = 'desc';
+	var oST = '2014-09-09 00:00:00.000';
+	var oET = '2014-09-09 0900:00.000';
+	var oPri = 1;
+	var oStat = 1;
+	var oCat = 1;
+	
+	//Testing for Post method used in the Add An Obligation window.
+	$.post('/obligations', {
+		userid: uid,
+		name: oname,
+		description: odesc,
+		starttime: oST,
+		endtime: oET,
+		priority: oPri,
+		status: oStat,
+		category: oCat
+	})
 
+    $.get('/obligations/'+startTime, function(data) 
+	{
+		obligationList = eval(data);
+		testobj1 = obligationList[0];
+	});
+
+	
+	expect(0);
+  });
+ 
+  </script>
+  <script>
+  test("schedule.js testing", function() {
+	var schedDate;
+	var schedDay;	
+	var schedMonth;
+	var schedYear;
+
+	var currDate;
+	var currDay;
+	var currMonth;
+	var currYear;
+	currDate = new Date();
+	currDay = currDate.getDate();
+	currMonth = currDate.getMonth();
+	currYear = currDate.getFullYear();
+	
+	schedDate = getCurrTime();
+	schedDay = getCurrDay();
+	schedMonth = getCurrMonth();
+	schedYear = getCurrYear();
+	
+	equal(currDay, schedDay);
+	equal(currMonth, schedMonth);
+	equal(currYear, schedYear);
+	notEqual(currDate, schedDate);
+	//The time difference should be atleast 1 milisecond off,
+	//so the current Date won't match the schedule's date exactly.
+  
+	});
+  </script>
 </head>
 <body>
 
