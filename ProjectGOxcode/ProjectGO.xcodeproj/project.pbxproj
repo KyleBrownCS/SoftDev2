@@ -488,9 +488,8 @@
 				);
 				INFOPLIST_FILE = "ProjectGOTests/ProjectGOTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/home/student/umfrie98/4350/SoftDev2/ProjectGOxcode/ProjectGOTests/iOS,
-					/home/student/umfrie98/4350/SoftDev2/ProjectGOxcode,
+					./ProjectGOTests/iOS,
+					.,
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -524,9 +523,8 @@
 				);
 				INFOPLIST_FILE = "ProjectGOTests/ProjectGOTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/home/student/umfrie98/4350/SoftDev2/ProjectGOxcode/ProjectGOTests/iOS,
-					/home/student/umfrie98/4350/SoftDev2/ProjectGOxcode,
+					./ProjectGOTests/iOS,
+					.,
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
