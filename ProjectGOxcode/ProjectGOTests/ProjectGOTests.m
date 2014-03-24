@@ -28,7 +28,7 @@
     [super tearDown];
 }
 
-- (void)test_LoadAllObligationsViewController
+- (void)test_LoadAllObligationsViewController_fillObj
 {
     NSError *error;
     NSDictionary *jsonDict;
@@ -97,9 +97,9 @@
     XCTAssertEqualObjects(test3, @"(null)", @"");
 }
 
--(void)testGetAllObligations
+-(void)test_LoadAllObligationsViewController_getAllObligations
 {
-    //id mockGet = [OCMockObject partialMockForObject:[LoadAllObligationsViewController getObligations]];
+    //creating mock stub for the getObligations method (so we don't do a server request)
     id mockGet = [OCMockObject mockForClass:[LoadAllObligationsViewController class]];
     NSDictionary *jsonDict = [NSDictionary dictionaryWithObjectsAndKeys:
                 @"1", @"userid",
@@ -120,6 +120,10 @@
     
     NSDictionary *tempDict = [thisObj objectAtIndex:0];
     NSString *test1 = [NSMutableString stringWithFormat:@"%@", [tempDict objectForKeyedSubscript:@"name"]];
+    
+    
+    
+    //asserting that key name has value "name"
     XCTAssertEqualObjects(test1, @"name", @"");
 }
 
