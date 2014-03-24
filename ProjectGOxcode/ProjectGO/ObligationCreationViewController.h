@@ -24,6 +24,8 @@
 
 - (IBAction)addObligationButton:(id)sender;
 - (NSString*) convertDateTimes:(NSString*) theDate temp:(NSString*) theTime;
++ (void) setupAddObligation:(NSString*) nameFieldText :(NSString*) descriptionFieldText :(NSString*) priorityFieldText :(NSString*) statusFieldText :(NSString*) categoryFieldText;
++ (NSString*)addObligation: (NSString*)postData;
 
 
 @end
