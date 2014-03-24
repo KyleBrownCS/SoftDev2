@@ -210,7 +210,7 @@ $('#submit1').click(function() {
     if(cont)
     {
         //Convert dates into properly formatted types
-        starttim2 = convertDateTimes(stardate, startime); //external file datePickerLoad.js
+        starttim2 = convertDateTimes(stardate, startime);  //external file datePickerLoad.js
         endtime2 = convertDateTimes(enddate, endtime);     //external file datePickerLoad.js
 
         $.post('/obligations', {
@@ -224,51 +224,44 @@ $('#submit1').click(function() {
                 category: cat
             })
             .done(function (data) {
-                  setTimeout(function() {
-                    $.bootstrapGrowl("Data successfully received!", { 
-                        type: 'success',
-                        allow_dismiss: true,
-                        align: 'center',
-                        width: 'auto',
-                        offset: {from: 'top', amount: 200}
-                    });
-                });
+                obligationSendSuccess();
             })
             .fail(function (data) {
-                $.bootstrapGrowl("Failed to send in Obligation information! Please retry.", {
-                type: 'info',
-                align: 'center',
-                width: 'auto',
-                offset: {from: 'top', amount: 200},
-                allow_dismiss: true,
-                delay: 5000,
-              });
-        });
+                obligationSendFailure();
+        }); 
     }
     else
     {
         $.bootstrapGrowl("Please fix the selections labeled in red before trying to submit your obligation", {
+            type: 'info',
+            align: 'center',
+            width: 'auto',
+            offset: {from: 'top', amount: 200},
+            allow_dismiss: true,
+            delay: 5000,
+          });
+    }
+})
+
+function obligationSendSuccess()
+{
+    $.bootstrapGrowl("Data successfully received!", { 
+        type: 'success',
+        allow_dismiss: true,
+        align: 'center',
+        width: 'auto',
+        offset: {from: 'top', amount: 200}
+    });
+}
+
+function obligationSendFailure()
+{
+    $.bootstrapGrowl("Failed to send in Obligation information! Please retry.", {
         type: 'info',
         align: 'center',
         width: 'auto',
         offset: {from: 'top', amount: 200},
         allow_dismiss: true,
         delay: 5000,
-      });
-    }
-})
-
-//used in conjuction with a delete button with class=delete1 and value=obligation_id
-$('.delete1').on('click', function() { 
-    var path = "/obligations/" + this.value;
-    $.ajax({
-        url: path,
-        type: 'DELETE',
-        success: function() {
-            alert('Obligation has successfully been Deleted.');
-        },
-        error: function(){
-            alert('error! could not delete ' + this.value);
-        }
     });
-})
+}

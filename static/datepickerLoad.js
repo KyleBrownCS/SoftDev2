@@ -38,7 +38,6 @@ function bootdatepickers(num, field){
                     offset: {from: 'top', amount: 200}
                 });
             }
-
             else
             {
                 $('#datepickerstart2').css('background-color', '');

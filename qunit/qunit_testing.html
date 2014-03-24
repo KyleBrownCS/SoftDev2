@@ -1,0 +1,245 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>projectGO testing</title>
+ 
+  <link rel="stylesheet" href="./qunit/qunit.css">
+  <script src="qunit.js"></script>
+  <script src="sinon-1.9.0.js"></script> 
+
+  
+  <script src="../static/jquery.js"></script>
+  <script src="../static/jquery.bootstrap-growl.min.js"></script>
+  <script src="../static/bootstrap.js"></script>
+  
+  <script src="../static/projectObjects.js"></script>
+  <script src="../static/obligationlist.js"></script>
+  <script src="../static/schedule.js"></script>
+  <script src="../static/datepickerLoad.js"></script>
+  
+
+  <!--
+  <script src="./static/projectgofeatures.js"></script>
+  <script src="./static/calendar.js"></script>
+  <script src="./static/schedule.js"></script>
+  -->
+  
+  <script>
+  test("projectObjects.js testing", function() {
+    //creating object to test on
+	var obj = new Obligation("1","2","name","desc","start","end","3","4","5");	
+    //test object creation ok
+	equal(obj.obligationid, "1");
+	equal(obj.userid, "2");
+	equal(obj.name, "name");
+	equal(obj.description, "desc");
+	equal(obj.startTime, "start");
+	equal(obj.endTime, "end");
+	equal(obj.priority, "3");
+	equal(obj.status, "4");
+	equal(obj.category, "5");
+	//test the toString
+	equal(obj,"Name: name\nDescription: desc\nStart time:start\nEnd Time:end\n");
+	
+	sinon.stub(jQuery, "ajax");
+	deleteObligation(4);
+	ok(jQuery.ajax.calledWithMatch({url: "/obligations/4", type: "DELETE"}));
+	jQuery.ajax.restore();
+
+  });
+  </script>
+  <script>
+  test("obligationList.js testing", function() {
+    //creating object to test on (obligationid userid name description starttime endtime priority status category)
+	var obj1 = new Obligation("1","2","name1","desc1","start1","end1","3","4","5");
+	var obj2 = new Obligation("6","7","name2","desc2","start2","end2","8","9","10");
+	
+	//test sort by name
+	obligationList = [obj2,obj1];
+    equal(obligationList[0].name,"name2");
+	equal(obligationList[1].name,"name1");
+	reorderListName();
+	equal(obligationList[0].name,"name1");
+	equal(obligationList[1].name,"name2");
+	
+	//test sort by priority
+	obligationList = [obj1,obj2];
+    equal(obligationList[0].priority,"3");
+	equal(obligationList[1].priority,"8");
+	reorderListPriority();
+	equal(obligationList[0].priority,"8");
+	equal(obligationList[1].priority,"3");
+	
+	//test sort by status
+	obligationList = [obj1,obj2];
+    equal(obligationList[0].status,"4");
+	equal(obligationList[1].status,"9");
+	reorderListStatus();
+	equal(obligationList[0].status,"9");
+	equal(obligationList[1].status,"4");
+	
+  });
+  </script>
+  
+  <script>
+  test("calendar.js testing", function() {
+    //creating object to test on (obligationid userid name description starttime endtime priority status category)
+	var obj1 = new Obligation("1","2","name1","desc1","start1","end1","3","4","5");
+	var obj2 = new Obligation("6","7","name2","desc2","start2","end2","8","9","10");
+	var testobj1 = 0;
+	
+	//test obligation names
+	obligations = [obj1,obj2];
+    equal(obligations[0].name,"name1");
+	equal(obligations[1].name,"name2");
+	
+	//Now lets make sure there doesnt exist an obligation at obligations[2].
+	testobj1 = obligations[2];
+	equal(testobj1, undefined);
+
+	//Now lets make sure calendar.js has the correct fields for obligations[0].
+	equal(obligations[0].obligationid, 1)
+	equal(obligations[0].obligationid, "1");
+	equal(obligations[0].userid, "2");
+	equal(obligations[0].name, "name1");
+	equal(obligations[0].description, "desc1");
+	equal(obligations[0].startTime, "start1");
+	equal(obligations[0].endTime, "end1");
+	equal(obligations[0].priority, "3");
+	equal(obligations[0].status, "4");
+	equal(obligations[0].category, "5");
+	
+  });
+  </script>
+
+  <script>
+  test("dateickerLoad.js zeroPad formatting testing", function() {
+  	equal(zeroPad("101", "0000"), "0101");
+  	equal(zeroPad("0101", "0000"), "0101");
+  	equal(zeroPad("1", "0000" ), "0001");
+  	equal(zeroPad("", "0000" ), "0000");
+  	equal(zeroPad("1", "" ), "1");
+  });
+
+  test("dateickerLoad.js timeConversion format testing", function() {
+  	//new date format: (year, month, day, hours, minutes, seconds, milliseconds);
+  	var tempTime = new Date("1", "1", "1", "12", "12", "12", "12");
+  	equal(timeConverter(tempTime), "12:12:12.012");
+
+  	var tempTime = new Date("1", "1", "1", "12", "12", "12","2");
+  	equal(timeConverter(tempTime), "12:12:12.002");
+
+  	var tempTime = new Date("1", "1", "1", "12", "12", "12","");
+  	equal(timeConverter(tempTime), "12:12:12.000");
+
+  	var tempTime = new Date("1", "1", "1", "0", "0", "0","0");
+  	equal(timeConverter(tempTime), "00:00:00.000");
+
+  	var tempTime = new Date("1", "1", "1", "18", "19", "20","21");
+  	equal(timeConverter(tempTime), "18:19:20.021");
+  });
+
+  test("dateickerLoad.js ISO8601Converter(date) format testing", function() {
+  	//new date format: (year, month, day, hours, minutes, seconds, milliseconds);
+  	var tempTime = new Date("1111", "1", "1", "0", "0", "0","0");
+  	equal(ISO8601Converter(tempTime), "1111-02-01");
+
+  	var tempTime = new Date("1212", "12", "30", "0", "0", "0","0");
+  	equal(ISO8601Converter(tempTime), "1213-01-30");
+
+  	var tempTime = new Date("2000", "1", "1", "0", "0", "0","0");
+  	equal(ISO8601Converter(tempTime), "2000-02-01");
+  });
+
+   test("dateickerLoad.js convertDateTimes format testing", function() {
+  	//new date format: (year, month, day, hours, minutes, seconds, milliseconds);
+  	var tempTime = new Date("1111", "1", "1", "0", "0", "0","0");
+  	equal(convertDateTimes(tempTime, tempTime), "1111-02-01 00:00:00.000");
+
+  	var tempTime = new Date("1111", "1", "1", "23", "10", "03","9");
+  	equal(convertDateTimes(tempTime, tempTime), "1111-02-01 23:10:03.009");
+
+  	var tempTime = new Date("2014", "12", "30");
+  	equal(convertDateTimes(tempTime, tempTime), "2015-01-30 00:00:00.000");
+
+  	var tempTime = new Date("2014", "12", "30", "18", "18", "18","22");
+  	equal(convertDateTimes(tempTime, tempTime), "2015-01-30 18:18:18.022");
+  });
+  </script>
+
+  <script>
+  test("projectgofeatures.js testing", function() {
+    //creating object to test on (obligationid userid name description starttime endtime priority status category)
+	var startTime = '2014-09-09'
+	var obligationList = null;
+	var testobj1;
+	var uid = '1';
+	var oname = 'data';
+	var odesc = 'desc';
+	var oST = '2014-09-09 00:00:00.000';
+	var oET = '2014-09-09 0900:00.000';
+	var oPri = 1;
+	var oStat = 1;
+	var oCat = 1;
+	
+	//Testing for Post method used in the Add An Obligation window.
+	$.post('/obligations', {
+		userid: uid,
+		name: oname,
+		description: odesc,
+		starttime: oST,
+		endtime: oET,
+		priority: oPri,
+		status: oStat,
+		category: oCat
+	})
+
+    $.get('/obligations/'+startTime, function(data) 
+	{
+		obligationList = eval(data);
+		testobj1 = obligationList[0];
+	});
+
+	
+	expect(0);
+  });
+ 
+  </script>
+  <script>
+  test("schedule.js testing", function() {
+	var schedDate;
+	var schedDay;	
+	var schedMonth;
+	var schedYear;
+
+	var currDate;
+	var currDay;
+	var currMonth;
+	var currYear;
+	currDate = new Date();
+	currDay = currDate.getDate();
+	currMonth = currDate.getMonth();
+	currYear = currDate.getFullYear();
+	
+	schedDate = getCurrTime();
+	schedDay = getCurrDay();
+	schedMonth = getCurrMonth();
+	schedYear = getCurrYear();
+	
+	equal(currDay, schedDay);
+	equal(currMonth, schedMonth);
+	equal(currYear, schedYear);
+	notEqual(currDate, schedDate);
+	//The time difference should be atleast 1 milisecond off,
+	//so the current Date won't match the schedule's date exactly.
+  
+	});
+  </script>
+</head>
+<body>
+
+<div id="qunit"></div>
+ 
+</body>
+</html>

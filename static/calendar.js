@@ -49,7 +49,7 @@ Calendar.prototype.calculateCalendar = function()
 	if (this.calenMonth == 1) 
 	{
 	
-	//A calculation for leap year.
+		//A calculation for leap year.
 		if((this.calenYear % 4 == 0 && this.calenYear % 100 != 0) || this.calenYear % 400 == 0)
 		{
 			//If its a leap year, make the day longer.
@@ -112,32 +112,43 @@ Calendar.prototype.calculateCalendar = function()
 					dateString = ""+year+"-"+month+"-"+date;	
 					if(day == currentDay && currentMonth == this.calenMonth && currentYear == this.calenYear)
 					{
-						//alert("You have one or more obligation today! Check them on your schedule");
 						if(this.checkDayForObligations(dateString) == 1)
-							alert("You have one or more obligation today! Check them on your schedule");
-						htmlCode += '<b><span style="color:red; ">'+day+'</span></b>';
+						{
+							$.bootstrapGrowl("You have one or more obligation today! Check them on your schedule", { 
+				                type: 'info',
+				                allow_dismiss: true,
+				                align: 'center',
+				                width: 'auto',
+				                offset: {from: 'top', amount: 200}
+				            });
+						}
+						htmlCode += '<b><span style="color:red; ">' + day + '</span></b>';
 					}
 					else
+					{
 						htmlCode += day;
+					}
 						
 					if(this.checkDayForObligations(dateString) == 1)
 					{
-						htmlCode += '<input type="button" onclick="getObligationsFromDB(\''+dateString.toString()+'\')" style="width: 110px; height: 40px;" value="View Obligations"></button>';
+						htmlCode += '<input type="button" onclick="getObligationsFromDB(\'' + dateString.toString() + '\')" style="width: 110px; height: 40px;" value="View Obligations"></button>';
 					}
 
-					
 					day++;
 				}
 				htmlCode += '</td>';
 			}
 			//When we have filled enough days out enough days, we stop the loop.
 			if (day > monthLength) 
+			{
 				outOfDays = 1;
+			}
 			else 
-			htmlCode += '</tr><tr>'; 
+			{
+				htmlCode += '</tr><tr>'; 
+			}
 		}
 	}
-
   htmlCode += '</tr></table>';
   this.htmlCode = htmlCode;
 }
@@ -197,7 +208,7 @@ function getObligationsFromDB(startTime)
 		}
 		heading += "</table>";
 		$("#obligations").html(heading);
-		window.scrollTo(0,document.body.scrollHeight);
+		window.scrollTo(0, document.body.scrollHeight);
 	});
 	
 	return gotData;
@@ -236,8 +247,8 @@ function editOglibation(obgid)
   <option value=4>Requires Assistance</option>\
   </select><br>\
 </form>');
-		$("#name").val(obligations[obgid-1].name);
-		$("#description").val(obligations[obgid-1].description);
+		$("#name").val(obligations[obgid].name);
+		$("#description").val(obligations[obgid].description);
 
 		bootdatepickers();  //External file datepickerLoad.js
 
@@ -248,7 +259,7 @@ function editOglibation(obgid)
 		var endDate;
 		var endTime;
 
-		timeParts = obligations[obgid-1].starttime
+		timeParts = obligations[obgid].starttime
 		timeParts = timeParts.split(" ");
 		values = timeParts[0].split('-');
 		startDate = new Date(values[0], (parseInt(values[1])-1).toString(), values[2]);
@@ -263,7 +274,7 @@ function editOglibation(obgid)
 			startTime = "";
 		}
 
-		timeParts = obligations[obgid-1].endtime.split(" ");
+		timeParts = obligations[obgid].endtime.split(" ");
 		values = timeParts[0].split('-');
 		endDate = new Date(values[0], (parseInt(values[1]) - 1).toString(), values[2], 0, 0, 0, 0);
 
@@ -279,25 +290,22 @@ function editOglibation(obgid)
 
 		$("#datepickerstart").datepicker("setDate", startDate);
 		$("#datepickerend").datepicker("setDate", endDate);
-
 		$("#stime").timepicker({ 'scrollDefaultNow': true });
     	$("#etime").timepicker({ 'scrollDefaultNow': true });
 		$("#stime").timepicker('setTime', startTime);
 		$("#etime").timepicker('setTime', endTime);
-
-
-		$("#pri").val(obligations[obgid-1].priority);
-		$("#cat").val(obligations[obgid-1].category);
-		statusNum = parseInt(obligations[obgid-1].status);
+		$("#pri").val(obligations[obgid].priority);
+		$("#cat").val(obligations[obgid].category);
+		statusNum = parseInt(obligations[obgid].status);
 		$("#stat").val(statusNum);
-		obligid = parseInt(obligations[obgid-1].obligationid);
+		obligid = parseInt(obligations[obgid].obligationid);
 
 		heading += '<input type="button" value="close" onclick="closeView(this.value,' + obligid + ')"/>';
 		heading += '<input type="button" value="submit" onclick="closeView(this.value,' + obligid + ' )"/>';
 		heading += '<input type="button" value="clear" onclick="closeView(this.value,' + obligid + ' )"/>';
 		$("#editContent").append(heading);
 		$("#dial").show();
-		var editor = document.getElementById( 'editForm' );
+		var editor = document.getElementById('editForm');
 		editor.style.display = 'block';
 		$("#obligations").hide();
 		$("#sendTo").hide();
@@ -318,8 +326,6 @@ function closeView(data, obgid)
     var errMsg = "";
     var cont = true;
 	
-	
-	
 	if('clear' == data)
 	{
 		$("#name").val("");
@@ -332,6 +338,7 @@ function closeView(data, obgid)
 		$("#stat").val("");
 		$("#cat").val("");
 	}
+
 	if('close' == data)
 	{
 		$("#obligations").show();
@@ -368,7 +375,7 @@ function closeView(data, obgid)
 		}
 			
 		//Convert dates into properly formatted types
-		startim = convertDateTimes(stardate, startim);   //external file datePickerLoad.js
+		startim = convertDateTimes(stardate, startim);    //external file datePickerLoad.js
 		endtim = convertDateTimes(enddate, endtim);       //external file datePickerLoad.js
 		if (cont)
 		{
@@ -383,31 +390,16 @@ function closeView(data, obgid)
 	                category: cat
 	            })
 
-	            .done(function (data) {
-	                  setTimeout(function() {
-	                    $.bootstrapGrowl("Your settings have been changed!", { 
-	                        type: 'success',
-	                        allow_dismiss: true,
-	                        align: 'center',
-	                        width: 'auto',
-	                        offset: {from: 'top', amount: 200}
-	                    });
-	                });
-					
-					$("#obligations").show();
+	            .done(function (data){
+	            	editChangeSuccess();
+
+	            	$("#obligations").show();
 					$("#sendTo").show();
 					$("#dial").hide();
 					location.reload();
 			    })
-	            .fail(function (data) {
-	                $.bootstrapGrowl("Failed to send in data. Please try again.", {
-	                type: 'info',
-	                align: 'center',
-	                width: 'auto',
-	                offset: {from: 'top', amount: 200},
-	                allow_dismiss: true,
-	                delay: 5000,
-	              });
+	            .fail(function (data){
+	            	editChangeFailure();
 	        });
 	    }
 	    else
@@ -419,7 +411,30 @@ function closeView(data, obgid)
 				offset: {from: 'top', amount: 200},
 				allow_dismiss: true,
 				delay: 5000,
-			  });
+			});
 		}
 	}
+}
+
+function editChangeSuccess()
+{
+	$.bootstrapGrowl("Your settings have been changed!", { 
+	    type: 'success',
+	    allow_dismiss: true,
+	    align: 'center',
+	    width: 'auto',
+	    offset: {from: 'top', amount: 200}
+	});
+}
+
+function editChangeFailure()
+{
+	$.bootstrapGrowl("Failed to send in data. Please try again.", {
+        type: 'info',
+        align: 'center',
+        width: 'auto',
+        offset: {from: 'top', amount: 200},
+        allow_dismiss: true,
+        delay: 5000,
+    });
 }

@@ -44,7 +44,6 @@ function createSortedList(orderby){
 
     var statuses = ['none','In Progress','Completed','Important','Requires Assistance'];
 
-
     //generate the table
     var heading = "<table border='1'><th>Name<button onclick='reorderListName()'>Reorder</button></th><th>Description</th><th>StartTime</th><th>EndTime</th><th>Priority <button onclick='reorderListPriority()'>Reorder</button></th><th>Status <button onclick='reorderListStatus()'>Reorder</button></th><th>Modify</th>";
     for (var i = 0; i < obligationList.length; i++)
@@ -76,4 +75,3 @@ function reorderListName() {
 function reorderListStatus() {
     createSortedList(sortTypeStatus)
 }
-
