@@ -31,6 +31,8 @@
 //    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
 //}
 
+//- (void)test_setFailed
+
 - (void)test1
 {
     NSError *error = nil;

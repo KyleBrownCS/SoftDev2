@@ -7,5 +7,8 @@
 //
 
 
-extern const NSString *SERVER_ADDRESS;
-extern const NSString *OBLIGATION_SUB_URL;
+extern NSString * const SERVER_ADDRESS;
+extern NSString * const OBLIGATION_SUB_URL;
+extern NSString * const NO_MATCH;
+extern NSString * const REVIEW_ID;
+

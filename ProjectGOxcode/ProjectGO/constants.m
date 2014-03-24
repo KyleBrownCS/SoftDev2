@@ -7,6 +7,8 @@
 //
 
 #include "constants.h"
-//const NSString *SERVER_ADDRESS = @"http://54.213.113.207/"; //jeremy (test)
-const NSString *SERVER_ADDRESS = @"http://54.201.135.92/";   //prod
-const NSString *OBLIGATION_SUB_URL = @"obligations";
+//NSString * const SERVER_ADDRESS = @"http://54.213.113.207/"; //jeremy (test)
+NSString * const SERVER_ADDRESS = @"http://54.201.135.92/";   //prod
+NSString * const OBLIGATION_SUB_URL = @"obligations";
+NSString * const NO_MATCH = @"Match not found!";
+NSString * const REVIEW_ID = @"Please review the ID you searched for.";
