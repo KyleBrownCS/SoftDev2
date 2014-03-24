@@ -53,6 +53,7 @@ class Test(unittest.TestCase):
         result = self.app.post('/obligations')
         self.assertEqual(result.status_code, 400)
 
+    #test of POST method creating an obligation with working data
     def test_create_obligation_working_data(self):
         data_to_send = {
             'userid': 1,
