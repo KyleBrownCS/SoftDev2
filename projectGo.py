@@ -25,7 +25,6 @@ row_pos_category = 8
 def get_db():
     db_connection = sqlite3.connect(applicationInfo.database_filepath)
     db_cursor = db_connection.cursor()
-
     return db_connection, db_cursor
 
 @app.route('/')
@@ -43,8 +42,8 @@ def get_all_obligations():
 
     data = []
     for row in db_cursor.execute("select * from " + applicationInfo.OBLIGATION_TABLE_NAME):
-        #response = response + str(row) + "|\r\n"
-        obligation_entry = {'obligationid' : row[row_pos_obligationid], #obligationid
+        obligation_entry = {
+        'obligationid' : row[row_pos_obligationid], #obligationid
             'userid'       : row[row_pos_userid], #userid
             'name'         : row[row_pos_name], #name
             'description'  : row[row_pos_description], #description
@@ -56,7 +55,7 @@ def get_all_obligations():
         
         data.append(obligation_entry)
     response = json.dumps(data)
-    return response
+    return response, 200
 
 @app.route('/schedule')
 def sched():
@@ -103,6 +102,7 @@ def get_obligation(obligation_id):
     logging.debug('Attempting to GET obligation ' + str(obligation_id))
 
     row = "";
+    response_code = None
 
     #execute query and get all rows that match (since obligation_id is unique there will be 0 or 1
     db_connection, db_cursor = get_db()
@@ -111,7 +111,8 @@ def get_obligation(obligation_id):
 
     if (len(row) > 0):
         row = row[0]
-        data = {'obligationid' : row[row_pos_obligationid], #obligationid
+        data = {
+            'obligationid' : row[row_pos_obligationid], #obligationid
             'userid'       : row[row_pos_userid], #userid
             'name'         : row[row_pos_name], #name
             'description'  : row[row_pos_description], #description
@@ -121,12 +122,14 @@ def get_obligation(obligation_id):
             'status'       : row[row_pos_status], #status
             'category'     : row[row_pos_category]} #category
         data = json.dumps(data)
+        response_code = 200
         logging.debug('Obligation ' + str(obligation_id) + ' was found')
     else:
-        logging.debug('Obligation ' + str(obligation_id) + ' could not be found')
         data = jsonify({'error': 1})
+        response_code = 404
+        logging.debug('Obligation ' + str(obligation_id) + ' could not be found')
     
-    return data
+    return data, response_code
 
 @app.route('/obligations', methods = ['POST'])
 def create_obligation():
@@ -134,6 +137,7 @@ def create_obligation():
 
     db_connection, db_cursor = get_db()
     response = ""
+    response_code = None
     user_id = request.form['userid']
     name = request.form['name']
     description = request.form['description']
@@ -145,22 +149,25 @@ def create_obligation():
 
     try:
         db_cursor.execute("insert into " + applicationInfo.OBLIGATION_TABLE_NAME + " (obligationid, userid, name, description, starttime, endtime, priority, status, category) values (?, ?, ?, ?, ?, ?, ?, ?, ?)", (None, user_id, name, description, start_time, end_time, priority, status, category))
+
+        #get the inserted obligations id so that it can be returned
         result = db_cursor.execute("select last_insert_rowid() FROM " + applicationInfo.OBLIGATION_TABLE_NAME).fetchall()
         if (len(result) > 0):
             result = result[0]
         obligation_id = result[0]
+        
         db_connection.commit() 
         response = jsonify({'obligation_id': obligation_id, 'result': "successfully added:" + name})
-        
+        response_code = 200
         logging.debug('Creation of obligation ' + str(obligation_id) + ' was a success')
+
     except Exception, e:
         logging.error('Obligation could not be created. Error message: ' + str(e))
 
         response = jsonify({'error': str(e)})
+        response_code = 400
 
     return response
-
-
 
 @app.route('/obligations/<int:obligation_id>', methods = ['POST'])
 def modify_obligation(obligation_id):
@@ -233,6 +240,7 @@ def delete_obligation(obligation_id):
     db_connection, db_cursor = get_db()
     response = ""
     response_code = None
+
     try:
         if (isinstance(obligation_id,(int,long))):
             my_query = "select * from " + applicationInfo.OBLIGATION_TABLE_NAME + " where " + applicationInfo.OBLIGATION_ID_NAME + "=" + str(obligation_id)
@@ -240,8 +248,8 @@ def delete_obligation(obligation_id):
             if (len(row) > 0):
                 db_cursor.execute("delete from " + applicationInfo.OBLIGATION_TABLE_NAME + " where " + applicationInfo.OBLIGATION_ID_NAME + "=" + str(obligation_id))
                 db_connection.commit()
-                response = jsonify({'error': 'OK successfully deleted'})
-                response_code = 204
+                response = jsonify({'success': 'OK successfully deleted'})
+                response_code = 200
             else:
                 response = jsonify({'error': 'No such obligation id'})
                 response_code = 404

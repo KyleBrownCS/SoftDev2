@@ -48,14 +48,39 @@ class Test(unittest.TestCase):
         #remove the test DB
         shutil.rmtree(self.temp_folder_path)
 
-    #test of POST method for create_obligation
-    #def test_go_create_obligation(self):
-        #result = self.app.post('/obligations')
-        #jsonData = json.loads(result.data)
-        #resultMessage = jsonData['result']
-        #self.assertEqual("Flask returned this message", resultMessage)
-        #self.assertEqual(result.status, '200 OK')
-        
+    #test of POST method without sending data for create_obligation
+    def test_create_obligation_no_data(self):
+        result = self.app.post('/obligations')
+        self.assertEqual(result.status_code, 400)
+
+    #test of POST method creating an obligation with working data
+    def test_create_obligation_working_data(self):
+        data_to_send = {
+            'userid': 1,
+            'name': 'flask-test',
+            'description': 'flask-test-description',
+            'starttime': '2014-03-05 00:00:00.000',
+            'endtime': '2014-03-05 00:00:00.000',
+            'priority': 1,
+            'status': 1,
+            'category': 1
+        }
+
+        result = self.app.post('/obligations', data=data_to_send)
+        self.assertEqual(result.status_code, 200)
+        jsonData = json.loads(result.data)
+        self.assertTrue('obligation_id' in jsonData)
+
+        test_id = jsonData['obligation_id']
+        my_query = "select * from obligation where obligationid =" + str(test_id)
+        row = self.db_cursor.execute(my_query).fetchall()
+
+        self.assertTrue(len(row) > 0)
+        if (len(row) > 0):
+            row = row[0]
+            self.assertEquals(row[2], 'flask-test')
+
+ 
     #test of direct method for get_obligation
     def test_go_get_obligation_exists(self):
         #test case 1
@@ -80,17 +105,6 @@ class Test(unittest.TestCase):
         jsonData = json.loads(self.app.get('/obligations/0').data)
         self.assertEqual(jsonData['error'],1)
 		
-    #def test_go_get_obligation_bad_key(self):
-        #Invalid case string
-        #result = self.app.get("/obligations/this is supposed to be an int")
-        #self.assertEqual(result.status, '404 NOT FOUND')
-        #Invalid case float
-        #result = self.app.get("/obligations/1.0")
-        #self.assertEqual(result.status, '404 NOT FOUND')	
-        #Invalid case char
-        #result = self.app.get("/obligations/a")
-        #self.assertEqual(result.status, '404 NOT FOUND')
-
     #test of GET method for get_obligation
     def test_get_obligation(self):
         #Edge case low
@@ -119,7 +133,7 @@ class Test(unittest.TestCase):
     def test_delete_obligation(self):
         #typical delete case of existing obligation
         result = self.app.delete('/obligations/1')
-        self.assertEquals(result.status, '204 NO CONTENT')
+        self.assertEquals(result.status, '200 OK')
         #delete case for non existing obligation
         result = self.app.delete('/obligations/1')
         self.assertEquals(result.status, '404 NOT FOUND')

@@ -43,11 +43,11 @@
 
 - (IBAction)addObligationButton:(id)sender {
     
-    NSString *nameFieldText = _name.text;
-    NSString *descriptionFieldText = _description.text;
-    NSString *priorityFieldText = _priority.text;
-    NSString *statusFieldText = _status.text;
-    NSString *categoryFieldText = _category.text;
+    _errorBox.text = [ObligationCreationViewController setupAddObligation: _name.text: _description.text: _priority.text: _status.text: _category.text: _startDate.date: _endDate.date];
+
+}
+
++ (NSString*) setupAddObligation:(NSString*) nameFieldText :(NSString*) descriptionFieldText :(NSString*) priorityFieldText :(NSString*) statusFieldText :(NSString*) categoryFieldText :(NSDate*) startDate :(NSDate*) endDate {
     
     //convert the numeric fields to numbers
     NSInteger priorityFieldInt = [priorityFieldText integerValue];
@@ -76,7 +76,7 @@
         {
             result = [result stringByAppendingString:@"Category Missing.\n"];
         }
-        _errorBox.text = result;
+        return result;
     }
     
     else
@@ -84,20 +84,19 @@
         //The dates/times
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         [dateFormat setDateFormat:@"yyyy-MM-dd H:m:s"];
-        NSDate *startDate = _startDate.date;
-        NSDate *endDate = _endDate.date;
         NSString *stringStartDate = [dateFormat stringFromDate:startDate];
         NSString *stringEndDate = [dateFormat stringFromDate:endDate];
         
         NSString *postString = [NSString stringWithFormat:@"userid=1&name=%@&description=%@&starttime=%@.000&endtime=%@.000&priority=%d&status=%d&category=%d", nameFieldText, descriptionFieldText,stringStartDate, stringEndDate, priorityFieldInt, statusFieldInt, categoryFieldInt];
         
         NSString *result = [self addObligation: postString];
-        _errorBox.text = result;
+        return result;
     }
     
 }
 
-- (NSString*)addObligation: (NSString*)postData {
+//- (NSMutableArray*)fillObj:(id)jsonObjects
++ (NSString*)addObligation: (NSString*)postData {
     NSString *ret = @"";
     NSString *url = [NSString stringWithFormat:@"%@%@", SERVER_ADDRESS, OBLIGATION_SUB_URL];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]
