@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *idField;
 
 - (IBAction)searchByID:(id)sender;
-- (NSDictionary*)getObligationsByID:(NSString*)obid;
+- (id)getObligationsByID:(NSString*)obid;
+- (void) handleSearch:(NSDictionary*)json;
+- (NSString*)getName;
 
 @end

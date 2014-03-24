@@ -29,9 +29,8 @@
 {
     [super didReceiveMemoryWarning];
 }
-- (IBAction)searchByID:(id)sender {
-    
-    NSDictionary* json = [self getObligationsByID:_idField.text];
+
+- (void)handleSearch:(NSDictionary*)json{
     
     int failed = 0;
     if ([[json valueForKeyPath:@"error"] intValue] > 0) {
@@ -39,33 +38,30 @@
     }
     
     if (failed) {
-        [self setFailed];
+        [self setViewText:NO_MATCH arg2:REVIEW_ID arg3:(NSString*)@"" arg4:(NSString*)@"" arg5:(NSString*)@"" arg6:(NSString*)@"" arg7:(NSString*)@""];
     }
     else {
-        NSString *text2 = [json objectForKey:@"name"];
-        NSString *desc2 = [json objectForKey:@"description"];
-        NSString *startdate2 = [json objectForKey:@"starttime"];
-        NSString *enddate2 = [json objectForKey:@"endtime"];
-        NSString *priority2 = [[json objectForKey:@"priority"] stringValue];
-        NSString *status2 = [[json objectForKey:@"status"] stringValue];
-        NSString *category2 = [[json objectForKey:@"category"] stringValue];
+        NSString *text2 =       [json objectForKey:@"name"];
+        NSString *desc2 =       [json objectForKey:@"description"];
+        NSString *startdate2 =  [json objectForKey:@"starttime"];
+        NSString *enddate2 =    [json objectForKey:@"endtime"];
+        NSString *priority2 =   [json objectForKey:@"priority"];
+        NSString *status2 =     [json objectForKey:@"status"];
+        NSString *category2 =   [json objectForKey:@"category"];
         
-        [self setSuccess:(NSString*)text2 arg2:(NSString*)desc2 arg3:(NSString*)startdate2 arg4:(NSString*)enddate2 arg5:(NSString*)priority2 arg6:(NSString*)status2 arg7:(NSString*)category2];
+        [self setViewText:(NSString*)text2 arg2:(NSString*)desc2 arg3:(NSString*)startdate2 arg4:(NSString*)enddate2 arg5:(NSString*)priority2 arg6:(NSString*)status2 arg7:(NSString*)category2];
     }
 }
-
-- (void)setFailed{
-    _name.text = NO_MATCH;
-    _desription.text = REVIEW_ID;
-    _startdate.text = @"";
-    _enddate.text = @"";
-    _priority.text = @"";
-    _status.text = @"";
-    _category.text = @"";
+- (IBAction)searchByID:(id)sender {
+    
+    NSDictionary* json = [self getObligationsByID:_idField.text];
+    
+    [self handleSearch:(NSDictionary*)json];
     
 }
 
-- (void)setSuccess: text2 arg2:(NSString*)desc2 arg3:(NSString*)startdate2 arg4:(NSString*)enddate2 arg5:(NSString*)priority2 arg6:(NSString*)status2 arg7:(NSString*)category2{
+- (void)setViewText: text2 arg2:(NSString*)desc2 arg3:(NSString*)startdate2 arg4:(NSString*)enddate2 arg5:(NSString*)priority2 arg6:(NSString*)status2 arg7:(NSString*)category2{
+    
     _name.text = text2;
     _desription.text = desc2;
     _startdate.text = startdate2;
@@ -75,7 +71,7 @@
     _category.text = category2;
 }
 
-- (NSDictionary*)getObligationsByID:(NSString*)obid{
+- (id)getObligationsByID:(NSString*)obid{
     
     NSString *url = [NSString stringWithFormat:@"%@%@/%@", SERVER_ADDRESS, OBLIGATION_SUB_URL, _idField.text];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]
@@ -89,7 +85,7 @@
     NSData *data = [NSURLConnection sendSynchronousRequest: request
                     returningResponse: &response
                     error: &error];
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     
     if (error != nil)
     {
@@ -97,6 +93,11 @@
     }
     
     return json;
+}
+
+- (NSString*)getName
+{
+    return _name.text;
 }
 
 @end
