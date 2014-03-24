@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "LoadAllObligationsViewController.h"
+#import "ObligationCreationViewController.h"
 #import "OCMock/OCMock.h"
 
 @interface ProjectGoTests : XCTestCase
@@ -101,6 +102,8 @@
 {
     //creating mock stub for the getObligations method (so we don't do a server request)
     id mockGet = [OCMockObject mockForClass:[LoadAllObligationsViewController class]];
+    
+    //creating data for the mockGet to return
     NSDictionary *jsonDict = [NSDictionary dictionaryWithObjectsAndKeys:
                 @"userid1", @"userid",
                 @"obligationid1", @"obligationid",
@@ -112,11 +115,13 @@
                 @"priority1", @"priority",
                 @"status1", @"status",
                 nil];
-    
     NSMutableArray *array = [[NSMutableArray alloc] init];
     [array addObject:jsonDict];
+    
+    //set the mockGet stub to return the array we just made
     [[[mockGet stub] andReturn:array] getObligations];
     
+    //testing the loadAllObligations method (will use mockGet instead of the getObligations inside the loadAllObligations method)
     NSMutableArray *thisObj = [LoadAllObligationsViewController loadAllObligations];
     NSDictionary *tempDict = [thisObj objectAtIndex:0];
     
@@ -140,7 +145,6 @@
     XCTAssertEqualObjects(testCategory, @"category1", @"");
     XCTAssertEqualObjects(testPriority, @"priority1", @"");
     XCTAssertEqualObjects(testStatus, @"status1", @"");
-
 }
 
 @end
