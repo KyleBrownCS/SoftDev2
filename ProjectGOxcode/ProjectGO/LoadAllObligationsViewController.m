@@ -22,7 +22,7 @@ NSString *status = @"status";
 NSString *endtime = @"endtime";
 NSString *starttime = @"starttime";
 NSString *category = @"category";
-NSString *priority = @"priortity";
+NSString *priority = @"priority";
 NSString *userid = @"userid";
 
 @implementation LoadAllObligationsViewController

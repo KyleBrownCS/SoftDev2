@@ -97,34 +97,50 @@
     XCTAssertEqualObjects(test3, @"(null)", @"");
 }
 
--(void)test_LoadAllObligationsViewController_getAllObligations
+-(void)test_LoadAllObligationsViewController_loadAllObligations
 {
     //creating mock stub for the getObligations method (so we don't do a server request)
     id mockGet = [OCMockObject mockForClass:[LoadAllObligationsViewController class]];
     NSDictionary *jsonDict = [NSDictionary dictionaryWithObjectsAndKeys:
-                @"1", @"userid",
-                @"1", @"obligationid",
-                @"name", @"name",
-                @"desc", @"description",
-                @"start", @"starttime",
-                @"end", @"endtime",
-                @"cat", @"category",
-                @"priority", @"priority",
-                @"status", @"status",
+                @"userid1", @"userid",
+                @"obligationid1", @"obligationid",
+                @"name1", @"name",
+                @"description1", @"description",
+                @"starttime1", @"starttime",
+                @"endtime1", @"endtime",
+                @"category1", @"category",
+                @"priority1", @"priority",
+                @"status1", @"status",
                 nil];
     
     NSMutableArray *array = [[NSMutableArray alloc] init];
     [array addObject:jsonDict];
     [[[mockGet stub] andReturn:array] getObligations];
-    id thisObj = [LoadAllObligationsViewController getObligations];
     
+    NSMutableArray *thisObj = [LoadAllObligationsViewController loadAllObligations];
     NSDictionary *tempDict = [thisObj objectAtIndex:0];
-    NSString *test1 = [NSMutableString stringWithFormat:@"%@", [tempDict objectForKeyedSubscript:@"name"]];
     
+    NSString *testUserid       = [NSMutableString stringWithFormat:@"%@", [tempDict objectForKeyedSubscript:@"userid"]];
+    NSString *testObligationid = [NSMutableString stringWithFormat:@"%@", [tempDict objectForKeyedSubscript:@"obligationid"]];
+    NSString *testName         = [NSMutableString stringWithFormat:@"%@", [tempDict objectForKeyedSubscript:@"name"]];
+    NSString *testDescription  = [NSMutableString stringWithFormat:@"%@", [tempDict objectForKeyedSubscript:@"description"]];
+    NSString *testStart        = [NSMutableString stringWithFormat:@"%@", [tempDict objectForKeyedSubscript:@"starttime"]];
+    NSString *testEnd          = [NSMutableString stringWithFormat:@"%@", [tempDict objectForKeyedSubscript:@"endtime"]];
+    NSString *testCategory     = [NSMutableString stringWithFormat:@"%@", [tempDict objectForKeyedSubscript:@"category"]];
+    NSString *testPriority     = [NSMutableString stringWithFormat:@"%@", [tempDict objectForKeyedSubscript:@"priority"]];
+    NSString *testStatus       = [NSMutableString stringWithFormat:@"%@", [tempDict objectForKeyedSubscript:@"status"]];
     
-    
-    //asserting that key name has value "name"
-    XCTAssertEqualObjects(test1, @"name", @"");
+    //asserting that everything was loaded correctly
+    XCTAssertEqualObjects(testUserid, @"userid1", @"");
+    XCTAssertEqualObjects(testObligationid, @"obligationid1", @"");
+    XCTAssertEqualObjects(testName, @"name1", @"");
+    XCTAssertEqualObjects(testDescription, @"description1", @"");
+    XCTAssertEqualObjects(testStart, @"starttime1", @"");
+    XCTAssertEqualObjects(testEnd, @"endtime1", @"");
+    XCTAssertEqualObjects(testCategory, @"category1", @"");
+    XCTAssertEqualObjects(testPriority, @"priority1", @"");
+    XCTAssertEqualObjects(testStatus, @"status1", @"");
+
 }
 
 @end
