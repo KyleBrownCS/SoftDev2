@@ -23,6 +23,7 @@
 		B2AC9D9B18D2577200F90786 /* FindObligationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2AC9D9A18D2577200F90786 /* FindObligationViewController.m */; };
 		B2E261D818CE6AD80091D5EC /* LoadAllObligationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E261D718CE6AD80091D5EC /* LoadAllObligationsViewController.m */; };
 		EE4D30EF18D2330A0003B663 /* constants.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4D30EE18D2330A0003B663 /* constants.m */; };
+		EEAB599118E0B89600224207 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEAB598918E0B89600224207 /* libOCMock.a */; };
 		EEB1B8A418D269E400FECB59 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEB1B8A218D269E400FECB59 /* Main_iPad.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,13 @@
 		B2E261D718CE6AD80091D5EC /* LoadAllObligationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadAllObligationsViewController.m; sourceTree = "<group>"; };
 		EE4D30EE18D2330A0003B663 /* constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = constants.m; sourceTree = "<group>"; };
 		EE5E4B3618DE019900615A70 /* ObligationCreationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObligationCreationViewController.h; sourceTree = "<group>"; };
+		EEAB598918E0B89600224207 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = ../libOCMock.a; sourceTree = "<group>"; };
+		EEAB598B18E0B89600224207 /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
+		EEAB598C18E0B89600224207 /* OCMConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMConstraint.h; sourceTree = "<group>"; };
+		EEAB598D18E0B89600224207 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
+		EEAB598E18E0B89600224207 /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
+		EEAB598F18E0B89600224207 /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
+		EEAB599018E0B89600224207 /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
 		EEB1B8A318D269E400FECB59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ProjectGO/Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +92,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B813A5118C0B0DB00D03A65 /* XCTest.framework in Frameworks */,
+				EEAB599118E0B89600224207 /* libOCMock.a in Frameworks */,
 				6B813A5318C0B0DB00D03A65 /* UIKit.framework in Frameworks */,
 				6B813A5218C0B0DB00D03A65 /* Foundation.framework in Frameworks */,
 			);
@@ -170,10 +179,26 @@
 		6B813A5718C0B0DB00D03A65 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EEAB598A18E0B89600224207 /* OCMock */,
+				EEAB598918E0B89600224207 /* libOCMock.a */,
 				6B813A5818C0B0DB00D03A65 /* ProjectGOTests-Info.plist */,
 				6B813A5918C0B0DB00D03A65 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EEAB598A18E0B89600224207 /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				EEAB598B18E0B89600224207 /* OCMock.h */,
+				EEAB598C18E0B89600224207 /* OCMConstraint.h */,
+				EEAB598D18E0B89600224207 /* NSNotificationCenter+OCMAdditions.h */,
+				EEAB598E18E0B89600224207 /* OCMockRecorder.h */,
+				EEAB598F18E0B89600224207 /* OCMArg.h */,
+				EEAB599018E0B89600224207 /* OCMockObject.h */,
+			);
+			name = OCMock;
+			path = ../OCMock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -456,7 +481,24 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					.,
+				);
 				INFOPLIST_FILE = "ProjectGOTests/ProjectGOTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/home/student/umfrie98/4350/SoftDev2/ProjectGOxcode/ProjectGOTests/iOS,
+					/home/student/umfrie98/4350/SoftDev2/ProjectGOxcode,
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-force_load",
+					"\"libOCMock.a\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -475,7 +517,24 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ProjectGO/ProjectGO-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					.,
+				);
 				INFOPLIST_FILE = "ProjectGOTests/ProjectGOTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/home/student/umfrie98/4350/SoftDev2/ProjectGOxcode/ProjectGOTests/iOS,
+					/home/student/umfrie98/4350/SoftDev2/ProjectGOxcode,
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-force_load",
+					"\"libOCMock.a\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
