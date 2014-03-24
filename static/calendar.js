@@ -228,7 +228,7 @@ function editOglibation(obgid)
 		var heading = "";
 		var statusNum = 0;
 		var obligid;
-
+		$("#editContent").html("");
 		$("#editContent").append('<form> \
   <div id="name2">Name: <input type="text" id="name"></div>\
   <div id="description2">Description: <input type="text" id="description"></div>\
