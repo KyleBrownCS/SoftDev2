@@ -247,8 +247,8 @@ function editOglibation(obgid)
   <option value=4>Requires Assistance</option>\
   </select><br>\
 </form>');
-		$("#name").val(obligations[obgid-1].name);
-		$("#description").val(obligations[obgid-1].description);
+		$("#name").val(obligations[obgid].name);
+		$("#description").val(obligations[obgid].description);
 
 		bootdatepickers();  //External file datepickerLoad.js
 
@@ -259,7 +259,7 @@ function editOglibation(obgid)
 		var endDate;
 		var endTime;
 
-		timeParts = obligations[obgid-1].starttime
+		timeParts = obligations[obgid].starttime
 		timeParts = timeParts.split(" ");
 		values = timeParts[0].split('-');
 		startDate = new Date(values[0], (parseInt(values[1])-1).toString(), values[2]);
@@ -274,7 +274,7 @@ function editOglibation(obgid)
 			startTime = "";
 		}
 
-		timeParts = obligations[obgid-1].endtime.split(" ");
+		timeParts = obligations[obgid].endtime.split(" ");
 		values = timeParts[0].split('-');
 		endDate = new Date(values[0], (parseInt(values[1]) - 1).toString(), values[2], 0, 0, 0, 0);
 
@@ -294,11 +294,11 @@ function editOglibation(obgid)
     	$("#etime").timepicker({ 'scrollDefaultNow': true });
 		$("#stime").timepicker('setTime', startTime);
 		$("#etime").timepicker('setTime', endTime);
-		$("#pri").val(obligations[obgid-1].priority);
-		$("#cat").val(obligations[obgid-1].category);
-		statusNum = parseInt(obligations[obgid-1].status);
+		$("#pri").val(obligations[obgid].priority);
+		$("#cat").val(obligations[obgid].category);
+		statusNum = parseInt(obligations[obgid].status);
 		$("#stat").val(statusNum);
-		obligid = parseInt(obligations[obgid-1].obligationid);
+		obligid = parseInt(obligations[obgid].obligationid);
 
 		heading += '<input type="button" value="close" onclick="closeView(this.value,' + obligid + ')"/>';
 		heading += '<input type="button" value="submit" onclick="closeView(this.value,' + obligid + ' )"/>';
