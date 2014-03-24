@@ -166,7 +166,44 @@
   });
   </script>
 
-  
+  <script>
+  test("projectgofeatures.js testing", function() {
+    //creating object to test on (obligationid userid name description starttime endtime priority status category)
+	var startTime = '2014-09-09'
+	var obligationList = null;
+	var testobj1;
+	var uid = '1';
+	var oname = 'data';
+	var odesc = 'desc';
+	var oST = '2014-09-09 00:00:00.000';
+	var oET = '2014-09-09 0900:00.000';
+	var oPri = 1;
+	var oStat = 1;
+	var oCat = 1;
+	
+	//Testing for Post method used in the Add An Obligation window.
+	$.post('/obligations', {
+		userid: uid,
+		name: oname,
+		description: odesc,
+		starttime: oST,
+		endtime: oET,
+		priority: oPri,
+		status: oStat,
+		category: oCat
+	})
+
+    $.get('/obligations/'+startTime, function(data) 
+	{
+		obligationList = eval(data);
+		testobj1 = obligationList[0];
+	});
+
+	
+	expect(0);
+  });
+ 
+  </script>
 
 </head>
 <body>
