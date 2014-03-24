@@ -68,6 +68,18 @@ class Test(unittest.TestCase):
 
         result = self.app.post('/obligations', data=data_to_send)
         self.assertEqual(result.status_code, 200)
+        jsonData = json.loads(result.data)
+        self.assertTrue('obligation_id' in jsonData)
+
+        test_id = jsonData['obligation_id']
+        my_query = "select * from obligation where obligationid =" + str(test_id)
+        row = self.db_cursor.execute(my_query).fetchall()
+
+        self.assertTrue(len(row) > 0)
+        if (len(row) > 0):
+            row = row[0]
+            self.assertEquals(row[2], 'flask-test')
+
  
     #test of direct method for get_obligation
     def test_go_get_obligation_exists(self):
