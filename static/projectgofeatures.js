@@ -115,19 +115,34 @@ $('#clear').click(function() {
     $("#cat").val("");
 })
 
+function getObligInfo()
+{
+	var tOblig = new Obligation("0","1","Name","Description","2013-03-30 18:18:18.022","2015-01-30 18:18:18.022","1","2","1");
+    tOblig.name = $("#name").val();
+    tOblig.description = $("#description").val();
+    tOblig.startDate = $("#datepickerstart").datepicker('getDate');
+    tOblig.endDate = $("#datepickerend").datepicker('getDate');
+    tOblig.startTime = $('#stime').timepicker('getTime');
+    tOblig.endTime = $('#etime').timepicker('getTime');
+    tOblig.pri = $("#pri").val();
+    tOblig.stat = $("#stat").val();
+    tOblig.cat = $("#cat").val();
+	return tOblig;
+}
 
-$('#submit1').click(function() { 
-    
-    //basic client side validation
-    var nm = $("#name").val();
-    var desc = $("#description").val();
-    var stardate = $("#datepickerstart").datepicker('getDate');
-    var enddate = $("#datepickerend").datepicker('getDate');
-    var startime = $('#stime').timepicker('getTime');
-    var endtime =$('#etime').timepicker('getTime');
-    var pri = $("#pri").val();
-    var stat = $("#stat").val();
-    var cat = $("#cat").val();
+
+
+function addObligation(obligation, mode)
+{
+    var nm = obligation.name;
+    var desc = obligation.description;
+    var stardate = obligation.startDate;
+    var enddate = obligation.endDate;
+    var startime = obligation.startTime;
+    var endtime = obligation.endTime;
+    var pri = obligation.pri;
+    var stat = obligation.stat;
+    var cat = obligation.cat;
     var errMsg = "";
     var cont = true;
 
@@ -159,7 +174,7 @@ $('#submit1').click(function() {
     }
 
     //Check if dates are same day and the time is legal (no due date before date start)
-    if (stardate == null && enddate == null)
+    if (stardate == null && enddate == null && mode != 'test')
     {
         $('#datepickerstart2').css('background-color', 'red');
         $('#datepickerend2').css('background-color', 'red');
@@ -173,8 +188,7 @@ $('#submit1').click(function() {
             offset: {from: 'top', amount: 200}
         });
     }
-
-    if(startime != null && endtime == null)
+    if(startime != null && endtime == null && mode != 'test')
     {
         $('#stime2').css('background-color', 'red');
         $('#etime2').css('background-color', 'red');
@@ -188,8 +202,7 @@ $('#submit1').click(function() {
             offset: {from: 'top', amount: 200}
         });
     }
-
-    else if(startime != null && endtime != null)
+    else if(startime != null && endtime != null && mode != 'test')
     {
         if(stardate.getTime() == enddate.getTime() && startime.getTime() > endtime.getTime())
         {
@@ -210,9 +223,17 @@ $('#submit1').click(function() {
     if(cont)
     {
         //Convert dates into properly formatted types
-        starttim2 = convertDateTimes(stardate, startime);  //external file datePickerLoad.js
-        endtime2 = convertDateTimes(enddate, endtime);     //external file datePickerLoad.js
-
+		if(mode != 'test')
+		{
+			starttim2 = convertDateTimes(stardate, startime);  //external file datePickerLoad.js
+			endtime2 = convertDateTimes(enddate, endtime);     //external file datePickerLoad.js
+		}
+		//If we're testing, the format is already correct.
+		else
+		{
+			starttim2 = stardate + " " +startime;
+			endtime2 = enddate + " " + endtime;
+		}
         $.post('/obligations', {
                 userid:"1",
                 name: nm,
@@ -241,6 +262,13 @@ $('#submit1').click(function() {
             delay: 5000,
           });
     }
+}
+
+$('#submit1').click(function() { 
+    var obligation = new Obligation();
+	obligation = getObligInfo();
+    //basic client side validation
+	addObligation(obligation, 'app');
 })
 
 function obligationSendSuccess()
