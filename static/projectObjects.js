@@ -60,7 +60,7 @@ function obligationDeleteSuccess()
 
 function obligationDeleteFailure()
 {
-    $.bootstrapGrowl("We were unable to delete obligaion " + obligation_id + "! Try again shortly.", { 
+    $.bootstrapGrowl("We were unable to delete the obligaion ! Try again shortly.", { 
         type: 'info',
         allow_dismiss: true,
         align: 'center',
