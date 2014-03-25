@@ -2,13 +2,30 @@ function Obligation (obligationid, userid, name, description, startTime, endTime
 {
     this.obligationid = obligationid;
     this.userid = userid;
-	this.name = name
-	this.description = description
-	this.startTime = startTime
+	this.name = name;
+	this.description = description;
+	this.startTime = startTime;
 	this.endTime = endTime;
 	this.priority = priority;
 	this.status = status;
 	this.category = category;
+	this.startDate = null;
+	this.endDate = null;
+}
+
+function Obligation (obligationid, userid, name, description, startTime, endTime, priority, status, category, startDate, endDate)
+{
+    this.obligationid = obligationid;
+    this.userid = userid;
+	this.name = name;
+	this.description = description;
+	this.startTime = startTime;
+	this.endTime = endTime;
+	this.priority = priority;
+	this.status = status;
+	this.category = category;
+	this.startDate = startDate;
+	this.endDate = endDate;
 }
 
 Obligation.prototype.toString = function() {
