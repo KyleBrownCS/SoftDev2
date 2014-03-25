@@ -75,3 +75,10 @@ Trello, our project traccking application can be found at https://trello.com/b/z
 Using the current vim standard
 ==============================
 To use the vim standard for this application, please copy the `.vimrc` file into your home directory. It will ensure that all tabs are 4 spaces, and present a stronly visable red backgrounded line to signify that you have passed the 80 character cap for the line width. It also defaults your line numbers to on as well as other things which you may view in the file.
+
+
+Running Tests
+============
+To run our tests you can just run `python test_projectGo.py` on your server, and you can also download Selenium at `http://docs.seleniumhq.org/download/`. You will need to load theses tests into selenium yourself and also put the speed to about 1/2 the fastest possible. Otherwise some of the tests may fail for resources not loading fast enough for the test to run.
+
+You can run the ios tests by loading up xcode and entering the tests m file. From there you can build tests and run them all automatically.
