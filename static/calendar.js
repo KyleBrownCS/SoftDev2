@@ -203,8 +203,8 @@ function getObligationsFromDB(startTime)
 			currline += String(currObligation.priority) + "<td>";
 			currline += statuses[currObligation.status]  + "<td>";
 
-			heading += currline + '<button onclick="editOglibation('+(obgid)+')">Edit</button>' + '<td>';
-			heading += "<button onclick='deleteObligation("+ (obgid) +")'>Delete</button>" + "</tr>";
+			heading += currline + '<button onclick="editOglibation('+(obgid-1)+')">Edit</button>' + '<td>';
+			heading += "<button onclick='deleteObligation("+ (obgid-1) +")'>Delete</button>" + "</tr>";
 		}
 		heading += "</table>";
 		$("#obligations").html(heading);
