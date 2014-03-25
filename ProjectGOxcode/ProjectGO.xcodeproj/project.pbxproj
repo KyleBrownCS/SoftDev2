@@ -488,6 +488,7 @@
 				);
 				INFOPLIST_FILE = "ProjectGOTests/ProjectGOTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
 					./ProjectGOTests/iOS,
 					.,
 				);
@@ -523,6 +524,7 @@
 				);
 				INFOPLIST_FILE = "ProjectGOTests/ProjectGOTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
 					./ProjectGOTests/iOS,
 					.,
 				);
