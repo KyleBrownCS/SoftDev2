@@ -245,9 +245,11 @@ function addObligation(obligation, mode)
                 category: cat
             })
             .done(function (data) {
+			if(mode != 'test')
                 obligationSendSuccess();
             })
             .fail(function (data) {
+			if(mode != 'test')
                 obligationSendFailure();
         }); 
     }
