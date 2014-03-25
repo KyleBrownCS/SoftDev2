@@ -13,4 +13,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableList;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingSpinner;
 + (NSMutableArray*)fillObj:(id)jsonObjects;
++ (id)getObligations;
++ (NSMutableArray*)loadAllObligations;
 @end

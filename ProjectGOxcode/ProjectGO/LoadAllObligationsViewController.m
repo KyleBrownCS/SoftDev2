@@ -22,7 +22,7 @@ NSString *status = @"status";
 NSString *endtime = @"endtime";
 NSString *starttime = @"starttime";
 NSString *category = @"category";
-NSString *priority = @"priortity";
+NSString *priority = @"priority";
 NSString *userid = @"userid";
 
 @implementation LoadAllObligationsViewController
@@ -69,15 +69,24 @@ NSString *userid = @"userid";
 {
     [super viewDidLoad];
     [_loadingSpinner startAnimating];
-    
+    myobj = [LoadAllObligationsViewController loadAllObligations];
+}
+
++ (NSMutableArray*)loadAllObligations
+{
+    id jsonObjects = [LoadAllObligationsViewController getObligations];
+    NSMutableArray *thisObj = [LoadAllObligationsViewController fillObj: jsonObjects];
+    return thisObj;
+}
+
++ (id)getObligations
+{
     NSData *jsonSource = [NSData dataWithContentsOfURL:
                           [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", SERVER_ADDRESS, OBLIGATION_SUB_URL]]];
     
     id jsonObjects = [NSJSONSerialization JSONObjectWithData:
                       jsonSource options:NSJSONReadingMutableContainers error:nil];
-    
-    myobj = [LoadAllObligationsViewController fillObj: jsonObjects];
-
+    return jsonObjects;
 }
 
 + (NSMutableArray*)fillObj:(id)jsonObjects
