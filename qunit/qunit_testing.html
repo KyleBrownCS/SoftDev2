@@ -12,15 +12,14 @@
   <script src="../static/jquery.js"></script>
   <script src="../static/jquery.bootstrap-growl.min.js"></script>
   <script src="../static/bootstrap.js"></script>
-  
   <script src="../static/projectObjects.js"></script>
   <script src="../static/obligationlist.js"></script>
   <script src="../static/schedule.js"></script>
   <script src="../static/datepickerLoad.js"></script>
-  
+  <script src="../static/projectgofeatures.js"></script>
 
   <!--
-  <script src="./static/projectgofeatures.js"></script>
+
   <script src="./static/calendar.js"></script>
   <script src="./static/schedule.js"></script>
   -->
@@ -171,38 +170,41 @@
   <script>
   test("projectgofeatures.js testing", function() {
     //creating object to test on (obligationid userid name description starttime endtime priority status category)
-	var startTime = '2014-09-09'
-	var obligationList = null;
-	var testobj1;
-	var uid = '1';
+	
+	var obligation = new Obligation();
+	var uid = 1;
 	var oname = 'data';
 	var odesc = 'desc';
-	var oST = '2014-09-09 00:00:00.000';
-	var oET = '2014-09-09 0900:00.000';
+	var oST = '19:30:00.000';
+	var oSD = '2014-09-09';
+	var oET = '21:30:00.000';
+	var oED = '2014-09-09';
 	var oPri = 1;
 	var oStat = 1;
 	var oCat = 1;
 	
-	//Testing for Post method used in the Add An Obligation window.
-	$.post('/obligations', {
-		userid: uid,
-		name: oname,
-		description: odesc,
-		starttime: oST,
-		endtime: oET,
-		priority: oPri,
-		status: oStat,
-		category: oCat
-	})
-
-    $.get('/obligations/'+startTime, function(data) 
-	{
-		obligationList = eval(data);
-		testobj1 = obligationList[0];
-	});
-
+	obligation.userid = 1;
+	obligation.obligationid = 100;
+	obligation.name = oname;
+    obligation.description = odesc;
+    obligation.startDate = oSD;
+    obligation.endDate = oED;
+    obligation.startTime = oST;
+    obligation.endTime = oET;
+    obligation.pri = oPri;
+    obligation.stat = oStat;
+    obligation.cat = oCat;
 	
-	expect(0);
+	addObligation(obligation, 'test');
+	
+	equal(uid, obligation.userid);
+	equal(oname, obligation.name);
+	equal(odesc, obligation.description);
+	equal(oST, obligation.startTime);
+	equal(oSD, obligation.startDate);
+	equal(oPri, obligation.pri);
+	equal(oStat, obligation.stat);
+	equal(oCat, obligation.cat);
   });
  
   </script>

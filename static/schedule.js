@@ -6,7 +6,6 @@ $(document).ready(function(e) {
     	//$("#sendTo").append(heading);
 		var currentDate = new Date();
 		var currentMonth = currentDate.getMonth();
-		alert(currentDate);
 		var currentYear = currentDate.getFullYear();
 		var calen = new Calendar(currentMonth,currentYear, obligations);
 		calen.calculateCalendar();
