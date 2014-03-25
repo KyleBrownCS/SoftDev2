@@ -9,6 +9,8 @@
 #import <XCTest/XCTest.h>
 #import "LoadAllObligationsViewController.h"
 #import "ObligationCreationViewController.h"
+#import "FindObligationViewController.h"
+#import "ObligationCreationViewController.h"
 #import "OCMock/OCMock.h"
 
 @interface ProjectGoTests : XCTestCase
@@ -29,7 +31,7 @@
     [super tearDown];
 }
 
-- (void)test_LoadAllObligationsViewController_fillObj
+- (void)test_LoadAllObligationsViewController
 {
     NSError *error;
     NSDictionary *jsonDict;
@@ -145,6 +147,64 @@
     XCTAssertEqualObjects(testCategory, @"category1", @"");
     XCTAssertEqualObjects(testPriority, @"priority1", @"");
     XCTAssertEqualObjects(testStatus, @"status1", @"");
+}
+
+- (void) testValidObligationCreation
+{
+    id mockPost = [OCMockObject mockForClass:[ObligationCreationViewController class]];
+    NSString *expectedString = @"userid=1&name=testname&description=testdesc&starttime=2014-07-27 5:30:0.000&endtime=2014-07-27 5:30:0.000&priority=1&status=1&category=1";
+    [[mockPost expect] addObligation:expectedString];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"MM/dd/yyy hh:mm a"];
+    NSDate *date = [formatter dateFromString:@"07/27/2014 5:30 AM"];
+    
+    [ObligationCreationViewController setupAddObligation :@"testname" :@"testdesc" :@"1" :@"1" :@"1" :date :date];
+    [mockPost verify];
+}
+
+- (void) testObligationCreationNoName
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"MM/dd/yyy hh:mm a"];
+    NSDate *date = [formatter dateFromString:@"07/27/2014 5:30 AM"];
+    
+    NSString *result = [ObligationCreationViewController setupAddObligation :@"" :@"testdesc" :@"1" :@"1" :@"1" :date :date];
+    
+    XCTAssertEqualObjects(result, @"Name Missing.\n");
+}
+
+- (void) testObligationCreationNoPriority
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"MM/dd/yyy hh:mm a"];
+    NSDate *date = [formatter dateFromString:@"07/27/2014 5:30 AM"];
+    
+    NSString *result = [ObligationCreationViewController setupAddObligation :@"testname" :@"testdesc" :@"" :@"1" :@"1" :date :date];
+    
+    XCTAssertEqualObjects(result, @"Priority Missing.\n");
+}
+
+- (void) testObligationCreationNoStatus
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"MM/dd/yyy hh:mm a"];
+    NSDate *date = [formatter dateFromString:@"07/27/2014 5:30 AM"];
+    
+    NSString *result = [ObligationCreationViewController setupAddObligation :@"testname" :@"testdesc" :@"1" :@"" :@"1" :date :date];
+    
+    XCTAssertEqualObjects(result, @"Status Missing.\n");
+}
+
+- (void) testObligationCreationNoCategory
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"MM/dd/yyy hh:mm a"];
+    NSDate *date = [formatter dateFromString:@"07/27/2014 5:30 AM"];
+    
+    NSString *result = [ObligationCreationViewController setupAddObligation :@"testname" :@"testdesc" :@"1" :@"1" :@"" :date :date];
+    
+    XCTAssertEqualObjects(result, @"Category Missing.\n");
 }
 
 @end
