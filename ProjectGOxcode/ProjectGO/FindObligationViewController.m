@@ -45,9 +45,9 @@
         NSString *desc2 =       [json objectForKey:@"description"];
         NSString *startdate2 =  [json objectForKey:@"starttime"];
         NSString *enddate2 =    [json objectForKey:@"endtime"];
-        NSString *priority2 =   [json objectForKey:@"priority"];
-        NSString *status2 =     [json objectForKey:@"status"];
-        NSString *category2 =   [json objectForKey:@"category"];
+        NSString *priority2 =   [[json objectForKey:@"priority"] stringValue];
+        NSString *status2 =     [[json objectForKey:@"status"] stringValue];
+        NSString *category2 =   [[json objectForKey:@"category"] stringValue];
         
         [self setViewText:(NSString*)text2 arg2:(NSString*)desc2 arg3:(NSString*)startdate2 arg4:(NSString*)enddate2 arg5:(NSString*)priority2 arg6:(NSString*)status2 arg7:(NSString*)category2];
     }
