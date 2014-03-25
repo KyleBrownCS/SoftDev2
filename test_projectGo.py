@@ -80,47 +80,47 @@ class Test(unittest.TestCase):
             row = row[0]
             self.assertEquals(row[2], 'flask-test')
 
- 
-    #test of direct method for get_obligation
-    def test_go_get_obligation_exists(self):
-        #test case 1
-        jsonData = json.loads(self.app.get('/obligations/1').data)
-        self.assertEqual(jsonData['obligationid'],1)
-        #test case 2
-        jsonData = json.loads(self.app.get('/obligations/2').data)
-        self.assertEqual(jsonData['obligationid'],2)
-        #Checking other fields
-        jsonData = json.loads(self.app.get('/obligations/1').data)
-        self.assertEqual(jsonData['userid'],1)
-        self.assertEqual(jsonData['name'],"Dude name")
-        self.assertEqual(jsonData['starttime'],"2014-01-01 00:00:00.000")
-        self.assertEqual(jsonData['priority'],1)
-
     #test of direct method for get_obligation with entry that doesn't exist
     def test_go_get_obligation_not_exists(self):
-        #Extreme case
+        #Test case 1
         jsonData = json.loads(self.app.get('/obligations/9999999').data)
         self.assertEqual(jsonData['error'],1)
-        #Boundry case low
+        #Test case 2
         jsonData = json.loads(self.app.get('/obligations/0').data)
         self.assertEqual(jsonData['error'],1)
 		
     #test of GET method for get_obligation
     def test_get_obligation(self):
-        #Edge case low
+        #Test case 1
         result = self.app.get('/obligations/1')
         self.assertEquals(result.status, '200 OK')
-        #Edge case high
-        result = self.app.get('/obligations/5')
-        self.assertEquals(result.status, '200 OK')
-        #Typical case
-        result = self.app.get('/obligations/3')
-        self.assertEquals(result.status, '200 OK')
+        jsonData = json.loads(result.data)
+        self.assertEqual(jsonData['obligationid'], 1)
+        self.assertEqual(jsonData['userid'],1)
+        self.assertEqual(jsonData['name'],"Dude name")
+        self.assertEqual(jsonData['starttime'],"2014-01-01 00:00:00.000")
+        self.assertEqual(jsonData['endtime'],"2014-01-01 01:00:00.000")
+        self.assertEqual(jsonData['priority'],1)
 
-        #test of GET method for get_all_obligations
-        def test_get_all_obligations(self):
-            result = self.app.get('/obligations')
-            self.assertEquals(result.status, '200 OK')
+        #Test case 2
+        result = self.app.get('/obligations/2')
+        self.assertEquals(result.status, '200 OK')
+        jsonData = json.loads(result.data)
+        self.assertEqual(jsonData['obligationid'], 2)
+        self.assertEqual(jsonData['userid'], 2)
+        self.assertEqual(jsonData['name'],"Dude name2")
+        self.assertEqual(jsonData['starttime'],"2014-01-01 00:00:00.000")
+        self.assertEqual(jsonData['endtime'],"2014-01-01 01:00:00.000")
+        self.assertEqual(jsonData['priority'],1)
+
+    #test of GET method for get_all_obligations
+    def test_get_all_obligations(self):
+        result = self.app.get('/obligations')
+        self.assertEquals(result.status, '200 OK')
+        jsonData = json.loads(result.data)
+        self.assertTrue(len(jsonData) > 0)
+        entry1 = jsonData[0]
+        self.assertTrue('obligationid' in entry1)
 
     #Test of GET method for obligations on a given day
     def test_get_date_obligations(self):
