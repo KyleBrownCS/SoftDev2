@@ -4,51 +4,16 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="http://54.213.113.207/" />
-<title>Test All Views</title>
+<title>ReorderTest</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">Test All Views</td></tr>
+<tr><td rowspan="1" colspan="3">ReorderTest</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>link=Project Go</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Project Go</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Schedule</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>link=Schedule</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>link=Add an Obligation</td>
-	<td></td>
-</tr>
-<tr>
-	<td>clickAndWait</td>
-	<td>link=Add an Obligation</td>
-	<td></td>
-</tr>
-<tr>
-	<td>verifyElementPresent</td>
-	<td>link=Obligations</td>
+	<td>/obligationlist</td>
 	<td></td>
 </tr>
 <tr>
@@ -57,14 +22,39 @@
 	<td></td>
 </tr>
 <tr>
-	<td>verifyElementPresent</td>
-	<td>link=Project Go</td>
+	<td>waitForElementPresent</td>
+	<td>css=td</td>
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
-	<td>link=Project Go</td>
+	<td>assertTable</td>
+	<td>css=table.1.0</td>
+	<td>RJF test</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.1.1</td>
+	<td>some description goes here</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@onclick='reorderListPriority()']</td>
 	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[@onclick='reorderListStatus()']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.1.0</td>
+	<td>32452345</td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.1.1</td>
+	<td>3425345</td>
 </tr>
 </tbody></table>
 </body>
