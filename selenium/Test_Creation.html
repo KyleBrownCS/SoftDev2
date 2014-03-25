@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://54.213.113.207/" />
+<title>Add Obligation</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Add Obligation</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add an Obligation</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>Test name</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description</td>
+	<td>Test decriptiinnn</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=datepickerstart</td>
+	<td>12/16/2014</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=description2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=stime</td>
+	<td>5:00pm</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=datepickerend</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=datepickerend</td>
+	<td>12/16/2014</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=stime2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=pri</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=cat</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=stat</td>
+	<td>label=In Progress</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submit1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Schedule</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@onclick='generateNextMonth(3, 2014)']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@onclick='generateNextMonth(4, 2014)']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@onclick='generateNextMonth(5, 2014)']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@onclick='generateNextMonth(6, 2014)']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@onclick='generateNextMonth(7, 2014)']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@onclick='generateNextMonth(8, 2014)']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@onclick='generateNextMonth(9, 2014)']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@onclick='generateNextMonth(10, 2014)']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//img[@onclick='generateNextMonth(11, 2014)']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=input[type=&quot;button&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='obligations']/table/tbody/tr[2]/td</td>
+	<td>Test name</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='obligations']/table/tbody/tr[2]/td[2]</td>
+	<td>Test decriptiinnn</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='obligations']/table/tbody/tr[2]/td[3]</td>
+	<td>2014-12-16 17:00:00.000</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='obligations']/table/tbody/tr[2]/td[4]</td>
+	<td>2014-12-16 18:00:00.000</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='obligations']/table/tbody/tr[2]/td[5]</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='obligations']/table/tbody/tr[2]/td[6]</td>
+	<td>In Progress</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
