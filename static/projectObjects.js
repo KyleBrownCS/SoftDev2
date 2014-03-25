@@ -39,11 +39,10 @@ function deleteObligation(obligation_id) {
         type: 'DELETE',
         success: function() {
             obligationDeleteSuccess();
-            location.reload();
+            loadObligationList();
         },
         error: function(){
             obligationDeleteFailure();
-            location.reload();
         }
     });
 }

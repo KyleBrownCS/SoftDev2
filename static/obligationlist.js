@@ -5,11 +5,15 @@ var sortTypeStatus = 2;
 var obligationList = null;
 
 $(document).ready(function(e) {
+    loadObligationList();
+});
+
+function loadObligationList() {
     $.get('/obligations', function(data) {
         obligationList = eval(data);
         createSortedList(sortTypePriority);
     });
-});
+}
 
 function createSortedList(orderby){
     switch(orderby) {
