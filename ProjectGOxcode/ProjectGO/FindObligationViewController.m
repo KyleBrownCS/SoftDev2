@@ -34,7 +34,7 @@
     
     int failed = 0;
     if ([[json valueForKeyPath:@"error"] intValue] > 0) {
-        failed = [[json objectForKey:@"error" ] integerValue];
+        failed = [[json objectForKey:@"error" ] intValue];
     }
     
     if (failed) {

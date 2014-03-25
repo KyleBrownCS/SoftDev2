@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "LoadAllObligationsViewController.h"
+#import "ObligationCreationViewController.h"
 #import "FindObligationViewController.h"
 #import "OCMock/OCMock.h"
 
@@ -28,44 +29,6 @@
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
-
-/*- (void)test_findObligationViewControllerValid
-{
-    NSString * const TEST_UID = @"1";
-    NSString * const TEST_OBID = @"1";
-    NSString * const TEST_NAME = @"Obligation Name";
-    NSString * const TEST_DESCRIPTION = @"Test Description";
-    NSString * const TEST_STIME = @"2013-10-01 12:45:30.081";
-    NSString * const TEST_ETIME = @"2014-10-01 10:45:30.081";
-    NSString * const TEST_CATEGORY = @"3";
-    NSString * const TEST_PRIORITY = @"2";
-    NSString * const TEST_STATUS = @"0";
-    
-    NSDictionary *jsonDict = [NSDictionary dictionaryWithObjectsAndKeys:
-                              TEST_UID, @"userid",
-                              TEST_OBID, @"obligationid",
-                              TEST_NAME, @"name",
-                              TEST_DESCRIPTION, @"description",
-                              TEST_STIME, @"starttime",
-                              TEST_ETIME, @"endtime",
-                              TEST_PRIORITY, @"priority",
-                              TEST_CATEGORY, @"category",
-                              TEST_STATUS, @"status",
-                              nil];
-    
-    //id <UITextFieldDelegate> delegate = [FindObligationViewController.name delegate];
-    
-    NSString* temp = [FindObligationViewController.name getText];
-    
-    
-    FindObligationViewController *findViewCtrler = [[FindObligationViewController alloc] init];
-    [findViewCtrler handleSearch:(NSDictionary*)jsonDict];
-    
-    NSString* temp  = findViewCtrler getName;
-    
-    XCTAssertEqualObjects(TEST_DESCRIPTION, temp , @"");
-
-}*/
 
 - (void)test_LoadAllObligationsViewController
 {
