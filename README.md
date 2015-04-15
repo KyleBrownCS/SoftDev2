@@ -1,6 +1,8 @@
 SoftDev2
 ========
 
+*PLEASE NOTE THAT THERE ARE CURRENTLY NO INSTANCES OF THIS APPLICATIONS RUNNING*
+
 Software Development 2 Group 7 Project
 
 To connect to our group project, connect to http://54.201.135.92/ which will always be running the latest code from this git all installed.
